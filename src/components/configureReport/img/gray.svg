@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="9px" viewBox="0 0 24 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>shape/cut_off_rule/gray</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="各报告样式" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="周边配套评测报告" transform="translate(-105.000000, -533.000000)" fill-rule="nonzero" fill="#42464D">
+            <g id="周边配套评级" transform="translate(15.000000, 526.000000)">
+                <g id="周边配套评级标题">
+                    <g id="shape/cut_off_rule/gray" transform="translate(91.000000, 7.000000)">
+                        <polygon id="Line-2" points="5.40654614 -0.0470578164 -0.667954938 7.89652051 0.126402895 8.50397062 6.20090397 0.560392291"></polygon>
+                        <polygon id="Line-2-Copy" points="13.4065461 -0.0470578164 7.33204506 7.89652051 8.12640289 8.50397062 14.200904 0.560392291"></polygon>
+                        <polygon id="Line-2-Copy-2" points="21.4065461 -0.0470578164 15.3320451 7.89652051 16.1264029 8.50397062 22.200904 0.560392291"></polygon>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
