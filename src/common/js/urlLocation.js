@@ -137,14 +137,14 @@ export const url = {
   vr_close: 'http://oxrgdeqd8.bkt.clouddn.com/housingesta_icon_guanbi@3x.png?imageslim',
 
   //ajax前缀域名儿
-  httpRequest: 'http://47.95.233.255:8080/maijiabangService-1.0-SNAPSHOT/h5/',
-  // httpRequest: 'http://47.93.185.205:8080/maijiabangService-1.0-SNAPSHOT/h5/',
+  // httpRequest: 'http://47.95.233.255:8080/maijiabangService-1.0-SNAPSHOT/h5/',
+  httpRequest: 'http://47.93.185.205:8080/maijiabangService-1.0-SNAPSHOT/h5/',
   // httpRequest: 'http://192.168.1.193:8080/h5/',
 
   //vr_iframe_url
-  // vr_iframe_url: 'http://h5.homehawkeye.com/#/',
+  vr_iframe_url: 'http://h5.homehawkeye.com/#/',
   // vr_iframe_url: 'http://192.168.1.247:8080/#/',
-  vr_iframe_url: 'http://th5.homehawkeye.com/#/',
+  // vr_iframe_url: 'http://th5.homehawkeye.com/#/',
 
   //规划落实
   programme_pj: 'http://oxrgdeqd8.bkt.clouddn.com/bg_guihuanluoshi_pingji@3x.png',

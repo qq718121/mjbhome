@@ -39,17 +39,6 @@
             <ul>
               <li v-for="(val,index) in this.photo_inner_list" :style="'background:'+photo_inner_list_bg(index)">
                 {{val}}
-
-
-
-
-
-
-
-
-
-
-
               </li>
             </ul>
           </div>
@@ -238,6 +227,7 @@
     color: #ED4427;
     letter-spacing: 0;
     text-align: justify;
+    margin: auto;
   }
 
   .money_ing {
@@ -528,11 +518,11 @@
   }
 
   .participate_in_inner {
-    width: 6.54rem;
+    width: 6.55rem;
     height: 100%;
     position: absolute;
     top: 0;
-    left: 0.29rem;
+    left: 0.28rem;
     background-image: url('/static/xg/KUANG2_app_bg Copy 2@3x.png');
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -622,11 +612,11 @@
   }
 
   .audit_rule_inner {
-    width: 6.54rem;
+    width: 6.55rem;
     height: 100%;
     position: absolute;
     top: 0;
-    left: 0.29rem;
+    left: 0.28rem;
     background-image: url('/static/xg/KUANG2_app_bg Copy 2@3x.png');
     background-size: 100% 100%;
     background-repeat: no-repeat;

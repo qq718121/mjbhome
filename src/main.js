@@ -6,7 +6,7 @@ import router from './router';
 import fastclick from 'fastclick';
 import setFontsize from './common/js/setFontsize';
 import Axios from 'axios';
-import {Button, Message} from 'element-ui';
+import {Button, Message, Progress, Carousel, Step, Steps, CarouselItem} from 'element-ui';
 import 'element-ui/lib/theme-default/index.css';
 import {url} from './common/js/urlLocation';
 import store from './common/js/store';
@@ -69,7 +69,13 @@ Vue.prototype.$getDAesString = function (res, keys) {
 };
 setFontsize();
 Vue.use(AMap);
-Vue.use(Button, Message);
+Vue.use(Button);
+// Vue.use(Message);
+Vue.use(Progress);
+Vue.use(Carousel);
+Vue.use(Step);
+Vue.use(Steps);
+Vue.use(CarouselItem);
 /* eslint-disable no-new */
 let vm = new Vue({
   el: '#app',

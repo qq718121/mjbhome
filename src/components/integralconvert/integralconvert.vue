@@ -127,13 +127,14 @@
     background-image: url('/static/integral/bg_jianbianse@2x.png');
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    float: left;
+    margin: auto;
+    padding-top: 1.88rem;
   }
 
   .integralConvert_title {
     width: 6.57rem;
     height: 2.67rem;
-    margin: 1.59rem auto;
+    margin: 0 auto 1.59rem;
   }
 
   .integralConvert_title img {
@@ -312,7 +313,7 @@
     background-image: url('/static/integral/bg_zhuyishixiang@2x.png');
     background-size: cover;
     background-repeat: no-repeat;
-    margin: 0.44rem auto 0;
+    margin: 0.84rem auto 0;
   }
 
   .integralConvert_attention_list {

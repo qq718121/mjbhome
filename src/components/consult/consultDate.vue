@@ -86,7 +86,6 @@
           let getDateTeo = JSON.parse(this_.$getDAesString(res, "yhgt!d%sd*aw%dSDSFSsa#mng~dsq"));
           this_.consultDate = getDateTeo;
           this_.isrecommend = true;
-          console.log(getDateTeo);
         }).catch(function (err) {
           console.log(err);
         });
@@ -97,7 +96,7 @@
         let ids = id.substring(1, id.length);
         this.consult_obj.title = value.text;
         this.consult_obj.describe = value.newsDes;
-        this.consult_obj.url = 'http://h5.homehawkeye.com/#/consultDate/' + ids;
+        this.consult_obj.url = 'http://th5.homehawkeye.com/#/consultDate/' + ids;
         let bUrl = "jumpToH5;//?" + JSON.stringify(this.consult_obj);
         if (this.href_app_is) {
           call_app_function(bUrl);
@@ -116,7 +115,6 @@
     },
     mounted () {
       this.href_app();
-      console.log(this.href_app_is);
       let this_ = this;
       this.$Axios.get(this.$url.httpRequest + 'news/' + this.$route.params.city + '/' + this.$route.params.id).then(function (res) {
         let getDate = JSON.parse(this_.$getDAesString(res, "yhgt!d%sd*aw%dSDSFSsa#mng~dsq"));

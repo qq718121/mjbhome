@@ -91,9 +91,9 @@
                 <div class="number_inner_two"><i class="img_num_two"><img
                   src="http://oxrgdeqd8.bkt.clouddn.com/pic_numbertwo@3x.png" alt=""></i>
                   <h1
-                    class="num_title_two">精准到户</h1></div>
-                <p class="num_text_two">绑定购房人所购房屋</p>
-                <p class="num_text_two">提供精准房屋监控信息</p>
+                    class="num_title_two">进度清晰</h1></div>
+                <p class="num_text_two">轻松掌握工程进度</p>
+                <p class="num_text_two">了解楼盘工程施工进展</p>
               </div>
               <div class="number_three_title">
                 <div class="number_inner"><i class="img_num_three"><img
@@ -119,9 +119,7 @@
                 <p class="num_text">质量问题可一目了然</p>
                 <p class="num_text">监控信息公正真实透明</p>
               </div>
-
             </div>
-
             <footer>
               <div class="footer__"></div>
             </footer>
@@ -181,7 +179,7 @@
     position: absolute;
     top: 1.85rem;
     z-index: 0;
-    background-image: url(http://oxrgdeqd8.bkt.clouddn.com/pic_zhushijue@3x_min.png?imageslim);
+    background-image: url('http://oxrgdeqd8.bkt.clouddn.com/pic_zhushijue@3x_min.png?imageslim');
     background-repeat: no-repeat;
     background-size: cover;
     padding-top: 0.17rem;

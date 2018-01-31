@@ -37,517 +37,8 @@
           <p>工程进度过程图片</p>
           <div class="ul_">
             <ul>
-              <li v-for="(val,index) in this.photo_inner_list"
-                  :style="'background:'+photo_inner_list_bg(index)"
-              >{{val}}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+              <li v-for="(val,index) in this.photo_inner_list" :style="'background:'+photo_inner_list_bg(index)">
+                {{val}}
 
 
 
@@ -592,14 +83,13 @@
           <div>
             <img src="/static/xg/bilijujiao_mig.png" alt="">
           </div>
-          <p style="white-space: nowrap">图片清晰，主题明确，无抖动拖影,</p>
-          <p>横向拍照，长宽比例为4：3</p>
+          <p>横向拍照，照片清晰，主题明确，无抖动拖影,</p>
         </div>
         <div class="photo_require_list">
           <div>
             <img src="/static/xg/butongjiaoduweizhi_mig.png" alt="">
           </div>
-          <p>每个位置点需上传三张照片，不同角度反映当前位置工程情况</p>
+          <p>每个位置点建议上传三张照片，不同角度反映当前位置工程情况</p>
         </div>
       </div>
 
@@ -745,6 +235,7 @@
     color: #ED4427;
     letter-spacing: 0;
     text-align: justify;
+    margin: auto;
   }
 
   .money_ing {
@@ -1035,11 +526,11 @@
   }
 
   .participate_in_inner {
-    width: 6.54rem;
+    width: 6.55rem;
     height: 100%;
     position: absolute;
     top: 0;
-    left: 0.29rem;
+    left: 0.28rem;
     background-image: url('/static/xg/KUANG2_app_bg Copy 2@3x.png');
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -1058,7 +549,14 @@
 
   .participate_in_text_list {
     width: 5rem;
+    display: -webkit-box;
+    display: box;
+    display: -webkit-flex;
     display: flex;
+    -webkit-box-align: start;
+    box-align: start;
+    -webkit-align-items: start;
+    align-items: start;
     justify-content: space-between;
     margin: auto;
   }
@@ -1072,7 +570,7 @@
     line-height: 0.28rem;
     text-align: center;
     /*margin: auto;*/
-    margin-top: 0.08rem;
+    margin-top: 0.04rem;
     font-family: PangMenZhengDao;
     font-size: 0.2rem;
     color: #FFFFFF;
@@ -1129,11 +627,11 @@
   }
 
   .audit_rule_inner {
-    width: 6.54rem;
+    width: 6.55rem;
     height: 100%;
     position: absolute;
     top: 0;
-    left: 0.29rem;
+    left: 0.28rem;
     background-image: url('/static/xg/KUANG2_app_bg Copy 2@3x.png');
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -1152,7 +650,14 @@
 
   .audit_rule_text_list {
     width: 5.4rem;
+    display: -webkit-box;
+    display: box;
+    display: -webkit-flex;
     display: flex;
+    -webkit-box-align: flex-start;
+    box-align: flex-start;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
     justify-content: space-between;
     margin: auto;
   }
@@ -1163,11 +668,11 @@
     height: 0.28rem;
     background: #FF684E;
     border-radius: 0.28rem;
-    line-height: 0.28rem;
+    line-height: 0.3rem;
     text-align: center;
     /*margin: auto;*/
-    margin-top: 0.08rem;
-    font-family: PangMenZhengDao;
+    margin-top: 0.045rem;
+    font-family: PingFangSC-Regular;
     font-size: 0.2rem;
     color: #FFFFFF;
   }

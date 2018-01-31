@@ -332,7 +332,7 @@
     },
     created(){
 
-      Message.warning('请认真填写调查问卷噢亲！');
+//      Message.warning('请认真填写调查问卷噢亲！');
       if (this.questionnaireNum == 0) {
         this.isshow = false;
       } else {
