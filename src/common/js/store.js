@@ -11,13 +11,17 @@ const store = new Vuex.Store({
     school_class: '',
     share_: false,
     //遮罩框显示开关
-    is_motai:false,
+    is_motai: false,
     //map_icon激活码
-    apap_icon_num:0,
+    apap_icon_num: 0,
     //遮罩框关闭状态
-    is_close:true,
+    is_close: true,
     //储存vr数据
-    vr_obj:{}
+    vr_obj: {},
+    //质量寻光分享类别
+    dat_com: {},
+    //  质量寻光分享类别
+    data_comment: {}
   },
   mutations: {
     //3秒真男人
@@ -40,7 +44,7 @@ const store = new Vuex.Store({
       state.is_motai = !state.is_motai;
     },
     //储存map激活码
-    set_amap_icon(state,data){
+    set_amap_icon(state, data){
       state.apap_icon_num = data;
     },
     //遮罩框关闭
@@ -48,8 +52,14 @@ const store = new Vuex.Store({
       state.is_close = !state.is_close;
     },
     //储存vr数据
-    set_vr_obj(state,data){
+    set_vr_obj(state, data){
       state.vr_obj = data;
+    },
+    set_dat_com(state, data){
+      state.dat_com = data;
+    },
+    set_data_comment(state,data){
+      state.data_comment = data;
     }
   },
 

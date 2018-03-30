@@ -4,7 +4,7 @@ export default function setFontsize(){
         designFontSize = 100,
         win_width=0;
     if(window.screen.width>750){
-        win_width=720
+        win_width=750
     }else{
         win_width= window.screen.width
     }

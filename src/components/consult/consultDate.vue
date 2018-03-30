@@ -96,7 +96,7 @@
         let ids = id.substring(1, id.length);
         this.consult_obj.title = value.text;
         this.consult_obj.describe = value.newsDes;
-        this.consult_obj.url = 'http://th5.homehawkeye.com/#/consultDate/' + ids;
+        this.consult_obj.url = this.$url.consult_url + ids;
         let bUrl = "jumpToH5;//?" + JSON.stringify(this.consult_obj);
         if (this.href_app_is) {
           call_app_function(bUrl);

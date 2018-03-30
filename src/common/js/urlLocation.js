@@ -137,20 +137,18 @@ export const url = {
   vr_close: 'http://oxrgdeqd8.bkt.clouddn.com/housingesta_icon_guanbi@3x.png?imageslim',
 
   //ajax前缀域名儿
-  // httpRequest: 'http://47.95.233.255:8080/maijiabangService-1.0-SNAPSHOT/h5/',
-  httpRequest: 'http://47.93.185.205:8080/maijiabangService-1.0-SNAPSHOT/h5/',
+  httpRequest: 'http://47.95.233.255:8080/maijiabangService-1.0-SNAPSHOT/h5/',
+  // httpRequest: 'http://47.93.185.205:8080/maijiabangService-1.0-SNAPSHOT/h5/',
   // httpRequest: 'http://192.168.1.193:8080/h5/',
+  // httpRequest: 'http://192.168.1.243:8080/h5/',
 
   //vr_iframe_url
-  vr_iframe_url: 'http://h5.homehawkeye.com/#/',
+  // vr_iframe_url: 'http://h5.homehawkeye.com/#/',
   // vr_iframe_url: 'http://192.168.1.247:8080/#/',
-  // vr_iframe_url: 'http://th5.homehawkeye.com/#/',
+  vr_iframe_url: 'http://th5.homehawkeye.com/#/',
+  // consult_url:'http://h5.homehawkeye.com/#/consultDate/',
+  consult_url: 'http://th5.homehawkeye.com/#/consultDate/',
 
   //规划落实
   programme_pj: 'http://oxrgdeqd8.bkt.clouddn.com/bg_guihuanluoshi_pingji@3x.png',
-  //寻光计划
-  Xg_hongbao: 'http://oxrgdeqd8.bkt.clouddn.com/%E7%A7%AF%E5%88%86%E7%BA%A2%E5%8C%85%E6%8F%92%E7%94%BB@2x.png',
-  Xg_money: 'http://oxrgdeqd8.bkt.clouddn.com/%E7%99%BE%E4%B8%87%E6%8F%92%E5%9B%BE@2x.png',
-  Xg_xixian: 'http://oxrgdeqd8.bkt.clouddn.com/xixian@2x.png',
-  Xg_zhuangshi: 'http://oxrgdeqd8.bkt.clouddn.com/lALPBY0V4uaQ9ys0zQHu_494_52.png'
 };

@@ -2,7 +2,7 @@
   <article class="sendnvite">
     <header>
       <div class="sendnvite_top_img">
-        <img src="/static/sendinvite/pic_toutu@2x.png" alt="">
+        <img src="/static/sendinvite/pic_toutu@3x.png" alt="">
       </div>
       <div class="sendnvite_top_title_">
         <div class="sendnvite_top_title">

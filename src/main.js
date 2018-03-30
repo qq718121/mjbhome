@@ -6,20 +6,30 @@ import router from './router';
 import fastclick from 'fastclick';
 import setFontsize from './common/js/setFontsize';
 import Axios from 'axios';
-import {Button, Message, Progress, Carousel, Step, Steps, CarouselItem} from 'element-ui';
-import 'element-ui/lib/theme-default/index.css';
+import {
+  Button,
+  Message,
+  Progress,
+  Carousel,
+  Step,
+  Steps,
+  CarouselItem,
+  Input,
+  Checkbox,
+  CheckboxGroup
+} from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
 import {url} from './common/js/urlLocation';
 import store from './common/js/store';
 import CryptoJS from 'crypto-js'
 import AMap from 'vue-amap';
 // import echarts from 'echarts';
 import {class_name_ftn} from './common/js/computed_class_name';
-
 // Vue.prototype.$echarts = echarts;
 Vue.config.productionTip = false;
 fastclick.attach(document.body);
 Vue.prototype.$Axios = Axios;
-Vue.prototype.$map = AMap;
+// Vue.prototype.$map = AMap;
 Vue.prototype.$url = url;
 Vue.prototype.$store = store;
 Vue.prototype.$class_name_ftn = class_name_ftn;
@@ -68,13 +78,17 @@ Vue.prototype.$getDAesString = function (res, keys) {
   return decrypted = CryptoJS.enc.Utf8.stringify(decrypted);
 };
 setFontsize();
-Vue.use(AMap);
+// Vue.use(AMap);
 Vue.use(Button);
 // Vue.use(Message);
 Vue.use(Progress);
 Vue.use(Carousel);
 Vue.use(Step);
 Vue.use(Steps);
+Vue.use(Input);
+Vue.use(Checkbox);
+Vue.use(CheckboxGroup);
+
 Vue.use(CarouselItem);
 /* eslint-disable no-new */
 let vm = new Vue({

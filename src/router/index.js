@@ -190,6 +190,38 @@ const SendNvite = function (resolve) {
   })
 };
 
+// 保密协议
+const ConfidentialityAgreement = function (resolve) {
+  require.ensure([], function () {
+    resolve(require('@/components/confidentialityAgreement/confidentialityAgreement'))
+  })
+};
+
+// 示例
+const ViewExample = function (resolve) {
+  require.ensure([], function () {
+    resolve(require('@/components/viewExample/viewExample'))
+  })
+};
+
+const obshareComment = function (resolve) {
+  require.ensure([], function () {
+    resolve(require('@/components/obshareComment/obsharecomment'))
+  })
+};
+
+const Survey = function (resolve) {
+  require.ensure([], function () {
+    resolve(require('@/components/survey/survey'))
+  })
+};
+
+const Liability = function (resolve) {
+  require.ensure([], function () {
+    resolve(require('@/components/liability/liability'))
+  })
+};
+
 //配置路由路径
 export default new Router({
   //历史模式，可以划掉路径里边得‘/#/’字符
@@ -378,6 +410,31 @@ export default new Router({
       path: '/sendnvite',
       name: 'sendnvite',
       component: SendNvite
+    },
+    {
+      path: '/confidentialityAgreement',
+      name: 'ConfidentialityAgreement',
+      component: ConfidentialityAgreement
+    },
+    {
+      path: '/viewExample',
+      name: 'ViewExample',
+      component: ViewExample
+    },
+    {
+      path: '/obsharecomment/:id',
+      name: 'obsharecomment',
+      component: obshareComment
+    },
+    {
+      path: '/survey',
+      name: 'survey',
+      component: Survey
+    },
+    {
+      path: '/liability',
+      name: 'liability',
+      component: Liability
     }
     // { path: '*', component: NotFoundComponent },
   ]

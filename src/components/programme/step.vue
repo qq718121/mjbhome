@@ -65,7 +65,7 @@
       }
     },
     props: ['steptage'],
-    created(){
+    mounted(){
       let this_ = this;
       setTimeout(function () {
         this_.stage = this_.steptage.programmePlanData.stage;
@@ -112,6 +112,16 @@
     text-align: center;
     height: 0.8rem;
     margin-left: 0.23rem;
+  }
+
+  .stageVessel_two .stageIcon {
+    width: 1.25rem;
+    display: flex;
+    flex-flow: column;
+    text-align: center;
+    height: 0.8rem;
+    margin-left: 0.23rem;
+    margin-top: 0.46rem;
   }
 
   .programmeStage .stageNum {

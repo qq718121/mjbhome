@@ -10,27 +10,27 @@
 </template>
 
 <style scoped>
-  .logoImagae {
-    width: 1.9rem;
-    height: 2.5rem;
-    background: #fff;
-    margin: 0.8rem auto 0;
-    text-align: center;
-    line-height: 2.44rem;
-  }
+.logoImagae {
+  width: 1.9rem;
+  height: 2.5rem;
+  background: #fff;
+  margin: 0.8rem auto 0;
+  text-align: center;
+  line-height: 2.44rem;
+}
 
-  .logoImagae img {
-    width: 100%;
-  }
+.logoImagae img {
+  width: 100%;
+}
 
-  .aboutText {
-    width: 5.9rem;
-    height: 2.88rem;
-    margin: 1rem auto;
-    font-family: PingFangSC-Regular;
-    font-size: 0.28rem;
-    color: #42464D;
-    letter-spacing: 0.3px;
-    line-height: 0.48rem;
-  }
+.aboutText {
+  width: 5.9rem;
+  height: 2.88rem;
+  margin: 1rem auto;
+  font-family: PingFangSC-Regular;
+  font-size: 0.28rem;
+  color: #42464d;
+  letter-spacing: 0.3px;
+  line-height: 0.48rem;
+}
 </style>

@@ -9,8 +9,10 @@
       ></div>
       <div class="vr" v-if="this.abShareData.peoperty.vrData">
         <div class="vr_btn" v-on:click.prevent="vr_href_all">
-          <span></span>
-          <p>点击进入VR全景</p>
+          <div>
+            <img style="width: 100%;height: 100%;" src="/static/obshare/housingesta_icon_quanjing@2x.png" alt="">
+          </div>
+          <p>全景</p>
         </div>
         <div class="vr_list">
           <div class="vr_overflow">
@@ -26,51 +28,82 @@
     <div class='titleDiv'>
       <p>
         <span>{{abShareData.peoperty.propertyName}}</span>
-        <span>{{abShareData.peoperty.propertySoldStatus}}</span>
       </p>
-      <p>
-        <span>均价</span>
-        <span>{{abShareData.peoperty.propertyPrice ? abShareData.peoperty.propertyPrice : '暂无'}}</span>
-      </p>
+      <p></p>
       <p>
         <span v-for='key in abShareData.peoperty.propertyNatureList'>{{key.propertyNature}}</span>
       </p>
       <p class='ps' v-on:click.prevent="loadHandler('0','animated bounceIn')">
-        <img :src='this.$url.icon_locale'>
-        <span>{{abShareData.peoperty.propertyAddress}}</span>
-        <img :src='this.$url.right_icon' style="float:right;width:0.12rem;height:0.22rem;margin-top: 0.054rem">
+        <span>{{abShareData.peoperty.developersName ? '预计交房时间：' + abShareData.peoperty.developersName : '预计交房时间：' + '暂无'}}</span>
       </p>
       <p class='ps' v-on:click.prevent="loadHandler('0','animated bounceIn')">
-        <img :src='this.$url.icon_property_right'>
-        <span>{{abShareData.peoperty.developersName ? abShareData.peoperty.developersName : '暂无'}}</span>
+        <span>{{'地址信息：' + abShareData.peoperty.propertyAddress}}</span>
         <img :src='this.$url.right_icon' style="float:right;width:0.12rem;height:0.22rem;margin-top: 0.054rem">
       </p>
-      <p class='ps' v-on:click.prevent="loadHandler('0','animated bounceIn')">
-        <img :src='this.$url.icon_apartment'>
-        <span>预售证信息</span>
-        <img :src='this.$url.right_icon' style="float:right;width:0.12rem;height:0.22rem;margin-top: 0.054rem">
-      </p>
-      <div class="see_all" v-on:click.prevent="loadHandler('0','animated bounceIn')"><span>查看全部</span></div>
     </div>
-
-    <div class='mainDiv' v-if="this.abShareData.qulity.gradeList.length !== 0 "><span class='topSpan'>楼盘质量</span>
-      <div class='mainClass'>
-        <Echarts :echart="echartsArr"/>
-        <div class='dateLvClass'>
-          <div class='dateLvText' v-for='i in abShareData.qulity.gradeList'>
-            <div class='lvTitle'>
-              <p :class='$class_name_ftn.classLv(i.gradeLetter)'>{{i.gradeLetter}}</p>
-              <p>{{i.gradeName}}</p>
+    <div class="g-montoring">
+      <p class="progress_title">质量监控</p>
+      <p class="g-montoring-num"><span>已服务业主23000名</span><span>已更新报告11期</span></p>
+      <div class="g-montoring-yes">
+        <div style="margin: auto;width: 100%">
+          <div class="g-montoring-span">
+            <div>
+              <span>
+                <img src="/static/obshare/housingesta_icon_duigou@2x.png" alt="">
+              </span>
+              <span>定期更新楼盘报告</span>
             </div>
-            <div class='lvText'>
-              <p>{{i.gradeDes}}</p>
+            <div>
+              <span>
+                <img src="/static/obshare/housingesta_icon_duigou@2x.png" alt="">
+              </span>
+              <span>深度质量监控报告</span>
+            </div>
+          </div>
+          <div class="g-montoring-span">
+            <div>
+              <span>
+                <img src="/static/obshare/housingesta_icon_duigou@2x.png" alt="">
+              </span>
+              <span>最完整的整改记录</span>
+            </div>
+            <div>
+              <span>
+                <img src="/static/obshare/housingesta_icon_duigou@2x.png" alt="">
+              </span>
+              <span>可视化的全景监控</span>
             </div>
           </div>
         </div>
       </div>
+      <p class='ps' style="padding-bottom: 0.3rem" v-on:click.prevent="loadHandler('0','animated bounceIn')">
+        <span>使用楼盘质量监控服务享受更多特权</span>
+        <img :src='this.$url.right_icon' style="float:right;width:0.12rem;height:0.22rem;margin-top: 0.054rem">
+      </p>
     </div>
-
-    <div class='queryClass'>
+    <div class="g-light-seek clearfix">
+      <p class="progress_title" style="padding-left: 0">质量寻光</p>
+      <vueWaterfallEasy :imgsArr="imgsArr" @scrollLoadImg="fetchImgsData">
+        <template slot-scope="props">
+          <div class="player_info">
+            <p>{{props.value.info}}</p>
+            <div class="g-light-seek-use">
+              <span class="g-light-seek-use-img"></span>
+              <span class="g-light-seek-use-name">大鱼吃小鱼</span>
+              <span class="g-light-seek-use-num" style="margin-right: 0.15rem">
+              <span style="width:0.24rem;height: 0.22rem;display: inline-block;margin-right: 0.1rem">
+              <img style="width: 100%;" src="/static/xunguang_icon_pinglun_n@3x.png" alt=""
+                   v-on:click.prevent="loadHandler('0','animated bounceIn')"></span>12</span>
+            </div>
+          </div>
+        </template>
+      </vueWaterfallEasy>
+      <div class="g-light-seek-fot">
+        <div class="g-light-seek-fot-btn" @click="loadHandler('0','animated bounceIn')">查看全部现场图片</div>
+      </div>
+    </div>
+    <div class='queryClass' v-if="this.abShareData.qulity">
+      <p class="progress_title">楼盘质量简报</p>
       <div class="sweiper_class">
         <div class="swiper_icon" v-for="index in this.abShareData.qulity.gradeList"
              :style="'background-image:url('+$class_name_ftn.obShare_jb(index.gradeName)+')'"
@@ -80,66 +113,64 @@
         </div>
       </div>
     </div>
-
-    <div class="construction_progress">
-      <p class="progress_title">施工进度</p>
-      <div class="progress_img">
-        <span>{{this.abShareData.qulity.buidProgress}}</span>
-        <span>{{this.abShareData.qulity.publicAreaProgress}}</span>
-      </div>
-      <p class="progress_foot">
-        <span>当前阶段</span><span>{{this.abShareData.qulity.currentGeneration ? this.abShareData.qulity.currentGeneration : '暂无'}}</span>
+    <div class="g-mes">
+      <p style="display: flex;justify-content: space-between" class="progress_title">
+        <span>楼盘信息</span>
+        <span class="look-all" @click="loadHandler('0','animated bounceIn')">查看全部></span>
       </p>
-      <p class="progress_foot">
-        <span>交房时间</span><span>{{this.abShareData.qulity.completionDate ? this.abShareData.qulity.completionDate : '暂无'}}</span>
+      <p class="g-mes-li">
+        <span>开盘均价</span>
+        <span>328300元／m²</span>
+      </p>
+      <p class="g-mes-li">
+        <span>开发商</span>
+        <span>北京中原地产</span>
+      </p>
+      <p class="g-mes-li">
+        <span>开盘时间</span>
+        <span>2017.12.30</span>
+      </p>
+      <p class="g-mes-li">
+        <span>交房时间</span>
+        <span>2017.12.30</span>
+      </p>
+      <p class="g-mes-li">
+        <span>产权年限</span>
+        <span>70年</span>
+      </p>
+      <p class="g-mes-li">
+        <span>许可证</span>
+        <span>许可证信息</span>
       </p>
     </div>
-
-    <div class="ranking_list">
-      <p class="ranking_list_title">榜上有名</p>
-      <span class="error_list" v-if="this.abShareData.qulity.rankList.length == 0 ">暂无数据</span>
-      <div class="ranking_list_inner" v-for="val in this.abShareData.qulity.rankList">
-        <p class="ranking_list_inner_top" v-on:click.prevent="loadHandler('0','animated bounceIn')">
-          <span>{{val.rankName}}</span><span>查看全部</span></p>
-        <p class="ranking_list_inner_date">{{val.rankDate}}</p>
-        <p class="ranking_list_inner_text">{{val.propertyDes}}</p>
-      </div>
-      <div class="ranking_list_btn" v-on:click.prevent="loadHandler('0','animated bounceIn')">查看全部榜单</div>
-    </div>
-
-    <div class='mainDivs'><span class='topSpan'>主力户型&nbsp;&nbsp;&nbsp;({{abShareData.houseType.houseTypeNum}})</span>
-      <hr/>
-      <div class='mainClasss' v-for='value in abShareData.houseType.houseTypeList'>
-        <div class="mImg"><span class='redt'>{{value.houseTypeSoldStatus}}</span><img :src='value.houseTypeImageUrl'>
+    <div class="g-dynamic">
+      <p style="display: flex;justify-content: space-between" class="progress_title">
+        <span>楼盘动态</span>
+        <span class="look-all" @click="loadHandler('0','animated bounceIn')">查看全部></span>
+      </p>
+      <div class="g-dynamic-lis">
+        <div class="g-dynamic-li">
+          <p>2017-09-30</p>
+          <p>预计2017年9月三期22-25＃、32#、33#入住</p>
+          <p>22#</p>
         </div>
-        <div class='mText'><p>{{value.houseTypeTitle}}</p>
-          <p><span>建面&nbsp;</span>{{value.houseTypeArea}}</p>
-          <p>{{value.houseTypePrice}}</p>
-          <p><span v-for='tex in value.houseTypeNatureList'>{{tex.houseTypeNature}}</span></p></div>
-      </div>
-    </div>
-
-    <div v-if="this.abShareData.peoperty.propertyLat !=='0.0' ">
-      <div class="amap_top"><p>周边配套</p></div>
-      <div id="container" class='mapTwo'></div>
-      <div class="amap_icon">
-        <div class="amap_list">
-          <div :class="['amap_list_icon',{'active_icon':active_icon_num == index}]"
-               v-for="(val,index) in this.amap_icon_list" @click="amap_click(index)">
-            <span :style="'background-image:url('+(active_icon_num == index ? val.active_img : val.img)+')'"></span>
-            <p>{{val.name}}</p>
-          </div>
+        <div class="g-dynamic-li">
+          <p>2017-09-30</p>
+          <p>预计2017年9月三期22-25＃、32#、33#入住</p>
+          <p>22#</p>
+        </div>
+        <div class="g-dynamic-li g-dynamic-li-be">
+          <p>2017-09-30</p>
+          <p>预计2017年9月三期22-25＃、32#、33#入住</p>
+          <p>22#</p>
         </div>
       </div>
     </div>
-
-    <div class='photoDiv' v-if="abShareData.album.albumNum !== 0 ">
-      <span>楼盘相册&nbsp;&nbsp;&nbsp;({{abShareData.album.albumNum}})</span>
-      <div class="photo_list">
-        <div class='photoNum' v-for='value in abShareData.album.albumList'><img :src='value.albumImageUrl'>
-          <p>{{value.albumName}}</p></div>
-      </div>
+    <div class="g-fot">
+      <p><i>!</i>免责声明：质量寻光计划的图片、视频或文字仅由作者本人提供，与鹰眼鉴房无关。用户仅作参考，并请自行核实相关内容。<span
+        @click="loadHandler('0','animated bounceIn')">查看详情</span></p>
     </div>
+    <div class="g-fot-btn" @click="loadHandler('0','animated bounceIn')">申请楼盘质量监控服务</div>
     <div class='footDiv'>
       <img :src='footImg'>
       <span>下载APP  查看更多楼盘质量数据</span>
@@ -147,63 +178,24 @@
     <div class='buttonClass'>
       <el-button v-on:click.prevent="loadHandler('0','animated bounceIn')">立即下载鹰眼鉴房</el-button>
     </div>
-    <el-amap vid="container" :zoom="11" :center="ampCenter">
-      <el-amap-marker v-for="marker in markers" :content="marker.content" :position="marker.position"></el-amap-marker>
-    </el-amap>
+
   </div>
 </template>
 <script>
   import slider from 'vue-concise-slider'// 引入slider组件
-  import Echarts from './echarts/echarts.vue'
   import {mapState, mapMutations} from 'vuex'
+  import Obshare from '../../common/js/obshare'
+  import vueWaterfallEasy from 'vue-waterfall-easy'
   export default {
     data(){
       return {
+        imgsArr: [],
+        fetchImgsArr: [],
         isShows: false,
         footImg: this.$url.obShareOnloadLogoImg,
-        echartsArr: [],
         vr_arr: [],
         img: [],
-        active_icon_num: 0,
         ampCenter: [],
-        markers: [
-          {
-            position: [113.52154, 34.80999],
-            content: '<div><img style="width:1rem" src="http://oxrgdeqd8.bkt.clouddn.com/housingesta_icon_loupanS@3x.png?imageslim" alt=""></div>'
-          }
-        ],
-        amap_icon_list: [
-          {img: this.$url.dt, active_img: this.$url.active_dt, name: '地铁'},
-          {img: this.$url.yy, active_img: this.$url.active_yy, name: '医院'},
-          {img: this.$url.gj, active_img: this.$url.active_gj, name: '公交'},
-          {img: this.$url.xx, active_img: this.$url.active_xx, name: '学校'},
-          {img: this.$url.gw, active_img: this.$url.active_gw, name: '购物'},
-          {img: this.$url.cs, active_img: this.$url.active_cs, name: '超市'},
-          {img: this.$url.yh, active_img: this.$url.active_yh, name: '银行'},
-          {img: this.$url.xiuxian, active_img: this.$url.active_xiuxian, name: '休闲'},
-          {img: this.$url.js, active_img: this.$url.active_js, name: '健身'}
-        ],
-        vr_icon_list: [
-          {img: this.$url.vr_nk, name: '鸟瞰图'},
-          {img: this.$url.vr_lpsj, name: '楼盘实景'},
-          {img: this.$url.vr_lpsp, name: '楼盘沙盘'},
-          {img: this.$url.vr_zbpt, name: '周边配套'},
-          {img: this.$url.vr_ybj, name: '样板间'}
-        ],
-        noabShareData: {
-          album: {
-            albumList: [],
-            albumNum: '21'
-          },
-        },
-        queryArr: [
-          {img: this.$url.gczl, title: '工程质量报告'},
-          {img: this.$url.ghsj, title: '规划设计报告'},
-          {img: this.$url.zbpt, title: '周边配套报告'},
-          {img: this.$url.jgcp, title: '景观评测报告'},
-          {img: this.$url.wycp, title: '物业评测报告'},
-          {img: this.$url.ghls, title: '规划落实报告'}
-        ],
         abShareData: {
           peoperty: {
             propertyName: ''
@@ -232,49 +224,43 @@
 
     components: {
       slider,
-      Echarts
+      vueWaterfallEasy
     },
     computed: {
-      ...mapState({
-        apap_icon_num: 'apap_icon_num'
-      }),
+//      ...mapState({
+//        apap_icon_num: 'apap_icon_num'
+//      }),
     },
     methods: {
       ...mapMutations({
-        set_motai:'set_motai',
-        set_school_class:'set_school_class',
-        change_motai:'change_motai'
+        set_motai: 'set_motai',
+        set_school_class: 'set_school_class',
+        change_motai: 'change_motai',
+        set_dat_com: 'set_dat_com',
+        set_data_comment: 'set_data_comment'
       }),
       loadHandler(num, className){
-        this.set_motai(num);
-        this.set_school_class(className);
-        this.change_motai();
-      },
-
-      map_init(){
-        this.$map.initAMapApiLoader({
-          // 高德的key
-          key: 'f2c01c78d13068664acd4d50762898a0',
-          // 插件集合
-          plugin: ['AMap.Autocomplete', 'AMap.PlaceSearch', 'AMap.Scale', 'AMap.OverView', 'AMap.ToolBar', 'AMap.MapType', 'AMap.PolyEditor', 'AMap.CircleEditor']
-        });
-      },
-
-      amap_click(index){
-        let propertyLat = this.abShareData.peoperty.propertyLat;
-        let propertyLon = this.abShareData.peoperty.propertyLon;
-        let id = this.$route.params.id;
-        this.active_icon_num = index;
-        this.$store.commit('set_amap_icon', index);
-        this.$router.push({
-          path: '/amap/' + id,
-          query: {
-            propertyLat: propertyLat,
-            propertyLon: propertyLon,
-            house_name: this.abShareData.peoperty.propertyName
+        if (Obshare.is_Weixin() || Obshare.is_WeiBo()) {
+          this.set_motai('1');
+          this.set_school_class(className);
+          this.change_motai();
+        } else {
+          if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i) && navigator.userAgent.toLowerCase().match(/QQ/i) == "qq") {
+            this.set_motai('1');
+            this.set_school_class(className);
+            this.change_motai();
+          } else {
+            this.set_motai('0');
+            this.set_school_class(className);
+            this.change_motai();
+            this.set_dat_com('0');
+            this.set_data_comment({
+              propertyId: this.$route.params.id,
+            });
           }
-        });
+        }
       },
+
 
       get_http(){
         let this_ = this;
@@ -287,12 +273,8 @@
           this_.abShareData = JSON.parse(this_.$getDAesString(res, base)).response.data;
           let len = this_.abShareData.peoperty.bannerList.length;
           let bannerList = this_.abShareData.peoperty.bannerList;
-          let gradeList = this_.abShareData.qulity.gradeList;
           let vrList = this_.abShareData.peoperty.vrData;
-          let propertyLat = this_.abShareData.peoperty.propertyLat;
-          let propertyLon = this_.abShareData.peoperty.propertyLon;
           this_.vr_arr = vrList;
-          this_.ampCenter = this_.markers[0].position = [propertyLon * 1, propertyLat * 1];
           for (let b = 0; b < len; b++) {
             let obj = new Object({
               style: {
@@ -303,23 +285,11 @@
             this_.pages.push(obj);
             continue;
           }
-
           for (let j in bannerList) {
             this_.img.push(bannerList[j].bannerImageUrl);
             continue;
           }
-
-          for (let i in gradeList) {
-            if (!gradeList[i].gradeNum) {
-              gradeList[i].gradeNum = 0;
-            }
-            this_.echartsArr.push(gradeList[i]);
-            continue;
-          }
-
           this_.isShows = true;
-          return;
-
         }).catch(function (err) {
           console.log(err);
         });
@@ -345,58 +315,35 @@
             index
           }
         });
+      },
+      initImgsArr(n, m) { //num 图片数量
+        var arr = [];
+        for (var i = n; i < m; i++) {
+          arr.push({
+            src: 'http://img2.imgtn.bdimg.com/it/u=2239146502,165013516&fm=27&gp=0.jpg',
+            link: 'javascript:void(0);',
+            info: '一些图片描述文字'
+          })
+        }
+        return arr
+      },
+      fetchImgsData() {
+        this.imgsArr = this.imgsArr.concat(this.fetchImgsArr)
       }
+    },
+    created(){
+      this.imgsArr = this.initImgsArr(0, 10);
+      this.fetchImgsArr = this.initImgsArr(10, 20) // 模拟每次请求的新的图片的数据数据
     },
     mounted(){
       window.localStorage.is = true;
-      this.map_init();
-      console.log(this.apap_icon_num);
-      this.active_icon_num = this.apap_icon_num;
+//      this.active_icon_num = this.apap_icon_num;
       this.get_http();
     },
   }
 </script>
 
 <style scoped>
-  a:link {
-    color: #42464D;
-    text-decoration: none;
-  }
-
-  a:visited {
-    color: #42464D;
-    text-decoration: none;
-  }
-
-  a:hover {
-    color: #42464D;
-    text-decoration: none;
-  }
-
-  a:active {
-    color: #42464D;
-    text-decoration: none;
-  }
-
-  .greener {
-    color: #70CAA8
-  }
-
-  .bluer {
-    color: #5880F3
-  }
-
-  .pu {
-    color: #879EC4
-  }
-
-  .reder {
-    color: #FE6E6E
-  }
-
-  .greyer {
-    color: #C2C2C2
-  }
 
   .obShare {
     width: 7.5rem;
@@ -407,46 +354,54 @@
   }
 
   .vr_back {
-    wdith: 7.5rem;
-    height: 3.8rem;
+    width: 7.5rem;
+    height: 6.5rem;
     background-size: cover;
   }
 
   .vr {
     width: 7.5rem;
-    height: 3.8rem;
+    height: 6.5rem;
     position: absolute;
     top: 0;
     z-index: 1;
   }
 
   .vr_btn {
-    width: 7.5rem;
-    height: 1.2rem;
-    margin-top: 1.3rem;
+    position: absolute;
+    bottom: 0.95rem;
+    display: flex;
+    right: 0;
+    width: 1.46rem;
+    height: 0.6rem;
     text-align: center;
-    font-family: PingFangSC-Regular;
     font-size: 0.28rem;
     color: #FFFFFF;
+    background: rgba(0, 0, 0, 0.6);
+    border-top-left-radius: 0.3rem;
+    border-bottom-left-radius: 0.3rem;
   }
 
-  .vr_btn span {
+  .vr_btn div {
+    margin: auto;
     display: inline-block;
-    width: 0.71rem;
-    height: 0.71rem;
-    background-image: url("http://oxrgdeqd8.bkt.clouddn.com/housingesta_icon_vr@3x.png?imageslim");
-    background-size: cover;
+    width: 0.4rem;
+    height: 0.4rem;
+  }
+
+  .vr_btn p {
+    margin: auto;
   }
 
   .vr_list {
     width: 7.5rem;
-    height: 0.65rem;
-    background: rgba(0, 0, 0, 0.2);
+    height: 0.75rem;
+    background: rgba(0, 0, 0, 0.6);
     position: absolute;
     bottom: 0;
     overflow-x: scroll;
     -webkit-overflow-scrolling: touch;
-    padding-top: 0.1rem;
+    /*padding-top: 0.1rem;*/
   }
 
   .vr_overflow {
@@ -460,8 +415,9 @@
     text-align: center;
     font-family: PingFangSC-Regular;
     font-size: 0.2rem;
-    color: rgba(255, 255, 255, 0.5);
+    color: #fff;
     line-height: 0.24rem;
+    margin: auto;
   }
 
   .vr_icon span {
@@ -471,82 +427,11 @@
     display: inline-block;
   }
 
-  .active_icon {
-    color: #0080FF !important;
-  }
-
   .titleDiv {
     width: 7.5rem;
     background: #FFFFFF;
     border-radius: 2px;
     position: relative;
-  }
-
-  .see_all {
-    width: 7.5rem;
-    height: 0.8rem;
-    text-align: center;
-    border-top: 1px solid #E7E7E7;
-    margin-top: 0.2rem;
-    border-opacity: 0.7;
-  }
-
-  .mapTwo {
-    width: 7.5rem;
-    height: 3.2rem;
-    border-top: 0.037rem solid #E0E0E0;
-    text-align: center;
-    margin: auto
-  }
-
-  .amap_icon {
-    width: 7.5rem;
-    height: 1.22rem;
-    background: #fff;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .amap_icon ::-webkit-scrollbar {
-    display: none;
-  }
-
-  .amap_list {
-    width: 12.21rem;
-    display: flex;
-    justify-content: space-around;
-    height: 1rem;
-  }
-
-  .amap_list_icon {
-
-    font-family: PingFangSC-Regular;
-    font-size: 0.24rem;
-    color: #8B949E;
-    line-height: 0.24rem;
-    text-align: center;
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    justify-content: center;
-
-  }
-
-  .amap_list .amap_list_icon span {
-    width: 0.34rem;
-    height: 0.33rem;
-    background: #fff;
-    display: inline-block;
-    margin: auto;
-    background-size: cover;
-  }
-
-  .see_all span {
-    width: 7.1rem;
-    font-family: PingFangSC-Regular, "微软雅黑";
-    font-size: 0.28rem;
-    color: #212832;
-    line-height: 0.8rem;
   }
 
   .titleDiv p:nth-child(1) {
@@ -564,6 +449,11 @@
     color: #42464D;
     line-height: 0.48rem;
     display: inline-block;
+  }
+
+  .titleDiv {
+    padding-bottom: 0.2rem;
+    margin-bottom: 0.2rem;
   }
 
   .titleDiv p:nth-child(1) span:nth-child(2) {
@@ -600,25 +490,28 @@
   }
 
   .titleDiv p:nth-child(3) {
-    margin: 0.3rem 0 0.4rem 0.4rem
+    margin: 0.3rem 0 0.3rem 0;
+    padding-left: 0.4rem;
   }
 
   .ps {
-    width: 6.8rem;
-    display: flex;
-    margin: 0.3rem auto;
-    justify-content: space-around;
+    padding-left: 0.4rem;
+    padding-right: 0.3rem;
+    margin: 0.3rem auto 0.2rem;
   }
 
   .titleDiv p:nth-child(3) span {
+    display: inline-block;
     background: #ffffff;
-    border: 0.04rem solid #42464D;
+    border: 2px solid #63B1FF;
     font-family: '.PingFangSC-Semibold';
     font-size: 0.2rem;
+    color: #63B1FF;
     line-height: 0.4rem;
-    padding: 0.1rem 0.15rem;
+    width: 1.12rem;
     height: 0.4rem;
     margin-right: 0.1rem;
+    text-align: center;
   }
 
   .ps img {
@@ -629,37 +522,16 @@
   .ps span {
     display: inline-block;
     width: 5.7rem;
-    margin-left: 0.2rem;
     font-family: PingFangSC-Regular;
     font-size: 0.24rem;
     color: #42464D;
     line-height: 0.28rem;
   }
 
-  .mainDiv {
-    width: 7.5rem;
-    margin: 0.2rem auto;
-    background: #FFFFFF;
-    border-radius: 2px;
-    padding-bottom: 0.4rem
-  }
-
-  .topSpan {
-    font-family: PingFangSC-Medium;
-    font-size: 0.28rem;
-    color: #42464D;
-    line-height: 0.28rem;
-    display: inline-block;
-    margin: 0.22rem 0 0.22rem 0.42rem
-  }
-
-  .mainClass {
-    margin-top: 0.4rem;
-  }
-
   .queryClass {
+    margin-top: 0.2rem;
     width: 7.5rem;
-    height: 4.8rem;
+    height: 2.97rem;
     background: #FFFFFF;
     overflow-x: scroll;
     -webkit-overflow-scrolling: touch;
@@ -671,7 +543,6 @@
   }
 
   .sweiper_class {
-    height: 4.8rem;
     background: #FFFFFF;
     border-radius: 0.08rem;
     display: flex;
@@ -682,13 +553,14 @@
   }
 
   .swiper_icon {
-    width: 3rem;
-    height: 3.8rem;
-    border-radius: 0.08rem;
-    margin: 0.5rem 0 0.5rem 0.15rem;
+    width: 3.3rem;
+    height: 1.55rem;
+    border-radius: 0.05rem;
+    margin: 0.2rem 0 0 0.15rem;
     position: relative;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100% auto;
+    background-position-y: -1.44rem;
   }
 
   .swiper_icon p {
@@ -697,7 +569,7 @@
     color: #FFFFFF;
     line-height: 0.28rem;
     text-align: center;
-    margin: 1.5rem 0 0.2rem 0;
+    margin: 0.5rem 0 0.2rem 0;
   }
 
   .swiper_icon span {
@@ -714,227 +586,15 @@
     margin: auto;
   }
 
-  .construction_progress {
-    width: 7.5rem;
-    background: #fff;
-    margin-top: 0.2rem;
-    padding-bottom: 0.4rem;
-  }
-
   .progress_title {
     width: 6.9rem;
     height: 0.8rem;
     padding-left: 0.3rem;
     font-family: PingFangSC-Medium, "微软雅黑";
-    font-size: 0.28rem;
+    font-size: 0.32rem;
     color: #212832;
     line-height: 0.8rem;
     font-weight: 600;
-  }
-
-  .progress_img {
-    width: 100%;
-    height: 6rem;
-    background-image: url('http://oxrgdeqd8.bkt.clouddn.com/pic_shigongjindu@3x.png?imageslim');
-    background-size: cover;
-    position: relative;
-  }
-
-  .progress_img span {
-    font-family: PingFangSC-Regular, '微软雅黑';
-    font-size: 0.24rem;
-    color: #FFFFFF;
-    line-height: 0.28rem;
-  }
-
-  .progress_img span:nth-child(1) {
-    width: 1.57rem;
-    height: 0.28rem;
-    position: absolute;
-    display: block;
-    top: 0.77rem;
-    left: 3.01rem;
-  }
-
-  .progress_img span:nth-child(2) {
-    position: absolute;
-    display: block;
-    top: 4.93rem;
-    left: 2.83rem;
-  }
-
-  .progress_foot {
-    width: 6.9rem;
-    display: flex;
-    justify-content: space-between;
-    padding: 0.3rem 0.3rem 0rem 0.3rem;
-  }
-
-  .progress_foot span:nth-child(1) {
-    font-family: PingFangSC-Regular, '微软雅黑';
-    font-size: 0.26rem;
-    color: #8B949E;
-    line-height: 0.26rem;
-  }
-
-  .progress_foot span:nth-child(2) {
-    font-family: PingFangSC-Regular, '微软雅黑';
-    font-size: 0.26rem;
-    color: #212832;
-    line-height: 0.26rem;
-  }
-
-  .ranking_list {
-    width: 7.5rem;
-    background: #fff;
-    margin-top: 0.2rem;
-  }
-
-  .ranking_list_title {
-    width: 6.9rem;
-    height: 0.8rem;
-    padding-left: 0.3rem;
-    font-family: PingFangSC-Medium, "微软雅黑";
-    font-size: 0.28rem;
-    color: #212832;
-    line-height: 0.8rem;
-    font-weight: 600;
-  }
-
-  .error_list {
-    display: inline-block;
-    margin: auto;
-    width: 100%;
-    text-align: center;
-    line-height: 0.5rem;
-  }
-
-  .amap_top {
-    width: 7.2rem;
-    height: 0.8rem;
-    padding-left: 0.3rem;
-    font-family: PingFangSC-Medium, "微软雅黑";
-    font-size: 0.28rem;
-    color: #212832;
-    line-height: 0.8rem;
-    font-weight: 600;
-    background: #fff;
-  }
-
-  .ranking_list_inner {
-    width: 7.5rem;
-    border-top: 0.01rem solid #E7E7E7;
-  }
-
-  .ranking_list_inner_top {
-    widgth: 6.9rem;
-    padding: 0.3rem 0.3rem 0 0.3rem;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .ranking_list_inner_top span:nth-child(1) {
-    font-family: PingFangSC-Regular, '微软雅黑';
-    font-size: 0.28rem;
-    color: #212832;
-    line-height: 0.32rem;
-  }
-
-  .ranking_list_inner_top span:nth-child(2) {
-    font-family: PingFangSC-Regular, '微软雅黑';
-    font-size: 0.24rem;
-    color: #212832;
-    line-height: 0.3rem;
-  }
-
-  .ranking_list_inner_date {
-    width: 7.2rem;
-    text-align: left;
-    padding-left: 0.3rem;
-    font-family: PingFangSC-Regular, '微软雅黑';
-    font-size: 0.24rem;
-    color: #8B949E;
-    line-height: 0.24rem;
-    margin-top: 0.2rem;
-  }
-
-  .ranking_list_inner_text {
-    width: 6.9rem;
-    padding: 0.3rem;
-    font-family: PingFangSC-Regular, '微软雅黑';
-    font-size: 0.24rem;
-    color: #8B949E;
-    line-height: 0.4rem;
-  }
-
-  .ranking_list_btn {
-    width: 7.5rem;
-    text-align: center;
-    line-height: 0.8rem;
-    border-top: 0.01rem solid #E7E7E7;
-    font-family: PingFangSC-Regular, '微软雅黑';
-    font-size: 0.28rem;
-    color: #212832;
-    line-height: 0.8rem;
-  }
-
-  .dateClass {
-    width: 7.1rem;
-    height: 4rem;
-    background: red
-  }
-
-  .dateLvClass {
-    width: 7.1rem;
-    background: #fff;
-    margin: 0.2rem auto;
-    padding-bottom: 0.4rem
-  }
-
-  .dateLvText {
-    width: 6.6rem;
-    background: #fff;
-    display: flex;
-    justify-content: space-around;
-    margin: 0.4rem auto;
-    border-bottom: 1px solid #E7E7E7;
-    border-top: 1px solid #E7E7E7;
-    padding: 0.3rem 0 0.3rem 0;
-  }
-
-  .lvTitle {
-    width: 1.4rem;
-    height: 1rem;
-    text-align: center;
-    border-right: 1px solid #e0e0e0;
-    margin-top: 0.16rem;
-  }
-
-  .lvText {
-    width: 4.5rem;
-    margin-top: 0.1rem
-  }
-
-  .lvTitle p:nth-child(1) {
-    font-family: PingFangSC-Regular;
-    font-size: 0.52rem;
-    line-height: 0.52rem;
-    margin-top: 0.1rem
-  }
-
-  .lvTitle p:nth-child(2) {
-    font-family: PingFangSC-Regular;
-    font-size: 0.24rem;
-    color: #42464D;
-    line-height: 0.24rem;
-    margin-top: 0.1rem
-  }
-
-  .lvText p {
-    font-family: PingFangSC-Regular;
-    font-size: 0.28rem;
-    color: #42464D;
-    line-height: 0.4rem
   }
 
   .footDiv {
@@ -979,145 +639,309 @@
     color: #FFFFFF;
   }
 
-  .photoDiv {
-    width: 7.5rem;
-    height: 6.98rem;
-    margin: 0.18rem auto;
-    background: #FFFFFF;
-    border-radius: 2px;
+  .g-montoring {
+    margin-bottom: 0.2rem;
+    background: #fff;
   }
 
-  .photoDiv span {
-    font-family: PingFangSC-Medium;
-    font-size: 0.28rem;
-    color: #42464D;
-    line-height: 0.28rem;
-    display: inline-block;
-    margin: 0.22rem 0 0.22rem 0.42rem;
-  }
-
-  .photoNum {
-    margin-left: 0.42rem;
-    margin-top: 0.4rem;
-  }
-
-  .photo_list {
-    display: flex;
-    flex-flow: wrap;
-    justify-content: flex-start;
-    background-color: white;
-  }
-
-  .photoNum img {
-    width: 1.956rem;
-    height: 1.956rem;
-  }
-
-  .photoNum p {
-    text-align: center;
-    margin-top: 0.1rem;
+  .g-montoring-num {
+    padding-left: 0.3rem;
     font-family: PingFangSC-Regular;
-    font-size: 0.24rem;
-    color: #000000;
-    line-height: 0.28rem;
-  }
-
-  .mainDivs {
-    width: 7.5rem;
-    margin: 0.18rem auto;
-    background: #FFFFFF;
-    border-radius: 2px;
-    padding-bottom: 0.4rem
-  }
-
-  .topSpan {
-    font-family: PingFangSC-Medium;
     font-size: 0.28rem;
-    color: #42464D;
+    color: #212832;
     line-height: 0.28rem;
-    display: inline-block;
-    margin: 0.22rem 0 0.22rem 0.42rem
   }
 
-  .mainClasss {
-    height: 2.4rem;
+  .g-montoring-yes {
+    display: flex;
+    margin: 0.3rem auto;
+    width: 6.9rem;
+    height: 1.46rem;
+    background: #FFFFFF;
+    box-shadow: 0 0 15px 0 rgba(169, 183, 197, 0.35);
+  }
+
+  .g-montoring-span {
+    width: 100%;
+    line-height: 0.6rem;
     display: flex;
     justify-content: space-around;
-    margin-top: 0.4rem;
-    margin-left: 0.4rem
   }
 
-  .mImg {
-    width: 2.4rem;
-    height: 2.4rem
+  .g-montoring-span div {
+    width: 2.6rem;
+    display: flex;
+    justify-content: center;
   }
 
-  .mImg img {
-    width: 2.4rem;
-    height: 2.4rem
+  .g-montoring-span span {
+    margin: auto;
   }
 
-  .redt {
-    display: inline-block;
-    width: 0.74rem;
-    height: 0.4rem;
-    background: #E64B4B;
-    position: absolute;
-    margin: 0.2rem 0 0 0 !important;
-    font-family: PingFangSC-Semibold;
-    font-size: 0.2rem;
-    color: #FFFFFF;
-    line-height: 0.4rem;
-    text-align: center
+  .g-mes {
+    margin-top: 0.2rem;
+    padding: 0 0.3rem 0.4rem 0;
+    background: #fff;
   }
 
-  .mText {
-    width: 3.4rem;
-    height: 2.4rem
+  .g-mes-li {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 0.3rem;
+    line-height: 0.5rem;
   }
 
-  .mText p:nth-child(1) {
+  .g-mes-li span:nth-child(1) {
     font-family: PingFangSC-Regular;
-    font-size: 0.32rem;
-    color: #262A33;
-    line-height: 0.32rem;
-    margin-top: 0.1rem
+    font-size: 0.28rem;
+    color: #8B949E;
   }
 
-  .mText p:nth-child(2) {
-    opacity: 0.4;
+  .g-mes-li span:nth-child(2) {
+    font-family: PingFangSC-Regular;
+    font-size: 0.28rem;
+    color: #212832;
+  }
+
+  .look-all {
+    margin: auto;
+    margin-right: 0;
     font-family: PingFangSC-Regular;
     font-size: 0.24rem;
-    color: #000000;
-    line-height: 0.24rem;
-    margin-top: 0.1rem
+    color: #8B949E;
+    line-height: 0.28rem;
   }
 
-  .mText p:nth-child(3) {
-    font-family: PingFangSC-Medium;
-    font-size: 0.32rem;
-    color: #F85E70;
-    line-height: 0.32rem;
-    margin-top: 0.3rem
+  .g-fot {
+    padding: 0.2rem 0.3rem 0.3rem 0.3rem;
+    font-family: PingFangSC-Regular;
+    font-size: 0.2rem;
+    color: #B9C0C8;
+    letter-spacing: 0.9px;
+    line-height: 0.2rem;
   }
 
-  .mText p:nth-child(4) {
+  .g-fot p {
+    line-height: 0.3rem;
+  }
+
+  .g-fot i {
+    display: inline-block;
+    width: 0.2rem;
+    height: 0.2rem;
+    border-radius: 0.2rem;
+    background: #B9C0C8;
+    color: #fff;
+    text-align: center;
+    line-height: 0.2rem;
+    margin-right: 0.1rem;
+  }
+
+  .g-fot span {
+    font-family: PingFangSC-Regular;
+    font-size: 0.2rem;
+    color: #0080FF;
+    letter-spacing: 0.9px;
+    line-height: 0.2rem;
+  }
+
+  .g-fot-btn {
+    margin-bottom: 0.4rem;
+    width: 7.5rem;
+    height: 0.88rem;
+    background: #0080FF;
+    text-align: center;
+    line-height: 0.88rem;
     font-family: PingFangSC-Regular;
     font-size: 0.32rem;
-    color: #262A33;
-    line-height: 0.32rem;
-    margin-top: 0.1rem;
+    color: #FFFFFF;
+  }
+
+  .g-dynamic {
+    padding-bottom: 0.3rem;
+    margin-top: 0.2rem;
+    background: #fff;
+  }
+
+  .g-dynamic-lis {
+    margin-left: 0.3rem;
+    padding-left: 0.3rem;
+    border-left: 2px solid #63B1FF;
+  }
+
+  .g-dynamic-li {
+    padding-left: 0.3rem;
+    position: relative;
+    margin-bottom: 0.2rem;
+    width: 6.58rem;
+    background: #FFFFFF;
+    box-shadow: 0 0 11px -1px rgba(99, 130, 172, 0.33);
+    border-radius: 4px;
+  }
+
+  .g-dynamic-li p:nth-child(1) {
+    font-family: PingFangSC-Regular;
+    font-size: 0.24rem;
+    color: #2E97FF;
     line-height: 0.4rem;
   }
 
-  .mText p:nth-child(4) span {
-    background: #E2E2E2;
-    margin: 0;
-    font-family: PingFangSC-Semibold;
-    font-size: 0.2rem;
-    line-height: 0.2rem;
-    padding: 0.1rem 0.15rem;
+  .g-dynamic-li p:nth-child(2) {
+    font-family: PingFangSC-Regular;
+    font-size: 0.28rem;
+    color: #4D535D;
+    line-height: 0.4rem;
+  }
+
+  .g-dynamic-li p:nth-child(3) {
+    font-family: PingFangSC-Regular;
+    font-size: 0.24rem;
+    color: #8B949E;
+    line-height: 0.4rem;
+  }
+
+  .g-dynamic-li p:nth-child(1):before {
+    content: "";
+    display: inline-block;
+    width: 0.2rem;
+    height: 0.2rem;
+    background: #0C8CFF;
+    border-radius: 0.2rem;
+    position: absolute;
+    left: -0.41rem;
+    top: 0.05rem;
+    z-index: 99;
+  }
+
+  .g-dynamic-li p:nth-child(1):after {
+    content: "";
+    display: inline-block;
+    width: 0.3rem;
+    height: 0.3rem;
+    background: #fff;
+    border-radius: 0.3rem;
+    position: absolute;
+    left: -0.46rem;
+  }
+
+  .g-dynamic-li-be:before {
+    content: "";
+    display: inline-block;
+    width: 0.05rem;
+    height: 100%;
+    background: #fff;
+    border-radius: 0.3rem;
+    position: absolute;
+    left: -0.34rem;
+    bottom: 0;
+  }
+
+  .g-light-seek {
+    position: relative;
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+    background: #fff;
+  }
+
+  .g-light-seek-use-img {
+    margin: auto;
+    margin-left: 0;
     margin-right: 0.2rem;
-    display: inline-block
+    display: inline-block;
+    width: 0.32rem;
+    height: 0.32rem;
+    background: red;
+    border-radius: 0.32rem;
+    overflow: hidden;
+  }
+
+  .g-light-seek-use-img img {
+    width: 100%;
+  }
+
+  .g-light-seek-use {
+    display: flex;
+    margin-top: 0.24rem;
+    padding-bottom: 0.3rem;
+  }
+
+  .g-light-seek-lis p {
+    margin-top: 0.2rem;
+    font-family: PingFangSC-Regular;
+    font-size: 0.28rem;
+    color: #212832;
+    line-height: 0.28rem;
+  }
+
+  .g-light-seek-use-name {
+    margin: auto;
+    margin-right: 0.72rem;
+  }
+
+  .g-light-seek-use-num, .g-light-seek-use-name {
+    margin: auto;
+    margin-left: 0;
+    font-size: 0.24rem;
+    color: #8B949E;
+    line-height: 0.24rem;
+  }
+
+  .g-light-seek-fot {
+    width: 100%;
+    float: left;
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .g-light-seek-fot-btn {
+    margin: auto;
+    width: 4.8rem;
+    height: 0.88rem;
+    text-align: center;
+    line-height: 0.88rem;
+    border: 2px solid #0080FF;
+    border-radius: 1rem;
+    font-family: PingFangSC-Regular;
+    font-size: 0.32rem;
+    color: #0080FF;
+  }
+</style>
+<style>
+  a:link {
+    color: #42464D;
+    text-decoration: none;
+  }
+
+  a:visited {
+    color: #42464D;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #42464D;
+    text-decoration: none;
+  }
+
+  a:active {
+    color: #42464D;
+    text-decoration: none;
+  }
+
+  .img-box {
+    position: static !important;
+  }
+
+  .img-wraper {
+    width: 3.3rem !important;
+    background: #fff !important;
+  }
+
+  .vue-waterfall-easy {
+    clear: both;
+    float: left;
+  }
+
+  .img-inner-box {
+    box-shadow: none !important;
   }
 </style>
