@@ -1,5 +1,6 @@
 <template>
   <div class="survey">
+    <div id="amapDemo" v-show="false"></div>
     <div class="u-arc" style="position: absolute;top:7rem;right:-0.6rem;">
       <img style="width: 100%;" src="/static/suv/bg_xingqiu@3x.png" alt="">
     </div>
@@ -61,7 +62,7 @@
       <div class="u-check-ine">
         <div class="u-check-ine-img"></div>
         <div class="u-check-ul">
-          <el-checkbox-group v-model="checkList1" @change="aa">
+          <el-checkbox-group v-model="checkList1">
             <ul>
               <li v-for="(city,index) in cities1">
                 <el-checkbox :label="index" :key="index">{{city}}</el-checkbox>
@@ -93,7 +94,7 @@
       <div class="u-check-ine">
         <div class="u-check-ine-img"></div>
         <div class="u-check-ul">
-          <el-checkbox-group v-model="checkList2" @change="aa">
+          <el-checkbox-group v-model="checkList2">
             <ul>
               <li v-for="(city,index) in cities2">
                 <el-checkbox :label="index" :key="index">{{city}}</el-checkbox>
@@ -124,7 +125,7 @@
       <div class="u-check-ine">
         <div class="u-check-ine-img"></div>
         <div class="u-check-ul">
-          <el-checkbox-group v-model="checkList3" @change="aa">
+          <el-checkbox-group v-model="checkList3">
             <ul>
               <li v-for="(city,index) in cities3">
                 <el-checkbox :label="index" :key="index">{{city}}</el-checkbox>
@@ -188,6 +189,7 @@
 <script>
   import {mapState, mapMutations} from 'vuex'
   import Obshare from '../../common/js/obshare'
+  import wx from 'weixin-js-sdk'
   export default {
     data(){
       return {
@@ -218,8 +220,12 @@
         ]
       }
     },
-    created(){
-
+    mounted(){
+      setTimeout(() => {
+        this.keyUpSearch();
+      }, 200)
+//      this.f_wx_init();
+      this.$weixin('尼玛', '这么二');
     },
     methods: {
       ...mapMutations({
@@ -229,6 +235,45 @@
         set_dat_com: 'set_dat_com',
         set_data_comment: 'set_data_comment'
       }),
+
+      f_get_dizhi(options){
+        let url = `http://restapi.amap.com/v3/geocode/regeo?key=1e299bf9e95f5cb9f5787eb00e4ef4e3&location=${options}`;
+        this.$Axios.get(url).then(res => {
+          let re = res.data.regeocode.addressComponent;
+          this.input = re.province + '/' + re.district;
+        }).catch((err) => {
+          alert('您的网络不佳，请手动选择')
+        });
+      },
+      f_wx_init(){
+        let param = {
+          debug:true,
+          url:'http://localhost:8081/productgroups',
+          jsApiList: [
+            'chooseWXPay',
+            'checkJsApi'
+          ]};
+        wechatlib.queryJsConfig(param,(err,obj)=>{
+          if(err){
+            return this.$toast(err);
+          }
+
+          console.log('jsconfig ',obj);
+
+          wx.config(obj);
+
+          wx.ready(()=>{
+            console.log('wx.ready');
+          });
+
+          wx.error(function(res){
+
+            console.log('wx err',res);
+
+            //可以更新签名
+          });
+        });
+      },
       f_op_moban(){
         let img = new Image();
         let this_ = this;
@@ -239,8 +284,36 @@
           this_.change_motai();
         }
       },
-      aa(){
-        console.log(this.checkList1);
+      keyUpSearch () {
+        let mapObj = new AMap.Map('amapDemo', {
+            center: [0, 0],
+            zoom: 6
+          }),
+          this_ = this;
+        mapObj.plugin(['AMap.Geolocation'], function () {
+          let geolocation = new AMap.Geolocation({
+            enableHighAccuracy: true, //  是否使用高精度定位，默认:true
+            timeout: 10000, //  超过10秒后停止定位，默认：无穷大
+            maximumAge: 0, // 定位结果缓存0毫秒，默认：0
+            convert: true, // 自动偏移坐标，偏移后的坐标为高德坐标，默认：true
+            showButton: true, //  显示定位按钮，默认：true
+            buttonPosition: 'LB',  // 定位按钮停靠位置，默认：'LB'，左下角
+            buttonOffset: new AMap.Pixel(10, 20), //  定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
+            showMarker: true, //  定位成功后在定位到的位置显示点标记，默认：true
+            showCircle: true, //  定位成功后用圆圈表示定位精度范围，默认：true
+            panToLocation: true,  //  定位成功后将定位到的位置作为地图中心点，默认：true
+            zoomToAccuracy: true  //  定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：false
+          })
+          mapObj.addControl(geolocation)
+          geolocation.getCurrentPosition()
+          AMap.event.addListener(geolocation, 'complete', (result) => {
+            let op = result.position.lng + ',' + result.position.lat;
+            this_.f_get_dizhi(op);
+          });  //  返回定位信息
+          AMap.event.addListener(geolocation, 'error', (result) => {
+            alert('您的网络不佳，请手动选择')
+          })  //  返回定位出错信息
+        })
       },
       submit(){
 

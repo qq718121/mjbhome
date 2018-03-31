@@ -6,6 +6,7 @@ import router from './router';
 import fastclick from 'fastclick';
 import setFontsize from './common/js/setFontsize';
 import Axios from 'axios';
+import weixin from './common/js/wx'
 import {
   Button,
   Message,
@@ -33,6 +34,7 @@ Vue.prototype.$Axios = Axios;
 Vue.prototype.$url = url;
 Vue.prototype.$store = store;
 Vue.prototype.$class_name_ftn = class_name_ftn;
+Vue.prototype.$weixin = weixin;
 Vue.prototype.$setDAesString = function (data, keys) {
   // let baseTen = res.data.slice(0,10);
   // let baseThree = res.data.slice(30,res.data.length);
@@ -78,7 +80,7 @@ Vue.prototype.$getDAesString = function (res, keys) {
   return decrypted = CryptoJS.enc.Utf8.stringify(decrypted);
 };
 setFontsize();
-// Vue.use(AMap);
+Vue.use(AMap);
 Vue.use(Button);
 // Vue.use(Message);
 Vue.use(Progress);
@@ -90,6 +92,14 @@ Vue.use(Checkbox);
 Vue.use(CheckboxGroup);
 
 Vue.use(CarouselItem);
+AMap.initAMapApiLoader({
+  // 高德的key
+  key: 'f2c01c78d13068664acd4d50762898a0',
+  // 插件集合
+  plugin: ['AMap.Autocomplete', 'AMap.PlaceSearch', 'AMap.Scale', 'AMap.OverView', 'AMap.ToolBar', 'AMap.MapType', 'AMap.PolyEditor', 'AMap.CircleEditor'],
+  // 高德 sdk 版本，默认为 1.4.4
+  v: '1.4.4'
+});
 /* eslint-disable no-new */
 let vm = new Vue({
   el: '#app',
