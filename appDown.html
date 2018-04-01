@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <title>鹰眼鉴房app下载</title>
+    <link rel="shortcut icon" href="./images/favicon.png">
+    <style>
+        html body {
+            margin: 0;
+            padding:0;
+            height: 100%;
+        }
+
+        .appDown {
+            margin: auto;
+            width: 7.5rem;
+            height: 100%;
+            position: relative;
+            background: url('http://oxrgdeqd8.bkt.clouddn.com/Group%2010@3x.png') no-repeat;
+            background-size: 100% 100%;
+            border: 0.5px solid deepskyblue;
+            box-sizing: border-box;
+        }
+
+        #g-down {
+            position: fixed;
+            bottom: 0;
+            /*display: flex;*/
+            width: 7.5rem;
+            height: 0;
+            /*background: #fff;*/
+            background: url('http://oxrgdeqd8.bkt.clouddn.com/Group%204@3x.png') no-repeat;
+            padding-bottom: 1.18rem;
+            overflow: hidden;
+            background-position: center center;
+            background-repeat: no-repeat;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            background-size: cover;
+        }
+
+        #g-down img {
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        #g-down-btn {
+            margin: auto;
+            margin-right: 0.5rem;
+            width: 1.5rem;
+            height: 0.6rem;
+            text-align: center;
+            line-height: 0.6rem;
+            color: #fff;
+            font-size: 0.25rem;
+            background: #2e97ff;
+        }
+    </style>
+</head>
+
+<body>
+<div style="width:7.5rem;margin:auto;height:100%;">
+    <div class="appDown">
+        <div id="icon_img" style="width:6.8rem;margin-top:0.4rem;margin-left:0.45rem">
+            <img style="width: 100%;" src="http://oxrgdeqd8.bkt.clouddn.com/icon_fuceng@3x.png" alt="">
+        </div>
+    </div>
+    <div id="g-down">
+        <!--<div style="width:2rem;margin:auto;margin-left:0.5rem;">-->
+        <!--<img style="width:100%;float:left" src="http://oxrgdeqd8.bkt.clouddn.com/logo-blue@3x.png" alt="">-->
+        <!--</div>-->
+        <!--<div id="g-down-btn">下载App</div>-->
+        <!--<img style="width: 100%;" src="http://oxrgdeqd8.bkt.clouddn.com/Group%204@3x.png" alt="">-->
+    </div>
+</div>
+<script>
+    (function setFontsize() {
+        let designWidth = 750,
+            designFontSize = 100,
+            win_width = 0;
+        if (window.screen.width > 750) {
+            win_width = 750
+        } else {
+            win_width = window.screen.width
+        }
+        let scale = win_width / designWidth;
+
+        let root_font_size = ((scale * 10000 * designFontSize) / 10000).toFixed(4);
+
+        document.documentElement.style.fontSize = root_font_size + 'px';
+        window.onresize = function () {
+            setFontsize();
+        }
+    })();
+    window.onload = function () {
+
+        var btn = document.getElementById('g-down-btn');
+        var img = document.getElementById('icon_img');
+        var g_down = document.getElementById('g-down');
+        g_down.addEventListener('click', wcarts);
+        var APPCommon = {
+            iphoneSchema: 'com.maijiaHome.MyHawkEyeApp://',
+            iphoneDownUrl: 'https://itunes.apple.com/cn/app/%E9%B9%B0%E7%9C%BC%E9%89%B4%E6%88%BF/id1298408736?mt=8',
+            androidSchema: 'jump://start.yyjf/',
+            androidDownUrl: 'http://owvcynyz1.bkt.clouddn.com/homehawkeye1.4.3.1.apk',
+//            url: 'http://47.93.185.205:8081/maijiabangbackstate-1.0-SNAPSHOT/backstageUser/download/',
+             url: 'http://47.95.233.255:8081/maijiabangbackstate-1.0-SNAPSHOT/backstageUser/download/',
+
+            getJSON: function (url) {
+                const promise = new Promise(function (resolve, reject) {
+                    const handler = function () {
+                        if (this.readyState !== 4) {
+                            return;
+                        }
+                        if (this.status === 200 || this.status === 304) {
+                            resolve(this.response);
+                        } else {
+                            reject(new Error(this.statusText));
+                        }
+                    };
+                    const client = new XMLHttpRequest();
+                    client.open("post", url);
+                    client.onreadystatechange = handler;
+                    client.responseType = "json";
+                    client.setRequestHeader("Accept", "application/json");
+                    client.send();
+                });
+                return promise;
+            },
+            openApp: function () {
+                var this_ = this;
+                //微信
+                if (!this_.isWeixin()) {//非微信浏览器
+                    if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i)) {
+                        var nowTime = new Date().valueOf();
+                        setTimeout(function () {
+                            var launchTime = new Date().valueOf() - nowTime;
+                            if (launchTime < 280) {   //28是调试估算出来的打开本地app基本需要的时间
+                                window.location = this_.iphoneDownUrl; //下载app页面
+                            }
+                        }, 25);
+                        window.location = this_.iphoneSchema;//自己定义的scheme协议
+                    } else if (navigator.userAgent.match(/android/i)) {
+
+                        var nowTime = new Date().valueOf();
+                        setTimeout(function () {
+                            var launchTime = new Date().valueOf() - nowTime;
+                            if (launchTime < 28) {     //28是调试估算出来的打开本地app基本需要的时间
+                                window.location = this_.androidDownUrl; //下载app页面
+                            }
+                        }, 25);
+                        window.location = this_.androidSchema;//自己定义的scheme协议
+                    } else {
+                        var nowTime = new Date().valueOf();
+                        setTimeout(function () {
+                            var launchTime = new Date().valueOf() - nowTime;
+                            if (launchTime < 28) {     //28是调试估算出来的打开本地app基本需要的时间
+                                window.location = this_.androidDownUrl; //下载app页面
+                            }
+                        }, 25);
+                        window.location = this_.androidSchema;//自己定义的scheme协议
+                    }
+                }
+            },
+            isWeixin: function () { //判断是否是微信
+                var ua = navigator.userAgent.toLowerCase();
+
+                if (ua.match(/MicroMessenger/i) == "micromessenger") {
+                    return true;
+                } else {
+                    return false;
+                }
+            },
+            f_getUrl: function () {
+                var url = window.location.search; //获取url中"?"符后的字串
+                var theRequest = new Object();
+                if (url.indexOf("?") != -1) {
+                    var str = url.substr(1);
+                    strs = str.split("&");
+                    for (var i = 0; i < strs.length; i++) {
+                        theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+                    }
+                }
+                return theRequest;
+            },
+            wcart: function () {
+                var urls;
+                if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i)) {
+                    urls = this.url + this.f_getUrl().ut + '/' + this.f_getUrl().ui + '/2';
+                } else {
+                    urls = this.url + this.f_getUrl().ut + '/' + this.f_getUrl().ui + '/1';
+                }
+
+                if (!this.f_getUrl().ui || !this.f_getUrl().ut || this.isWeixin()) {
+                    this.openApp();
+                } else {
+                    this.getJSON(urls).then(function (res) {
+                            if (res.code == '0') {
+                                if (res.response.id == '1') {
+                                    this.openApp();
+                                }
+                            }
+                        }, function (error) {
+                            console.error('出错了', error);
+                        }
+                    )
+                }
+            }
+        };
+
+        function wcarts() {
+            APPCommon.wcart();
+        }
+
+        if (!APPCommon.isWeixin()) {
+            img.style.display = 'none';
+            g_down.style.display = '';
+        } else {
+            img.style.display = '';
+            g_down.style.display = 'none';
+        }
+
+        // function setFontsize() {
+        //   let designWidth = 750,
+        //     designFontSize = 100,
+        //     win_width = 0;
+        //   if (window.screen.width > 750) {
+        //     win_width = 750
+        //   } else {
+        //     win_width = window.screen.width
+        //   }
+        //   let scale = win_width / designWidth;
+
+        //   let root_font_size = ((scale * 10000 * designFontSize) / 10000).toFixed(4);
+
+        //   document.documentElement.style.fontSize = root_font_size + 'px';
+        //   window.onresize = function () {
+        //     setFontsize();
+        //   }
+        // }
+        // setFontsize();
+
+        //    var Ajax = {
+        // //      get: function (url, fn) {
+        // //        var xhr = new XMLHttpRequest();  // XMLHttpRequest对象用于在后台与服务器交换数据
+        // //        xhr.open('GET', url, true);
+        // //        xhr.onreadystatechange = function () {
+        // //          if (xhr.readyState == 4 && xhr.status == 200 || xhr.status == 304) { // readyState == 4说明请求已完成
+        // //            fn.call(this, xhr.responseText);  //从服务器获得数据
+        // //          }
+        // //        };
+        // //        xhr.send();
+        // //      },
+        //      post: function (url, data, fn) {         // datat应为'a=a1&b=b1'这种字符串格式，在jq里如果data为对象会自动将对象转成这种字符串格式
+        //        var xhr = new XMLHttpRequest();
+        //        xhr.open("POST", url, true);
+        //        xhr.setRequestHeader("Content-Type", "application/json");  // 添加http头，发送信息至服务器时内容编码类型
+        //        xhr.onreadystatechange = function () {
+        //          if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 304)) {  // 304未修改
+        // //            fn.call(this, xhr.responseText);
+        //            try {
+        //              alert(xhr.responseText);
+        //              if (xhr.responseText == '0') {
+        //                fn();
+        //              } else {
+        //                alert('您的网络不佳！请稍后再试');
+        //              }
+        //            }
+        //            catch (e) {
+        //              alert('网络不佳，请稍后再试');
+        //            }
+        //          }
+        //        };
+        //        xhr.send(data);
+        //      }
+        //    };
+        //    var url = 'http://192.168.1.240:8088/backstageUser/download/1/0310';
+        // var url = 'http://47.95.233.255:8081/maijiabangbackstate-1.0-SNAPSHOT/backstageUser/download/1/0310';
+        //    var url = 'http://192.168.1.240:8088/backstageUser/download/1/0310';
+        //  Ajax.post(url, '', APPCommon.openApp);
+        // const getJSON = function (url) {
+        //   const promise = new Promise(function (resolve, reject) {
+        //     const handler = function () {
+        //       if (this.readyState !== 4) {
+        //         return;
+        //       }
+        //       if (this.status === 200 || this.status === 304) {
+        //         resolve(this.response);
+        //       } else {
+        //         reject(new Error(this.statusText));
+        //       }
+        //     };
+        //     const client = new XMLHttpRequest();
+        //     client.open("post", url);
+        //     client.onreadystatechange = handler;
+        //     client.responseType = "json";
+        //     client.setRequestHeader("Accept", "application/json");
+        //     client.send();
+        //   });
+        //   return promise;
+        // };
+    };
+</script>
+</body>
+
+</html>
