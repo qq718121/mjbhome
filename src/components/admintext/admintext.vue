@@ -148,16 +148,7 @@
     </div>
   </div>
 </template>
-<script>
-  export default {
-    data(){
-      return {}
-    },
-    created(){
-      this.$store.commit('threeLading');
-    }
-  }
-</script>
+
 <style scoped>
   .adminTextBody {
     max-width: 6.5rem;

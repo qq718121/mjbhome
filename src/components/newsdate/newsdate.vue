@@ -27,9 +27,7 @@
   }
 </script>
 
-<style>
-  .consultDate {
-  }
+<style scoped>
 
   .consultDateText {
     width: 6.7rem;

@@ -137,18 +137,35 @@ export const url = {
   vr_close: 'http://oxrgdeqd8.bkt.clouddn.com/housingesta_icon_guanbi@3x.png?imageslim',
 
   //ajax前缀域名儿
-  httpRequest: 'http://47.95.233.255:8080/maijiabangService-1.0-SNAPSHOT/h5/',
-  // httpRequest: 'http://47.93.185.205:8080/maijiabangService-1.0-SNAPSHOT/h5/',
+  // httpRequest: 'http://47.95.233.255:8080/maijiabangService-1.0-SNAPSHOT/h5/',
   // httpRequest: 'http://192.168.1.193:8080/h5/',
   // httpRequest: 'http://192.168.1.243:8080/h5/',
+  //  httpRequest: 'http://192.168.1.240:8088/h5/',
+  httpRequest: 'http://47.93.185.205:8080/maijiabangService-1.0-SNAPSHOT/h5/',
+
+  //微信授权
+  // httpRequests: 'http://47.95.233.255:8081/maijiabangbackstate-1.0-SNAPSHOT/',
+  httpRequests: 'http://back.homehawkeye.com/maijiabangbackstate-1.0-SNAPSHOT/',
+  // httpRequests: 'http://192.168.1.193:8080/h5/',
+  // httpRequests: 'http://192.168.1.243:8080/h5/',
+  //  httpRequests: 'http://192.168.1.240:8088/h5/',
+
+
+
+  //获取验证码注册登陆
+  // httpRequestse: 'http://47.95.233.255:8080/maijiabangService-1.0-SNAPSHOT/',
+  httpRequestse: 'http://47.93.185.205:8080/maijiabangService-1.0-SNAPSHOT/',
 
   //vr_iframe_url
   // vr_iframe_url: 'http://h5.homehawkeye.com/#/',
   // vr_iframe_url: 'http://192.168.1.247:8080/#/',
-  vr_iframe_url: 'http://th5.homehawkeye.com/#/',
-  // consult_url:'http://h5.homehawkeye.com/#/consultDate/',
-  consult_url: 'http://th5.homehawkeye.com/#/consultDate/',
+  // vr_iframe_url: 'http://th5.homehawkeye.com/#/',
+
+  consult_url: 'http://h5.homehawkeye.com/#/consultDate/',
+  // consult_url: 'http://th5.homehawkeye.com/#/consultDate/',
 
   //规划落实
   programme_pj: 'http://oxrgdeqd8.bkt.clouddn.com/bg_guihuanluoshi_pingji@3x.png',
+  appDown: 'http://www.homehawkeye.com/appDown.html',
+  gz: 'https://mp.weixin.qq.com/mp/profile_ext?action=home&amp;__biz=MzA5MzUxMDQ2OQ==&amp;scene=110#wechat_redirect'
 };

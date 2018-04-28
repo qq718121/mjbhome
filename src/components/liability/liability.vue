@@ -19,6 +19,7 @@
   .liability {
     overflow: hidden;
     width: 7.5rem;
+    margin: auto;
   }
 
   .text {

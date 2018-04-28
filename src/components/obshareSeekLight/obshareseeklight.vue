@@ -85,11 +85,7 @@
     </div>
   </div>
 </template>
-<script>
-  export default{
-    name: 'seeklight',
-  }
-</script>
+
 <style scoped>
   .seeklight {
     width: 7.5rem;

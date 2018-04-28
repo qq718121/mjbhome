@@ -18,8 +18,8 @@
         <div class="what_commonproblem_text">
           <p>1.平台目前收录楼盘工程进度照片和楼盘工程质量问题照片。</p>
           <p>
-            2.楼盘工程进度图片收录完整现场鸟瞰图、进门总进度、单个楼进度、总体园区景观进度和总体园区路面进度5种进度展示图片，每个工程进度点需上传两张不同角度照片；楼盘工程质量问题照片包括楼栋和园区两方面的工程质量问题，每个质量问题点图片上传三张不同角度照片。</p>
-          <p>3.照片要求画质清晰，主题明确，无抖动拖影，横向拍照，长宽比例为4;</p>
+            2.楼盘工程进度图片收录完整现场鸟瞰图、进门总进度、单个楼进度、总体园区景观进度和总体园区路面进度5种进度展示图片，楼盘工程质量问题照片包括楼栋和园区两方面的工程质量问题。</p>
+          <p>3.照片要求画质清晰，主题明确，无抖动拖影，横向拍照。</p>
         </div>
       </div>
 
@@ -85,9 +85,8 @@
         <div class="what_commonproblem_text">
           <p>照片未通过主要有以下情况：</p>
           <p>1.未开启拍照定位功能</p>
-          <p>2.照片不清晰，存在虚影变形，无法反馈质量问题点情况；</p>
-          <p>3.同一质量问题点已经被提交审核通过；</p>
-          <p>4.同一图片多次上传。</p>
+          <p>2.照片不清晰，存在虚影变形，无法反馈情况；</p>
+          <p>3.同一图片多次上传。</p>
         </div>
       </div>
 
@@ -97,26 +96,17 @@
         </div>
         <div class="what_commonproblem_text">
           <p>照片部分通过主要有以下情况：</p>
-          <p>1.同一工程质量问题点/工程进度点同一角度图片拍摄重复上传；</p>
-          <p>2.照片不清晰，存在虚影变形等情况。</p>
+          <p>1.照片不清晰，存在虚影变形等情况。</p>
         </div>
       </div>
 
     </article>
     <article class="commonproblem_problem">
       <h1>三、积分问题：</h1>
-      <div class="commonproblem_inner">
-        <div class="what_commonproblem">
-          <h2>1.审核通过后积分何时到账？</h2>
-        </div>
-        <div class="what_commonproblem_text">
-          <p>审核通过后，积分即时添加至用户积分账户。</p>
-        </div>
-      </div>
 
       <div class="commonproblem_inner">
         <div class="what_commonproblem">
-          <h2>2.如何查询我的积分？</h2>
+          <h2>1.如何查询我的积分？</h2>
         </div>
         <div class="what_commonproblem_text">
           <p>点击“我的”-“我的积分”即可查询。</p>
@@ -125,69 +115,12 @@
 
       <div class="commonproblem_inner">
         <div class="what_commonproblem">
-          <h2>3.积分有有效期吗？</h2>
+          <h2>2.积分有有效期吗？</h2>
         </div>
         <div class="what_commonproblem_text">
           <p>目前积分长期有效。</p>
         </div>
       </div>
-    </article>
-    <article class="commonproblem_problem">
-      <h1>四、兑换问题：</h1>
-      <div class="commonproblem_inner">
-        <div class="what_commonproblem">
-          <h2>1.积分可以兑换哪些奖励？</h2>
-        </div>
-        <div class="what_commonproblem_text">
-          <p>目前积分可以兑换面值分别为100元、200元、500的现金红包。</p>
-        </div>
-      </div>
-
-      <div class="commonproblem_inner">
-        <div class="what_commonproblem">
-          <h2>2.如何提交兑换申请？</h2>
-        </div>
-        <div class="what_commonproblem_text">
-          <p>点击“我的”-“我的积分”-选择现金红包-点击“申请兑换”。</p>
-        </div>
-      </div>
-
-      <div class="commonproblem_inner">
-        <div class="what_commonproblem">
-          <h2>3.如何查询兑换状态？</h2>
-        </div>
-        <div class="what_commonproblem_text">
-          <p>点击“我的”-“我的积分”可查询兑换状态。</p>
-        </div>
-      </div>
-
-      <div class="commonproblem_inner">
-        <div class="what_commonproblem">
-          <h2>4.兑换申请通过了，为什么还没有人联系我？</h2>
-        </div>
-        <div class="what_commonproblem_text">
-          <p>客服工作人员会在三个工作日内通过官方客服微信（yyjf101）联系您，请您耐心等待。</p>
-        </div>
-      </div>
-
-      <div class="commonproblem_inner">
-        <div class="what_commonproblem">
-          <h2>5.我的微信号填错了，怎么办？</h2>
-        </div>
-        <div class="what_commonproblem_text">
-          <p>您可以主动联系添加官方客服微信（yyjf101），核对无误后，工作人员会帮您进行处理。</p>
-        </div>
-      </div>
-
-      <div class="commonproblem_inner">
-        <div class="what_commonproblem">
-          <h2>6.未来还会推出其他奖励吗？</h2>
-        </div>
-        <div class="what_commonproblem_text">
-          <p>一切皆有可能，敬请期待。</p>
-        </div>
-      </div>
-
     </article>
   </div>
 </template>

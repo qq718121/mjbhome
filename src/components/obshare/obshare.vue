@@ -1,23 +1,26 @@
 <template>
   <div class='obShare' v-if='isShows'>
+
     <div>
-      <slider style="width:7.5rem;height:3.8rem" :pages="pages" :sliderinit="sliderinit"
-              v-if="this.abShareData.peoperty.bannerList.length !== 0 "
+      <slider style="width:7.5rem;height:6.5rem" :pages="pages" :sliderinit="sliderinit"
+              v-if="this.abShareData.property.vrData.vrKindList.length == 0"
       ></slider>
-      <div class="vr_back" :style="'background-image:url('+this.abShareData.peoperty.vrData.imageUrl+')'"
-           v-if="this.abShareData.peoperty.vrData"
+      <div class="vr_back" :style="'background-image:url('+this.abShareData.property.vrData.imageUrl+')'"
+           v-if="this.abShareData.property.vrData.vrKindList.length > 0"
       ></div>
-      <div class="vr" v-if="this.abShareData.peoperty.vrData">
-        <div class="vr_btn" v-on:click.prevent="vr_href_all">
+      <div class="vr" v-if="this.abShareData.property.vrData.vrKindList.length > 0">
+        <!--v-on:click.prevent="vr_href_all"-->
+        <div class="vr_btn" v-on:click.prevent="loadHandler('0','animated bounceIn')">
           <div>
             <img style="width: 100%;height: 100%;" src="/static/obshare/housingesta_icon_quanjing@2x.png" alt="">
           </div>
           <p>全景</p>
         </div>
         <div class="vr_list">
-          <div class="vr_overflow">
-            <div class="vr_icon" v-for="(val,index) in this.abShareData.peoperty.vrData.vrKindList"
-                 v-on:click.prevent="vr_list(index,val)" v-if="val.kindType !== '0' ">
+          <div class="vr_overflow clearfix">
+            <div class="vr_icon" v-for="(val,index) in this.abShareData.property.vrData.vrKindList"
+                 v-on:click.prevent="loadHandler('0','animated bounceIn')" v-if="val.kindType !== '0' ">
+              <!--v-on:click.prevent="vr_list(index,val)"-->
               <span :style="'background-image:url('+(val.iconUrl)+')'"></span>
               <p>{{val.kindName}}</p>
             </div>
@@ -25,53 +28,62 @@
         </div>
       </div>
     </div>
+
     <div class='titleDiv'>
       <p>
-        <span>{{abShareData.peoperty.propertyName}}</span>
+        <span>{{abShareData.property.propertyName}}</span>
       </p>
       <p></p>
       <p>
-        <span v-for='key in abShareData.peoperty.propertyNatureList'>{{key.propertyNature}}</span>
+        <span v-for='key in abShareData.property.propertyNatureList'>{{key.propertyNature}}</span>
       </p>
       <p class='ps' v-on:click.prevent="loadHandler('0','animated bounceIn')">
-        <span>{{abShareData.peoperty.developersName ? '预计交房时间：' + abShareData.peoperty.developersName : '预计交房时间：' + '暂无'}}</span>
+        <span>{{abShareData.property.developersName ? '预计交房时间：' + abShareData.property.developersName : '预计交房时间：' + '暂无'}}</span>
       </p>
       <p class='ps' v-on:click.prevent="loadHandler('0','animated bounceIn')">
-        <span>{{'地址信息：' + abShareData.peoperty.propertyAddress}}</span>
+        <span>{{'地址信息：' + abShareData.property.propertyAddress}}</span>
         <img :src='this.$url.right_icon' style="float:right;width:0.12rem;height:0.22rem;margin-top: 0.054rem">
       </p>
     </div>
+
     <div class="g-montoring">
       <p class="progress_title">质量监控</p>
-      <p class="g-montoring-num"><span>已服务业主23000名</span><span>已更新报告11期</span></p>
+      <p class="g-montoring-num" v-if="abShareData.qualityMonitor.status == '1'">
+        <span>已服务业主<span style="color:#FE751B">{{abShareData.qualityMonitor.propertyOwnerCount}}</span>名</span>
+        <span>已更新报告<span style="color:#FE751B">{{abShareData.qualityMonitor.reportCount}}</span>期</span>
+      </p>
+      <div class="g-montoring-num2 clearfix" v-else>
+        <p>目前已有<i>{{abShareData.qualityMonitor.appointmentCount}}</i>人预约<br/>更多服务将陆续开通</p>
+        <div v-on:click.prevent="loadHandler('0','animated bounceIn')"><span>免费预约</span></div>
+      </div>
       <div class="g-montoring-yes">
         <div style="margin: auto;width: 100%">
           <div class="g-montoring-span">
             <div>
-              <span>
-                <img src="/static/obshare/housingesta_icon_duigou@2x.png" alt="">
+              <span style="width: 0.3rem;">
+                <img style="width: 100%;" src="/static/obshare/housingesta_icon_duigou@2x.png" alt="">
               </span>
-              <span>定期更新楼盘报告</span>
+              <span>{{abShareData.qualityMonitor.tips1}}</span>
             </div>
             <div>
-              <span>
-                <img src="/static/obshare/housingesta_icon_duigou@2x.png" alt="">
+              <span style="width: 0.3rem;">
+                <img style="width: 100%;" src="/static/obshare/housingesta_icon_duigou@2x.png" alt="">
               </span>
-              <span>深度质量监控报告</span>
+              <span>{{abShareData.qualityMonitor.tips2}}</span>
             </div>
           </div>
           <div class="g-montoring-span">
             <div>
-              <span>
-                <img src="/static/obshare/housingesta_icon_duigou@2x.png" alt="">
+              <span style="width: 0.3rem;">
+                <img style="width: 100%;" src="/static/obshare/housingesta_icon_duigou@2x.png" alt="">
               </span>
-              <span>最完整的整改记录</span>
+              <span>{{abShareData.qualityMonitor.tips3}}</span>
             </div>
             <div>
-              <span>
-                <img src="/static/obshare/housingesta_icon_duigou@2x.png" alt="">
+              <span style="width: 0.3rem;">
+                <img style="width: 100%;" src="/static/obshare/housingesta_icon_duigou@2x.png" alt="">
               </span>
-              <span>可视化的全景监控</span>
+              <span>{{abShareData.qualityMonitor.tips4}}</span>
             </div>
           </div>
         </div>
@@ -83,33 +95,77 @@
     </div>
     <div class="g-light-seek clearfix">
       <p class="progress_title" style="padding-left: 0">质量寻光</p>
-      <vueWaterfallEasy :imgsArr="imgsArr" @scrollLoadImg="fetchImgsData">
-        <template slot-scope="props">
-          <div class="player_info">
-            <p>{{props.value.info}}</p>
-            <div class="g-light-seek-use">
-              <span class="g-light-seek-use-img"></span>
-              <span class="g-light-seek-use-name">大鱼吃小鱼</span>
-              <span class="g-light-seek-use-num" style="margin-right: 0.15rem">
-              <span style="width:0.24rem;height: 0.22rem;display: inline-block;margin-right: 0.1rem">
-              <img style="width: 100%;" src="/static/xunguang_icon_pinglun_n@3x.png" alt=""
-                   v-on:click.prevent="loadHandler('0','animated bounceIn')"></span>12</span>
-            </div>
-          </div>
-        </template>
-      </vueWaterfallEasy>
-      <div class="g-light-seek-fot">
-        <div class="g-light-seek-fot-btn" @click="loadHandler('0','animated bounceIn')">查看全部现场图片</div>
+      <div class="g-light-seek-but clearfix" v-if="photos1.length==0">
+        <div class="g-light-seek-but-img" v-on:click.prevent="loadHandler('0','animated bounceIn')"><img
+          style="width: 100%;"
+          src="/static/obshare/img_loupanxiangqing_taikongren.png" alt=""></div>
+        <div class="g-light-seek-but-hr">
+          <p>发现了一块质量的荒原！</p>
+          <p>快来成为这个楼盘第一个贡献者</p>
+          <span v-on:click.prevent="loadHandler('0','animated bounceIn')">我要贡献</span>
+        </div>
+      </div>
+      <div v-else>
+        <div class="op clearfix">
+          <ul ref="op1" class="op1">
+            <li v-for="(val,index) in photos1">
+              <div class="op1_div"  v-on:click.prevent="loadHandler('0','animated bounceIn')">
+                <div class="u-video-btn" v-if="val.isVideo == 1">
+                  <img style="width: 100%;" src="/static/icon_zanting_n@3x.png" alt="">
+                </div>
+                <img :src="val.src" alt="">
+              </div>
+              <div class="player_info">
+                <p>{{val.title}}</p>
+                <div class="g-light-seek-use">
+                  <span class="g-light-seek-use-img"><img :src="val.avatar ? val.avatar:de_use_img" alt=""></span>
+                  <span class="g-light-seek-use-name">{{val.userName}}</span>
+                  <span class="g-light-seek-use-num" style="margin-right: 0.15rem">
+        <span style="width:0.24rem;height: 0.22rem;display: inline-block;margin-right: 0.1rem">
+        <img style="width: 100%;" src="/static/xunguang_icon_pinglun_n@3x.png" alt=""
+             v-on:click.prevent="loadHandler('0','animated bounceIn')"></span>{{val.commentCount}}</span>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <ul ref="op2" class="op2">
+            <li v-for="(val,index) in photos2">
+              <div class="op1_div"  v-on:click.prevent="loadHandler('0','animated bounceIn')">
+                <div class="u-video-btn" v-if="val.isVideo == 1">
+                  <img style="width: 100%;" src="/static/icon_zanting_n@3x.png" alt="">
+                </div>
+                <img :src="val.src" alt="">
+              </div>
+              <div class="player_info">
+                <p>{{val.title}}</p>
+                <div class="g-light-seek-use">
+                  <span class="g-light-seek-use-img"><img :src="val.avatar? val.avatar:de_use_img" alt=""></span>
+                  <span class="g-light-seek-use-name">{{val.userName}}</span>
+                  <span class="g-light-seek-use-num" style="margin-right: 0.15rem">
+        <span style="width:0.24rem;height: 0.22rem;display: inline-block;margin-right: 0.1rem">
+        <img style="width: 100%;" src="/static/xunguang_icon_pinglun_n@3x.png" alt=""
+             v-on:click.prevent="loadHandler('0','animated bounceIn')"></span>{{val.commentCount}}</span>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+        </div>
+        <div class="g-light-seek-fot">
+          <div class="g-light-seek-fot-btn" @click="loadHandler('0','animated bounceIn')">查看全部现场图片</div>
+        </div>
       </div>
     </div>
-    <div class='queryClass' v-if="this.abShareData.qulity">
+    <div class='queryClass' v-if="this.abShareData.propertyReport.reportList.length !=0">
       <p class="progress_title">楼盘质量简报</p>
-      <div class="sweiper_class">
-        <div class="swiper_icon" v-for="index in this.abShareData.qulity.gradeList"
-             :style="'background-image:url('+$class_name_ftn.obShare_jb(index.gradeName)+')'"
-             @click="loadHandler('0','animated bounceIn')">
-          <p>{{index.gradeName}}</p>
-          <span>查看报告</span>
+      <div class="query_cla">
+        <div class="sweiper_class">
+          <div class="swiper_icon" v-for="index in this.abShareData.propertyReport.reportList"
+               @click="loadHandler('0','animated bounceIn')">
+            <div><img style="width: 100%;" :src="index.reportImageUrl" alt=""></div>
+            <p>{{index.reportName}}</p>
+            <span>查看报告</span>
+          </div>
         </div>
       </div>
     </div>
@@ -118,29 +174,9 @@
         <span>楼盘信息</span>
         <span class="look-all" @click="loadHandler('0','animated bounceIn')">查看全部></span>
       </p>
-      <p class="g-mes-li">
-        <span>开盘均价</span>
-        <span>328300元／m²</span>
-      </p>
-      <p class="g-mes-li">
-        <span>开发商</span>
-        <span>北京中原地产</span>
-      </p>
-      <p class="g-mes-li">
-        <span>开盘时间</span>
-        <span>2017.12.30</span>
-      </p>
-      <p class="g-mes-li">
-        <span>交房时间</span>
-        <span>2017.12.30</span>
-      </p>
-      <p class="g-mes-li">
-        <span>产权年限</span>
-        <span>70年</span>
-      </p>
-      <p class="g-mes-li">
-        <span>许可证</span>
-        <span>许可证信息</span>
+      <p class="g-mes-li" v-for='val in abShareData.propertyInfo.propertyInfoList'>
+        <span>{{val.title}}</span>
+        <span>{{val.content}}</span>
       </p>
     </div>
     <div class="g-dynamic">
@@ -149,20 +185,10 @@
         <span class="look-all" @click="loadHandler('0','animated bounceIn')">查看全部></span>
       </p>
       <div class="g-dynamic-lis">
-        <div class="g-dynamic-li">
-          <p>2017-09-30</p>
-          <p>预计2017年9月三期22-25＃、32#、33#入住</p>
-          <p>22#</p>
-        </div>
-        <div class="g-dynamic-li">
-          <p>2017-09-30</p>
-          <p>预计2017年9月三期22-25＃、32#、33#入住</p>
-          <p>22#</p>
-        </div>
-        <div class="g-dynamic-li g-dynamic-li-be">
-          <p>2017-09-30</p>
-          <p>预计2017年9月三期22-25＃、32#、33#入住</p>
-          <p>22#</p>
+        <div :class="[li]" v-for="(val,index) in abShareData.propertyMotion.motionList">
+          <p><i></i>{{val.date}}</p>
+          <p><i></i>{{val.title}}</p>
+          <p><i></i>{{val.content}}</p>
         </div>
       </div>
     </div>
@@ -185,20 +211,23 @@
   import slider from 'vue-concise-slider'// 引入slider组件
   import {mapState, mapMutations} from 'vuex'
   import Obshare from '../../common/js/obshare'
-  import vueWaterfallEasy from 'vue-waterfall-easy'
+  //  import vueWaterfallEasy from 'vue-waterfall-easy'
   export default {
     data(){
       return {
-        imgsArr: [],
-        fetchImgsArr: [],
         isShows: false,
+        de_use_img: '/static/comment/touxiang_mig@2x.png',
+        photos1: [],
+        photos2: [],
+        li: 'g-dynamic-li',
         footImg: this.$url.obShareOnloadLogoImg,
         vr_arr: [],
         img: [],
         ampCenter: [],
         abShareData: {
-          peoperty: {
-            propertyName: ''
+          property: {
+            propertyName: '',
+            vrData: {}
           },
           qulity: {
             gradeList: [],
@@ -223,8 +252,7 @@
     },
 
     components: {
-      slider,
-      vueWaterfallEasy
+      slider
     },
     computed: {
 //      ...mapState({
@@ -239,106 +267,142 @@
         set_dat_com: 'set_dat_com',
         set_data_comment: 'set_data_comment'
       }),
+
       loadHandler(num, className){
-        if (Obshare.is_Weixin() || Obshare.is_WeiBo()) {
-          this.set_motai('1');
-          this.set_school_class(className);
-          this.change_motai();
+        if (Obshare.locaGet('regis') === false) {
+          this.$router.push({
+            path: '/register',
+            query: {
+              userId: this.$route.query.userId ? this.$route.query.userId : '',
+              path: this.$router.currentRoute.path
+            }
+          });
         } else {
-          if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i) && navigator.userAgent.toLowerCase().match(/QQ/i) == "qq") {
-            this.set_motai('1');
-            this.set_school_class(className);
-            this.change_motai();
-          } else {
-            this.set_motai('0');
-            this.set_school_class(className);
-            this.change_motai();
-            this.set_dat_com('0');
-            this.set_data_comment({
-              propertyId: this.$route.params.id,
-            });
-          }
+          window.location = this.$url.appDown;
+//          if (Obshare.is_Weixin() || Obshare.is_WeiBo()) {
+//            this.set_motai('1');
+//            this.set_school_class(className);
+//            this.change_motai();
+//          } else {
+//            this.set_motai('0');
+//            this.set_school_class(className);
+//            this.change_motai();
+//            this.set_dat_com('0');
+//            this.set_data_comment({
+//              propertyId: this.$route.params.id,
+//            });
+//          }
         }
       },
 
 
       get_http(){
         let this_ = this;
-        let url = this.$url.httpRequest;
-        let buiding = 'buidingSurver1_2/';
+        let buiding = 'buidingSurver1_3/';
         let id = this.$route.params.id;
+        let ids = this.$route.params.ids;
         let base = "yhgt!d%sd*aw%dSDSFSsa#mng~dsq";
-
-        this.$Axios.get(url + buiding + id).then(function (res) {
-          this_.abShareData = JSON.parse(this_.$getDAesString(res, base)).response.data;
-          let len = this_.abShareData.peoperty.bannerList.length;
-          let bannerList = this_.abShareData.peoperty.bannerList;
-          let vrList = this_.abShareData.peoperty.vrData;
-          this_.vr_arr = vrList;
-          for (let b = 0; b < len; b++) {
-            let obj = new Object({
-              style: {
-                background: ''
+        let op1_H = '';
+        let op2_H = '';
+        let url = this.$url.httpRequest + buiding + id + '/' + ids;
+        this.$Axios.get(url).then((res) => {
+            this_.abShareData = JSON.parse(this_.$getDAesString(res, base)).response.data;
+            let m = this_.abShareData.contribution.contributionWaterfallList;
+            //配置轮播图数据
+            if (this_.abShareData.property.bannerList) {
+              let len = this_.abShareData.property.bannerList.length;
+              for (let b = 0; b < len; b++) {
+                let obj = new Object({
+                  style: {
+                    background: ''
+                  }
+                });
+                obj.style.background = 'url(' + this_.abShareData.property.bannerList[b].bannerImageUrl + ')';
+                this_.pages.push(obj);
+                continue;
               }
-            });
-            obj.style.background = 'url(' + bannerList[b].bannerImageUrl + ')';
-            this_.pages.push(obj);
-            continue;
+            }
+            //创建瀑布流效果
+            if (m.length !== 0) {
+              setTimeout(() => {
+                let this_ = this;
+                this.imgsArr = this.initImgsArr(m);
+                let img = document.createElement('img');
+                img.src = this.imgsArr[0].src;
+                img.style.display = 'none';
+                img.onload = function () {
+                  this_.photos1.push(this_.imgsArr[0]);
+                  for (let i = 1; i < this_.imgsArr.length; i++) {
+                    let img = document.createElement('img');
+                    img.src = this_.imgsArr[i].src;
+                    img.style.display = 'none';
+                    img.onload = () => {
+                      op1_H = this_.$refs.op1.offsetHeight;
+                      op2_H = this_.$refs.op2.offsetHeight;
+                      if (!op1_H || !op2_H) {
+                        op1_H = this_.$refs.op1.offsetHeight;
+                        op2_H = this_.$refs.op2.offsetHeight;
+                      }
+                      if (op1_H < op2_H) {
+                        this_.photos1.push(this_.imgsArr[i]);
+                      } else {
+                        this_.photos2.push(this_.imgsArr[i]);
+                      }
+                    }
+                  }
+                };
+              }, 0);
+            }
+
+            this_.isShows = true;
           }
-          for (let j in bannerList) {
-            this_.img.push(bannerList[j].bannerImageUrl);
-            continue;
-          }
-          this_.isShows = true;
-        }).catch(function (err) {
+        ).catch(function (err) {
           console.log(err);
         });
       },
       //跳转全景
-      vr_href_all(){
-        let id = this.$route.params.id;
-        this.$router.push({
-          path: '/ifrem/' + id,
-          query: {
-            url: this.vr_arr,
-            index: '0'
-          }
-        });
-      },
+//      vr_href_all(){
+//        let id = this.$route.params.id;
+//        this.$router.push({
+//          path: '/ifrem/' + id,
+//          query: {
+//            url: this.vr_arr,
+//            index: '0'
+//          }
+//        });
+//      },
       //跳转全景
-      vr_list(index, val){
-        let id = this.$route.params.id;
-        this.$router.push({
-          path: '/ifrem/' + id,
-          query: {
-            url: this.vr_arr,
-            index
-          }
-        });
-      },
-      initImgsArr(n, m) { //num 图片数量
-        var arr = [];
-        for (var i = n; i < m; i++) {
+//      vr_list(index, val){
+//        let id = this.$route.params.id;
+//        this.$router.push({
+//          path: '/ifrem/' + id,
+//          query: {
+//            url: this.vr_arr,
+//            index
+//          }
+//        });
+//      },
+      initImgsArr(m){ //num 图片数量
+        let arr = [];
+        for (var i = 0; i < m.length; i++) {
           arr.push({
-            src: 'http://img2.imgtn.bdimg.com/it/u=2239146502,165013516&fm=27&gp=0.jpg',
+            src: m[i].picUrl,
             link: 'javascript:void(0);',
-            info: '一些图片描述文字'
+            info: m[i].title,
+            avatar: m[i].avatar,
+            userName: m[i].userName,
+            commentCount: m[i].commentCount,
+            height: m[i].height,
+            isVideo: m[i].isVideo
           })
         }
-        return arr
-      },
-      fetchImgsData() {
-        this.imgsArr = this.imgsArr.concat(this.fetchImgsArr)
+        return arr;
       }
     },
     created(){
-      this.imgsArr = this.initImgsArr(0, 10);
-      this.fetchImgsArr = this.initImgsArr(10, 20) // 模拟每次请求的新的图片的数据数据
-    },
-    mounted(){
-      window.localStorage.is = true;
-//      this.active_icon_num = this.apap_icon_num;
       this.get_http();
+//      window.localStorage.is = true;
+////      this.active_icon_num = this.apap_icon_num;
     },
   }
 </script>
@@ -401,23 +465,23 @@
     bottom: 0;
     overflow-x: scroll;
     -webkit-overflow-scrolling: touch;
-    /*padding-top: 0.1rem;*/
   }
 
   .vr_overflow {
-    width: 7.5rem;
+    white-space: nowrap;
     height: 0.75rem;
-    display: flex;
-    justify-content: space-around;
   }
 
   .vr_icon {
+    display: inline-block;
     text-align: center;
     font-family: PingFangSC-Regular;
     font-size: 0.2rem;
     color: #fff;
     line-height: 0.24rem;
-    margin: auto;
+    margin-top: 0.14rem;
+    margin-left: 0.3rem;
+    margin-right: 0.3rem;
   }
 
   .vr_icon span {
@@ -528,17 +592,19 @@
     line-height: 0.28rem;
   }
 
-  .queryClass {
-    margin-top: 0.2rem;
-    width: 7.5rem;
-    height: 2.97rem;
-    background: #FFFFFF;
+  .query_cla {
     overflow-x: scroll;
     -webkit-overflow-scrolling: touch;
     position: relative;
   }
 
-  .queryClass ::-webkit-scrollbar {
+  .queryClass {
+    margin-top: 0.2rem;
+    width: 7.5rem;
+    background: #FFFFFF;
+  }
+
+  .query_cla ::-webkit-scrollbar {
     display: none;
   }
 
@@ -548,31 +614,34 @@
     display: flex;
     display: -webkit-box;
     justify-content: center;
-    position: absolute;
+    /*position: absolute;*/
     padding-right: 0.15rem;
   }
 
   .swiper_icon {
     width: 3.3rem;
-    height: 1.55rem;
+    /*height: 1.55rem;*/
     border-radius: 0.05rem;
     margin: 0.2rem 0 0 0.15rem;
     position: relative;
-    background-repeat: no-repeat;
-    background-size: 100% auto;
-    background-position-y: -1.44rem;
   }
 
   .swiper_icon p {
+    position: absolute;
+    top: 0.5rem;
+    width: 100%;
     font-family: PingFangSC-Regular, "微软雅黑";
     font-size: 0.28rem;
     color: #FFFFFF;
     line-height: 0.28rem;
     text-align: center;
-    margin: 0.5rem 0 0.2rem 0;
   }
 
   .swiper_icon span {
+    position: absolute;
+    top: 1rem;
+    left: 50%;
+    margin-left: -0.6rem;
     width: 1.2rem;
     height: 0.3rem;
     font-family: PingFangSC-Regular, "微软雅黑";
@@ -583,7 +652,6 @@
     border: 0.01rem solid rgba(255, 255, 255, 0.66);
     border-radius: 1rem;
     display: block;
-    margin: auto;
   }
 
   .progress_title {
@@ -650,6 +718,44 @@
     font-size: 0.28rem;
     color: #212832;
     line-height: 0.28rem;
+  }
+
+  .g-montoring-num2 {
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+  }
+
+  .g-montoring-num2 p {
+    float: left;
+    font-family: PingFangSC-Medium;
+    font-size: 0.28rem;
+    line-height: 0.38rem;
+    text-align: left;
+  }
+
+  .g-montoring-num2 p {
+    color: #42464D;
+  }
+
+  .g-montoring-num2 i {
+    color: #FE751B;
+    text-align: center;
+    font-family: PingFangSC-Medium;
+    font-size: 0.28rem;
+  }
+
+  .g-montoring-num2 span {
+    float: right;
+    display: block;
+    width: 3rem;
+    height: 0.64rem;
+    text-align: center;
+    line-height: 0.64rem;
+    border: 2px solid #0080FF;
+    border-radius: 4px;
+    font-family: PingFangSC-Regular;
+    font-size: 0.28rem;
+    color: #0080FF;
   }
 
   .g-montoring-yes {
@@ -764,8 +870,8 @@
   }
 
   .g-dynamic-lis {
-    margin-left: 0.3rem;
-    padding-left: 0.3rem;
+    margin-left: 0.2rem;
+    padding-left: 0.19rem;
     border-left: 2px solid #63B1FF;
   }
 
@@ -800,7 +906,7 @@
     line-height: 0.4rem;
   }
 
-  .g-dynamic-li p:nth-child(1):before {
+  .g-dynamic-li p:nth-child(1) i {
     content: "";
     display: inline-block;
     width: 0.2rem;
@@ -808,7 +914,7 @@
     background: #0C8CFF;
     border-radius: 0.2rem;
     position: absolute;
-    left: -0.41rem;
+    left: -0.305rem;
     top: 0.05rem;
     z-index: 99;
   }
@@ -821,19 +927,53 @@
     background: #fff;
     border-radius: 0.3rem;
     position: absolute;
-    left: -0.46rem;
+    left: -0.36rem;
   }
 
-  .g-dynamic-li-be:before {
-    content: "";
-    display: inline-block;
-    width: 0.05rem;
-    height: 100%;
-    background: #fff;
-    border-radius: 0.3rem;
-    position: absolute;
-    left: -0.34rem;
-    bottom: 0;
+  .g-light-seek-but {
+    width: 6rem;
+    margin: auto;
+    padding-bottom: 0.2rem;
+    padding-top: 0.2rem;
+  }
+
+  .g-light-seek-but-hr {
+    float: right;
+  }
+
+  .g-light-seek-but-img {
+    float: left;
+    width: 2.2rem;
+    height: 1.67rem;
+  }
+
+  .g-light-seek-but-hr p:nth-child(1) {
+    font-family: PingFangSC-Medium;
+    font-size: 0.28rem;
+    color: #4D535D;
+    line-height: 0.28rem;
+  }
+
+  .g-light-seek-but-hr p:nth-child(2) {
+    margin-top: 0.16rem;
+    font-family: PingFangSC-Regular;
+    font-size: 0.24rem;
+    color: #7F8893;
+    line-height: 0.28rem;
+  }
+
+  .g-light-seek-but-hr span {
+    margin-top: 0.3rem;
+    display: block;
+    width: 2rem;
+    height: 0.6rem;
+    border: 2px solid #0080FF;
+    border-radius: 4px;
+    font-family: PingFangSC-Regular;
+    font-size: 0.28rem;
+    color: #0080FF;
+    line-height: 0.6rem;
+    text-align: center;
   }
 
   .g-light-seek {
@@ -841,6 +981,7 @@
     padding-left: 0.3rem;
     padding-right: 0.3rem;
     background: #fff;
+    margin: auto;
   }
 
   .g-light-seek-use-img {
@@ -850,13 +991,13 @@
     display: inline-block;
     width: 0.32rem;
     height: 0.32rem;
-    background: red;
     border-radius: 0.32rem;
     overflow: hidden;
   }
 
   .g-light-seek-use-img img {
     width: 100%;
+    height: 100%;
   }
 
   .g-light-seek-use {
@@ -905,6 +1046,34 @@
     font-size: 0.32rem;
     color: #0080FF;
   }
+
+  .op1, .op2 {
+    width: 3.3rem;
+    float: left;
+    margin-left: 0.15rem;
+  }
+
+  .op1 li, .op2 li {
+    margin-top: 0.15rem;
+  }
+
+  .op1 img, .op2 img {
+    width: 100%;
+  }
+
+  .op1_div {
+    position: relative;
+  }
+
+  .u-video-btn {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -0.2rem;
+    margin-top: -0.2rem;
+    width: 0.4rem;
+    height: 0.4rem;
+  }
 </style>
 <style>
   a:link {
@@ -927,21 +1096,14 @@
     text-decoration: none;
   }
 
-  .img-box {
-    position: static !important;
-  }
-
   .img-wraper {
     width: 3.3rem !important;
-    background: #fff !important;
+    height: auto !important;
   }
 
-  .vue-waterfall-easy {
-    clear: both;
-    float: left;
-  }
+  .img-wraper img {
+    width: 100% !important;
 
-  .img-inner-box {
-    box-shadow: none !important;
   }
 </style>
+

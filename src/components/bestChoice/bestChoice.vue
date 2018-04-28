@@ -35,26 +35,9 @@
          关注楼盘由正规开发商开发，其房屋规划、周边设施、建筑材料以及建设施工是否严格遵照建筑标准进行皆受到严格监控。关注楼盘拥有多个维度进行的数据建模分析结果，楼盘评价和分析及时准确，可为购房人提供详尽的信息。
         </div>
       </div>
-      <!--
-           <div class="bestChoiceBtn">
-        <img src="../../../static/OB/Button1_yxlp.png" alt="" @click="btnHander()">
-      </div>
-      -->
     </div>
   </div>
 </template>
-
-<script>
-  export default {
-    data(){
-      return {}
-    },
-    methods: {},
-    created(){
-//           this.$store.commit('threeLading');
-    }
-  }
-</script>
 
 <style scoped>
   .bestChoice {

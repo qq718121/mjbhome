@@ -188,24 +188,24 @@
     },
 
 
-    created(){
-      try {
-        parent.document.getElementsByClassName('headline')[0].style.display = 'none';
-        parent.document.querySelector('img').style.display = 'none';
-        if (parent.parent.localStorage.is == 'true') {
-          let commit = this.$store.commit;
-          commit('set_motai', '0');
-          commit('set_school_class', 'animated bounceIn');
-          commit('change_motai');
-          this.$store.commit('close_show');
-        } else {
-          return;
-        }
-      }
-      catch (e) {
-
-      }
-    },
+//    created(){
+//      try {
+//        parent.document.getElementsByClassName('headline')[0].style.display = 'none';
+//        parent.document.querySelector('img').style.display = 'none';
+//        if (parent.parent.localStorage.is == 'true') {
+//          let commit = this.$store.commit;
+//          commit('set_motai', '0');
+//          commit('set_school_class', 'animated bounceIn');
+//          commit('change_motai');
+//          this.$store.commit('close_show');
+//        } else {
+//          return;
+//        }
+//      }
+//      catch (e) {
+//
+//      }
+//    },
     mounted(){
       this.getData()
     },
@@ -215,7 +215,6 @@
         let _this = this
         this.$Axios.get(this.$url.httpRequest + 'peripheralSupporting/' + this.$route.params.id).then(function (res) {
           _this.data = JSON.parse(_this.$getDAesString(res, "yhgt!d%sd*aw%dSDSFSsa#mng~dsq"));
-          console.log(_this.data)
         }).catch(function (err) {
           console.log(err)
         })

@@ -7,8 +7,13 @@
     <div class="g-banner">
       <swiper :options="swiperOption" ref="mySwiper">
         <swiper-slide v-for="(item,index) in com_data.bannerList" :key="index">
-          <img class="g-ban-img" :src="item.picUrl" alt="">
-          <div style="width:100%;font-size: 0.3rem;text-align: center;color: #fff;position: absolute;bottom: 0;">
+          <div style="position: relative">
+            <img class="g-ban-img" :src="item.picUrl" alt="">
+            <div class="u-video-btn" v-if="isIcom">
+              <img style="width: 100%;" src="/static/icon_zanting_n@3x.png" alt="">
+            </div>
+          </div>
+          <div style="width:100%;font-size: 0.3rem;text-align: center;color: #fff;position: absolute;bottom: 0;"  v-if="!isIcom">
             <span>{{index + 1}}/{{com_data.bannerList.length}}</span>
           </div>
         </swiper-slide>
@@ -73,16 +78,14 @@
       return {
         load_text: '下载APP',
         com_data: {},
+        href_data: {},
+        isIcom: false,
         reply_data: {},
         fis: [],
         de_use_img: '/static/comment/touxiang_mig@2x.png',
         swiperOption: {//以下配置不懂的，可以去swiper官网看api，链接http://www.swiper.com.cn/api/
           // notNextTick是一个组件自有属性，如果notNextTick设置为true，组件则不会通过NextTick来实例化swiper，也就意味着你可以在第一时间获取到swiper对象，<br>　　　　　　　　假如你需要刚加载遍使用获取swiper对象来做什么事，那么这个属性一定要是true
           notNextTick: true,
-//          speed: 900,
-//          autoplay: {
-//            delay: 1000
-//          },
           direction: 'horizontal',
           stopOnLastSlide: true,
           autoHeight: true,
@@ -104,23 +107,35 @@
     methods: {
       getadd(){
         let this_ = this;
-        this.$Axios.get(this.$url.httpRequest + 'getContributionFallDetails/' + this.$route.params.id).then(function (res) {
+        this.$Axios.get(this.$url.httpRequest + 'getContributionFallDetails/' + this.$route.params.id + `/${this.$route.params.ids}`).then(function (res) {
           let data = JSON.parse(this_.$getDAesString(res, "yhgt!d%sd*aw%dSDSFSsa#mng~dsq"));
-
-          for (let i in data.response.data.bannerList) {
-            var imgs = document.createElement('img');
-            imgs.src = data.response.data.bannerList[i].picUrl;
-            imgs.className = 'proLoad';
-            if (i == 0) {
-              imgs.onload = function () {
-                this_.com_data = data.response.data;
-              };
+          if (!data.response.data.videoInfo) {
+            for (let i in data.response.data.bannerList) {
+              this_.href_data = data.response.data;
+              var imgs = document.createElement('img');
+              imgs.src = data.response.data.bannerList[i].picUrl;
+              imgs.className = 'proLoad';
+              if (i == 0) {
+                imgs.onload = function () {
+                  this_.com_data = data.response.data;
+                };
+              }
             }
+          } else {
+            var imgs = document.createElement('img');
+            imgs.src = data.response.data.videoInfo.videoPreImage;
+            imgs.className = 'proLoad';
+            imgs.onload = function () {
+              this_.com_data = data.response.data;
+              this_.com_data.bannerList[0].picUrl = data.response.data.videoInfo.videoPreImage;
+              this_.isIcom = true;
+            };
           }
+
         }).catch(function (err) {
           console.log(err);
         });
-        this_.$Axios.get(this_.$url.httpRequest + 'contributionComment/' + this_.$route.params.id).then(function (res) {
+        this_.$Axios.get(this_.$url.httpRequest + 'contributionComment/' + this_.$route.params.id + `/${this.$route.params.ids}`).then(function (res) {
           let data = JSON.parse(this_.$getDAesString(res, "yhgt!d%sd*aw%dSDSFSsa#mng~dsq"));
           this_.reply_data = data.response.data.commentList;
           this_.fis.push(this_.reply_data[0]);
@@ -140,26 +155,38 @@
       }),
 
       f_load(num, className){
-        if (Obshare.is_Weixin() || Obshare.is_WeiBo()) {
-          this.set_motai('1');
-          this.set_school_class(className);
-          this.change_motai();
+        if (Obshare.locaGet('regis') === false) {
+          this.$router.push({
+            path: '/register',
+            query: {
+              userId: this.$route.query.userId ? this.$route.query.userId : '',
+              path: this.$router.currentRoute.path,
+              regis: ''
+            }
+          });
         } else {
-          if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i) && navigator.userAgent.toLowerCase().match(/QQ/i) == "qq") {
-            this.set_motai('1');
-            this.set_school_class(className);
-            this.change_motai();
-          } else {
-            this.set_motai('0');
-            this.set_school_class(className);
-            this.change_motai();
-            this.set_dat_com('1');
-            this.set_data_comment({
-              propertyId: this.com_data.propertyId,
-              buidingName: this.com_data.buidingName,
-              contributionId: this.$route.params.id
-            });
-          }
+          window.location = this.$url.appDown;
+//          if (Obshare.is_Weixin() || Obshare.is_WeiBo()) {
+//            this.set_motai('1');
+//            this.set_school_class(className);
+//            this.change_motai();
+//          } else {
+//            if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i) && navigator.userAgent.toLowerCase().match(/QQ/i) == "qq") {
+//              this.set_motai('1');
+//              this.set_school_class(className);
+//              this.change_motai();
+//            } else {
+//              this.set_motai('0');
+//              this.set_school_class(className);
+//              this.change_motai();
+//              this.set_dat_com('1');
+//              this.set_data_comment({
+//                propertyId: this.href_data.propertyId,
+//                buidingName: this.href_data.buidingName,
+//                contributionId: this.$route.params.id
+//              });
+//            }
+
         }
       },
     }
@@ -428,6 +455,16 @@
     height: auto;
     max-width: 100%;
     max-height: 100%;
+  }
+
+  .u-video-btn {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -0.3rem;
+    margin-top: -0.3rem;
+    width: 0.6rem;
+    height: 0.6rem;
   }
 
   .el-carousel__indicators {

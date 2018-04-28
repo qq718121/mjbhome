@@ -149,11 +149,10 @@
         },
       }
     },
-
-    created(){
-      this.vr_loaclStorga();
-    },
-
+//
+//    created(){
+//      this.vr_loaclStorga();
+//    },
     mounted(){
       let this_ = this;
       this.$Axios.get(this.$url.httpRequest + 'planDesign/' + this.$route.params.id).then(function (res) {
@@ -166,29 +165,30 @@
         console.log(err);
       });
     },
-    methods: {
-      vr_loaclStorga(){
-        try {
-          let headline = parent.document.getElementsByClassName('headline')[0];
-          let img = parent.document.querySelector('img');
-          let is = parent.parent.localStorage.is;
-          headline.style.display = 'none';
-          img.style.display = 'none';
-          if (is == 'true') {
-            let commit = this.$store.commit;
-            commit('set_motai', '0');
-            commit('set_school_class', 'animated bounceIn');
-            commit('change_motai');
-            this.$store.commit('close_show');
-          } else {
-            return;
-          }
-        }
-        catch (e) {
-          return;
-        }
-      }
-    }
+//      **H5页是否从全景进入**
+//    methods: {
+////      vr_loaclStorga(){
+////        try {
+////          let headline = parent.document.getElementsByClassName('headline')[0];
+////          let img = parent.document.querySelector('img');
+////          let is = parent.parent.localStorage.is;
+////          headline.style.display = 'none';
+////          img.style.display = 'none';
+////          if (is == 'true') {
+////            let commit = this.$store.commit;
+////            commit('set_motai', '0');
+////            commit('set_school_class', 'animated bounceIn');
+////            commit('change_motai');
+////            this.$store.commit('close_show');
+////          } else {
+////            return;
+////          }
+////        }
+////        catch (e) {
+////          return;
+////        }
+////      }
+//    }
   }
 </script>
 <style>

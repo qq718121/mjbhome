@@ -132,7 +132,13 @@
   }
 </script>
 
-<style>
+<style scoped>
+
+  .consultDate {
+    width: 7.5rem;
+    margin: auto;
+    overflow: hidden;
+  }
 
   .consultDateTexts img {
     width: 100%;
@@ -209,6 +215,10 @@
     padding-left: 0.2rem;
     padding-right: 0.2rem;
     margin-right: 0.2rem;
+  }
+
+  .consultDateTexts p {
+    text-align: justify;
   }
 
   .consultDateTexts {

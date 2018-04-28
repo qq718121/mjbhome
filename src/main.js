@@ -6,18 +6,21 @@ import router from './router';
 import fastclick from 'fastclick';
 import setFontsize from './common/js/setFontsize';
 import Axios from 'axios';
-import weixin from './common/js/wx'
+import weixin from './common/js/weixin'
 import {
   Button,
-  Message,
+  Notification,
   Progress,
   Carousel,
-  Step,
-  Steps,
+  // Step,
+  // Steps,
   CarouselItem,
   Input,
   Checkbox,
-  CheckboxGroup
+  CheckboxGroup,
+  Dialog,
+  // Form,
+  // FormItem,
 } from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import {url} from './common/js/urlLocation';
@@ -26,6 +29,7 @@ import CryptoJS from 'crypto-js'
 import AMap from 'vue-amap';
 // import echarts from 'echarts';
 import {class_name_ftn} from './common/js/computed_class_name';
+// import $ from 'jquery'
 // Vue.prototype.$echarts = echarts;
 Vue.config.productionTip = false;
 fastclick.attach(document.body);
@@ -33,8 +37,9 @@ Vue.prototype.$Axios = Axios;
 // Vue.prototype.$map = AMap;
 Vue.prototype.$url = url;
 Vue.prototype.$store = store;
-Vue.prototype.$class_name_ftn = class_name_ftn;
 Vue.prototype.$weixin = weixin;
+Vue.prototype.$CryptoJS = CryptoJS;
+Vue.prototype.$class_name_ftn = class_name_ftn;
 Vue.prototype.$setDAesString = function (data, keys) {
   // let baseTen = res.data.slice(0,10);
   // let baseThree = res.data.slice(30,res.data.length);
@@ -79,27 +84,21 @@ Vue.prototype.$getDAesString = function (res, keys) {
   // 转换为 utf8 字符串
   return decrypted = CryptoJS.enc.Utf8.stringify(decrypted);
 };
-setFontsize();
 Vue.use(AMap);
 Vue.use(Button);
-// Vue.use(Message);
+// Vue.component(Notification);
 Vue.use(Progress);
 Vue.use(Carousel);
-Vue.use(Step);
-Vue.use(Steps);
+// Vue.use(Step);
+// Vue.use(Steps);
 Vue.use(Input);
 Vue.use(Checkbox);
 Vue.use(CheckboxGroup);
-
 Vue.use(CarouselItem);
-AMap.initAMapApiLoader({
-  // 高德的key
-  key: 'f2c01c78d13068664acd4d50762898a0',
-  // 插件集合
-  plugin: ['AMap.Autocomplete', 'AMap.PlaceSearch', 'AMap.Scale', 'AMap.OverView', 'AMap.ToolBar', 'AMap.MapType', 'AMap.PolyEditor', 'AMap.CircleEditor'],
-  // 高德 sdk 版本，默认为 1.4.4
-  v: '1.4.4'
-});
+Vue.use(Dialog);
+// Vue.use(Form);
+// Vue.use(FormItem);
+setFontsize();
 /* eslint-disable no-new */
 let vm = new Vue({
   el: '#app',

@@ -73,7 +73,7 @@
       <div>
         <el-carousel :interval="5000" arrow="always">
           <el-carousel-item v-for="(item,index) in key.programmePlanData.lunImg" :key="index">
-            <div class="lunDiv"><img :src="item.img" alt="">
+            <div class="lunDiv"><img style="width: 100%;height: 100%;" :src="item.img" alt="">
               <div class="lunModule"><span>{{item.text}}</span><span>{{index + 1}}/{{key.programmePlanData.lunImg.length}}</span>
               </div>
             </div>
@@ -204,9 +204,7 @@
         }
       }
     },
-    created(){
 
-    },
     mounted(){
       let this_ = this;
       //this.$url.httpRequest+'quality/'+this.$route.params.id

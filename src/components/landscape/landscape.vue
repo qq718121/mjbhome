@@ -223,24 +223,24 @@
         other_city: [],
       }
     },
-    created(){
-      try {
-        parent.document.getElementsByClassName('headline')[0].style.display = 'none';
-        parent.document.querySelector('img').style.display = 'none';
-        if (parent.parent.localStorage.is == 'true') {
-          let commit = this.$store.commit;
-          commit('set_motai', '0');
-          commit('set_school_class', 'animated bounceIn');
-          commit('change_motai');
-          this.$store.commit('close_show');
-        } else {
-          return;
-        }
-      }
-      catch (e) {
-
-      }
-    },
+//    created(){
+//      try {
+//        parent.document.getElementsByClassName('headline')[0].style.display = 'none';
+//        parent.document.querySelector('img').style.display = 'none';
+//        if (parent.parent.localStorage.is == 'true') {
+//          let commit = this.$store.commit;
+//          commit('set_motai', '0');
+//          commit('set_school_class', 'animated bounceIn');
+//          commit('change_motai');
+//          this.$store.commit('close_show');
+//        } else {
+//          return;
+//        }
+//      }
+//      catch (e) {
+//
+//      }
+//    },
     mounted(){
       let this_ = this;
       this.$Axios.get(this.$url.httpRequest + 'buidingScenery/' + this.$route.params.id).then(function (res) {

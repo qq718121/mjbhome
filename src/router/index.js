@@ -221,7 +221,21 @@ const Liability = function (resolve) {
     resolve(require('@/components/liability/liability'))
   })
 };
-
+const Register = function (resolve) {
+  require.ensure([], function () {
+    resolve(require('@/components/common/register'))
+  })
+};
+const Login = function (resolve) {
+  require.ensure([], function () {
+    resolve(require('@/components/login/login'))
+  })
+};
+const LoginDown = function (resolve) {
+  require.ensure([], function () {
+    resolve(require('@/components/login/logindown'))
+  })
+};
 //配置路由路径
 export default new Router({
   //历史模式，可以划掉路径里边得‘/#/’字符
@@ -299,7 +313,7 @@ export default new Router({
 
     //严选楼盘分享
     {
-      path: '/obshare/:id',
+      path: '/obshare/:id/:ids',
       name: 'obshare',
       component: ObShare
     },
@@ -422,7 +436,7 @@ export default new Router({
       component: ViewExample
     },
     {
-      path: '/obsharecomment/:id',
+      path: '/obsharecomment/:id/:ids',
       name: 'obsharecomment',
       component: obshareComment
     },
@@ -435,6 +449,21 @@ export default new Router({
       path: '/liability',
       name: 'liability',
       component: Liability
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: Register
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login
+    },
+    {
+      path: '/logindown',
+      name: 'logindown',
+      component: LoginDown
     }
     // { path: '*', component: NotFoundComponent },
   ]

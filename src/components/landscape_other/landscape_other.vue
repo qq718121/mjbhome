@@ -61,7 +61,6 @@
       this.$Axios.get(this.$url.httpRequest + 'buidingSceneryDetail/' + this.$route.params.id).then((res) => {
         let data = JSON.parse(this_.$getDAesString(res, "yhgt!d%sd*aw%dSDSFSsa#mng~dsq"));
         this.landscape_data = data.response.data;
-        console.log(data.response.data);
         let arr = this.landscape_data.landscape_other_list;
         this.other_list = arr;
         this.over_if = true;
