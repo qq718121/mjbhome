@@ -236,6 +236,26 @@ const LoginDown = function (resolve) {
     resolve(require('@/components/login/logindown'))
   })
 };
+const AnimateInput = function (resolve) {
+  require.ensure([], function () {
+    resolve(require('@/components/animateInput/animateInput'))
+  })
+};
+const AnimateInputOut = function (resolve) {
+  require.ensure([], function () {
+    resolve(require('@/components/animateInput/animateInputOut'))
+  })
+};
+const AnimateInputOver = function (resolve) {
+  require.ensure([], function () {
+    resolve(require('@/components/animateInput/animateInputOver'))
+  })
+};
+const AnimateInputLogin = function (resolve) {
+  require.ensure([], function () {
+    resolve(require('@/components/animateInput/animateInputLogin'))
+  })
+};
 //配置路由路径
 export default new Router({
   //历史模式，可以划掉路径里边得‘/#/’字符
@@ -464,6 +484,26 @@ export default new Router({
       path: '/logindown',
       name: 'logindown',
       component: LoginDown
+    },
+    {
+      path: '/animateInput',
+      name: 'animateInput',
+      component: AnimateInput
+    },
+    {
+      path: '/animateInputOut',
+      name: 'animateInputOut',
+      component: AnimateInputOut
+    },
+    {
+      path: '/animateInputOver',
+      name: 'animateInputOver',
+      component: AnimateInputOver
+    },
+      {
+      path: '/animateInputLogin',
+      name: 'animateInputLogin',
+      component: AnimateInputLogin
     }
     // { path: '*', component: NotFoundComponent },
   ]
