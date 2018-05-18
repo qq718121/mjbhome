@@ -5,7 +5,6 @@
       <div class="moban_s"></div>
       <div class="moban_" @touchmove.prevent
            v-if='this.$store.state.school_class'>
-        <div class="hint animated bounceInDown" v-if="hintIs">{{codeText}}</div>
         <div :class="['centers',this.$store.state.school_class]" v-if="this.$store.state.motai_num == '0' ">
           <div class='loadText'><p>{{loadTexts}}</p>
             <p>更多楼盘质量数据尽在鹰眼鉴房</p><a
@@ -29,37 +28,6 @@
             </div>
           </div>
         </div>
-        <div
-          :class="['login-centers',this.$store.state.school_class]"
-          style="position: relative"
-          v-if="this.$store.state.motai_num == '3' && !isCodeSucc"
-        >
-          <div class="g-down-ipt">
-            <el-input v-model="code"
-                      placeholder="输入验证码"
-                      type="number"
-                      @input="inputCode"
-                      clearable
-            >
-            </el-input>
-          </div>
-          <div class="g-set" v-if="setCode">重新发送验证码&nbsp;{{codeTextTime}}</div>
-          <div class="g-set" style="background: #2E97FF" @click="anewSetCode" v-else>重新发送验证码</div>
-          <div class="g-sub" v-if="subCode">提交验证码</div>
-          <div class="g-sub" style="background: #2E97FF" v-else @click="submitCode">提交验证码</div>
-        </div>
-        <div
-          :class="['login-centers',this.$store.state.school_class]"
-          v-if="this.$store.state.motai_num == '3' && isCodeSucc"
-        >
-          <div class="g-suc">
-            <div class="u-suc-tit"><img src="http://oxrgdeqd8.bkt.clouddn.com/icon_chenggong@3x.png" alt=""></div>
-          </div>
-          <div class="g-suc-ine">
-            <p>成功加入鹰眼鉴房</p>
-            <p>{{pathNum}}后自动跳转</p>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -68,29 +36,14 @@
 <script>
   import {mapState, mapMutations} from 'vuex'
   import Obshare from '../../common/js/obshare'
-  import qs from 'qs'
   export default {
     data(){
       return {
         animated_six: '',
-        codeText: '',
         URL_Scheme: '',
         loadTexts: '下载APP查看详情',
-        loadHrefs: '在APP内查看',
-        code: '',
-        hintIs: false,
-        subCode: true,
-        pathNum: '3s',
-        codeTextTime: '59s',
-        isCodeSucc: false,
-        setCode: true
+        loadHrefs: '在APP内查看'
       }
-    },
-    mounted(){
-      if (this.$store.state.motai_num == '3') {
-        this.codeTime();
-      }
-      return;
     },
     methods: {
       ...mapMutations({
@@ -112,128 +65,8 @@
         this.openApp();
         this.cloce();
       },
-      hint_is(text){
-        this.codeText = text;
-        this.hintIs = true;
-        setTimeout(() => {
-          this.hintIs = false;
-        }, 2000)
-      },
-      des(str){
-        var timestamp = this.$setDAesString(new Date().getTime().toString(), "yhgt!d%sd*aw%dSDSFSsa#mng~dsq").slice(0, 20);
-        var data = this.$setDAesString(str, "yhgt!d%sd*aw%dSDSFSsa#mng~dsq");
-        var tata = data.slice(0, 10);
-        var tata1 = data.slice(10, data.length);
-        var data1 = tata + timestamp + tata1;
-        return data1;
-      },
-      loadHandler(){
-        var url = this.$url.httpRequestse + 'user/captcha';
-        var datas = window.sessionStorage.getItem('codes');
-        this.$Axios.post(url, datas, {
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
-          }
-        }).then((response) => {
-          var res = {data: response.data};
-          var data = this.$getDAesString(res, "yhgt!d%sd*aw%dSDSFSsa#mng~dsq");
-          var resp = JSON.parse(data);
-          if (resp.response.message == 'success') {
-            this.hint_is('验证码已发送');
-          } else {
-            this.hint_is(resp.response.message);
-          }
-        }).catch((error) => {
-          this.hint_is('获取验证码失败，请重试');
-        });
-      },
       surveyDown(){
         window.location = this.$url.appDown;
-      },
-      //重新发送验证码
-      anewSetCode(){
-        this.codeTime();
-        this.loadHandler();
-      },
-      //输入验证码
-      inputCode(val){
-        if (val) {
-          this.subCode = false;
-        }
-      },
-      record(){
-        var d = {body: {}}, datas = null, iph = /(iPhone|iPod|iPad);?/i,state=this.$route.query,
-          url = '';
-        if (navigator.userAgent.match(iph)) {
-          url = this.$url.httpRequests + 'backstageUser/download/' + state.ut + '/' + state.ui + '/2';
-        } else {
-          url = this.$url.httpRequests + 'backstageUser/download/' + state.ut + '/' + state.ui + '/1';
-        }
-        datas = qs.stringify({d: JSON.stringify(d)});
-        this.$Axios.post(url, datas, {
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
-          }
-        }).then((response) => {
-          console.log(response);
-        }).catch((error) => {
-          console.log(error);
-        });
-      },
-      //提交验证码
-      submitCode(){
-        var d = {body: {}}, datas = null,
-          url = this.$url.httpRequestse + 'user/quickLogin';
-        d.body.userPhone = window.sessionStorage.getItem('phones');
-        d.body.smsCode = this.code;
-        var res = {
-          data: this.des(JSON.stringify(d))
-        };
-        datas = qs.stringify({d: this.des(JSON.stringify(d))});
-        this.$Axios.post(url, datas, {
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
-          }
-        }).then((response) => {
-          var res = {data: response.data};
-          var data = this.$getDAesString(res, "yhgt!d%sd*aw%dSDSFSsa#mng~dsq");
-          var resp = JSON.parse(data);
-          if (resp.response.status == '0') {
-            this.record();
-            this.isCodeSucc = true;
-            this.pathNumTime();
-          } else {
-            this.hint_is(resp.response.message);
-          }
-        }).catch((error) => {
-          console.log(error);
-        });
-      },
-      pathNumTime(){
-        let num = 3;
-        let id = setInterval(() => {
-          num--;
-          this.pathNum = num + 's';
-          if (num == 0) {
-            clearInterval(id);
-            this.cloce();
-            this.$router.push({
-              path: '/logindown'
-            });
-          }
-        }, 1000)
-      },
-      codeTime(){
-        this.setCode = true;
-        let num = 60;
-        let id = setInterval(() => {
-          num--;
-          this.codeTextTime = num + 's';
-          if (num == 0) {
-            this.setCode = false;
-            clearInterval(id);
-          }
-        }, 1000)
       },
       openApp(){
         var iphoneSchema = '',
@@ -423,98 +256,5 @@
     line-height: 0.64rem;
   }
 
-  .login-centers {
-    width: 5.8rem;
-    height: 4.06rem;
-    background: #fff;
-    border-radius: 0.08rem;
-  }
-
-  .g-down-ipt {
-    width: 4.82rem;
-    margin: 0.7rem auto 0;
-  }
-
-  .g-set {
-    background: #C8CED5;
-    border-radius: 2rem;
-    width: 2.9rem;
-    height: 0.6rem;
-    color: #fff;
-    text-align: center;
-    line-height: 0.6rem;
-    margin: 0.4rem auto 0;
-  }
-
-  .g-sub {
-    width: 100%;
-    height: 0.88rem;
-    position: absolute;
-    bottom: 0;
-    background: #8B949E;
-    border-radius: 0 0 0.08rem 0.08rem;
-    text-align: center;
-    line-height: 0.88rem;
-    color: #fff;
-  }
-
-  .g-suc {
-    margin-top: 1.07rem;
-  }
-
-  .u-suc-tit img {
-    width: 100%;
-  }
-
-  .u-suc-tit {
-    width: 0.6rem;
-    height: 0.6rem;
-    margin: auto;
-  }
-
-  .g-suc-ine p:nth-child(1) {
-    margin-top: 0.33rem;
-    font-family: PingFangSC-Light;
-    font-size: 0.32rem;
-    color: #212832;
-    line-height: 0.32rem;
-    text-align: center;
-  }
-
-  .g-suc-ine p:nth-child(2) {
-    margin-top: 0.2rem;
-    font-family: PingFangSC-Light;
-    font-size: 0.24rem;
-    color: #8B949E;
-    line-height: 0.24rem;
-    text-align: center;
-  }
-
-  .hint {
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    margin-left: -1.52rem;
-    margin-top: -0.47rem;
-    width: 3.04rem;
-    height: 0.94rem;
-    background: rgba(0, 0, 0, 0.78);
-    border-radius: 0.08rem;
-    text-align: center;
-    color: #fff;
-    line-height: 0.94rem;
-    z-index: 9999999;
-  }
-</style>
-<style>
-  .g-down-ipt .el-input .el-input__inner {
-    height: 0.88rem !important;
-    font-family: PingFangSC-Light;
-    font-size: 0.28rem;
-    color: #212832;
-    border: none !important;
-    text-align: center;
-    background: #F8F8F8;
-  }
 </style>
 
