@@ -67,7 +67,7 @@
         <div class="u-check-ul">
           <el-checkbox-group v-model="form.checkList1">
             <ul>
-              <li v-for="(city,index) in cities1">
+              <li v-for="(city,index) in cities1" :key="index">
                 <el-checkbox :label="index" :key="index">{{city}}</el-checkbox>
               </li>
             </ul>
@@ -96,7 +96,7 @@
         <div class="u-check-ul">
           <el-checkbox-group v-model="form.checkList2">
             <ul>
-              <li v-for="(city,index) in cities2">
+              <li v-for="(city,index) in cities2" :key="index">
                 <el-checkbox :label="index" :key="index">{{city}}</el-checkbox>
               </li>
             </ul>
@@ -125,7 +125,7 @@
         <div class="u-check-ul">
           <el-checkbox-group v-model="form.checkList3">
             <ul>
-              <li v-for="(city,index) in cities3">
+              <li v-for="(city,index) in cities3" :key="index">
                 <el-checkbox :label="index" :key="index">{{city}}</el-checkbox>
               </li>
             </ul>
@@ -182,7 +182,6 @@
       <p style="color: #fff;text-align: center">提交</p>
     </div>
     <div class="g-dislog">
-
       <transition name="el-fade-in-linear">
         <div class="transition-box sur_moban_" v-show="show" @touchmove.prevent @click="close"></div>
       </transition>
@@ -205,18 +204,17 @@
           <div class="g-city clearfix">
             <div class="g-city1" v-if="is_city_one">
               <ul style="padding-bottom: 0.5rem">
-                <li v-for="(val,key) in one_city" @click="f_check_one_city(key)">{{val}}</li>
+                <li v-for="(val,key) in one_city" @click="f_check_one_city(key)" :key="key">{{val}}</li>
               </ul>
             </div>
             <div class="g-city2" v-if="is_city_two">
               <ul>
-                <li v-for="(val,key) in two_city" @click="f_check_two_city(key)">{{val}}</li>
+                <li v-for="(val,key) in two_city" @click="f_check_two_city(key)" :key="key">{{val}}</li>
               </ul>
             </div>
           </div>
         </div>
       </transition>
-
     </div>
   </div>
 </template>
@@ -277,7 +275,7 @@
     },
     created(){
       let CODE;
-      const URL = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx18049c5f688a24ef&redirect_uri=http%3A%2F%2Fback.homehawkeye.com%2Fmaijiabangbackstate-1.0-SNAPSHOT%2Fauthorization&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect';
+      const URL = this.$url.s_wx_login;
       document.body.id = 'survey';
       if (!this.$route.query.userId) {
 //        CODE = this.f_getParam().userId;

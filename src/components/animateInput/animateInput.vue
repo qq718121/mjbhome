@@ -16,26 +16,41 @@
     data(){
       return {}
     },
+    created(){
+      this.openWX();
+    },
     methods: {
       tryIn(){
         this.$router.push({
           path: '/animateInputOut'
         });
-      }
+      },
+      //微信授权验证
+      openWX(){
+        let CODE;
+        const URL = this.$url.m_wx_login;
+        if (!this.$route.query.userId) {
+//        CODE = this.f_getParam().userId;
+          window.location = URL;
+        } else {
+          CODE = this.$route.query.userId;
+        }
+      },
     }
   }
 </script>
 <style scoped>
-  body{
+  body {
     height: 100%;
   }
+
   .animateInput {
     position: relative;
     width: 7.5rem;
     margin: auto;
     overflow: hidden;
     background: #2c75e9;
-    height: 100vh;
+    /*height: 100vh;*/
   }
 
   .g-tit-img img, .g-m img, .g-bg img {
@@ -44,7 +59,7 @@
 
   .g-tit-img {
     position: relative;
-    margin: 0.3rem auto 0;
+    margin: 0.6rem auto 0;
     width: 6.2rem;
     height: 2.08rem;
   }

@@ -3,7 +3,7 @@
     <div class="g-tit">关注“鹰眼鉴房”官方微信获取更多信息</div>
     <div id="test-target1" class="g-ine">
       <p v-if="zi">长按保存图片分享至朋友圈</p>
-      <span v-if="zi">{{$route.query.name}}</span>
+      <span v-if="names">{{$route.query.name}}</span>
       <img :src="codeImg" alt="">
       <div class="g-code">
         <img :src="this.$url.codePhoto" alt="">
@@ -32,7 +32,8 @@
         ],
         ids: 'test-target1',
         codeImg: '',
-        zi: false
+        zi: false,
+        names:true
       }
     },
     mounted(){
@@ -63,6 +64,7 @@
           this.codeImg = dataUrl;
           setTimeout(() => {
             this.zi = true;
+            this.names = false;
           }, 200)
         });
       },

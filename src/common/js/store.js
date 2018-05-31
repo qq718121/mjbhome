@@ -21,7 +21,115 @@ const store = new Vuex.Store({
     //质量寻光分享类别
     dat_com: {},
     //  质量寻光分享类别
-    data_comment: {}
+    data_comment: {},
+    //验房工具数据缓存
+    form0: {
+      radio1: null,
+      text1: '',
+      radio2: null,
+      text2: '',
+      radio3: null,
+      text3: ''
+    },
+    form1: {
+      radio1: null,
+      text1: '',
+      radio2: null,
+      text2: '',
+      radio3: null,
+      text3: ''
+    },
+    form2: {
+      radio1: null,
+      text1: '',
+      radio2: null,
+      text2: '',
+      radio3: null,
+      text3: '',
+      radio4: null,
+      text4: ''
+    },
+    form3: {
+      radio1: null,
+      text1: '',
+      radio2: null,
+      text2: '',
+      radio3: null,
+      text3: ''
+    },
+    form4: {
+      radio1: null,
+      text1: '',
+      radio2: null,
+      text2: '',
+      radio3: null,
+      text3: '',
+      radio4: null,
+      text4: '',
+      radio5: null,
+      text5: '',
+      radio6: null,
+      text6: ''
+    },
+    form5: {
+      radio1: null,
+      text1: '',
+      radio2: null,
+      text2: '',
+      radio3: null,
+      text3: ''
+    },
+    form6: {
+      radio1: null,
+      text1: '',
+      radio2: null,
+      text2: '',
+      radio3: null,
+      text3: '',
+      radio4: null,
+      text4: '',
+      radio5: null,
+      text5: ''
+    },
+    form7: {
+      radio1: null,
+      text1: '',
+      radio2: null,
+      text2: '',
+      radio3: null,
+      text3: '',
+      radio4: null,
+      text4: '',
+      radio5: null,
+      text5: '',
+      radio6: null,
+      text6: ''
+    },
+    form8: {
+      radio1: null,
+      text1: '',
+      radio2: null,
+      text2: '',
+      radio3: null,
+      text3: '',
+      radio4: null,
+      text4: ''
+    },
+    form9: {
+      radio1: null,
+      text1: '',
+      radio2: null,
+      text2: '',
+      radio3: null,
+      text3: ''
+    },
+    form10: {
+      radio1: null,
+      radio2: null,
+      radio3: null,
+      radio4: null
+    },
+    // atOnceOver: null
   },
   mutations: {
     //3秒真男人
@@ -58,10 +166,30 @@ const store = new Vuex.Store({
     set_dat_com(state, data){
       state.dat_com = data;
     },
-    set_data_comment(state,data){
+    set_data_comment(state, data){
       state.data_comment = data;
-    }
+    },
+    //初始化验房工具数据
+    set_init_form(state){
+      for (let i = 0; i < 11; i++) {
+        for (let j = 1; j < 7; j++) {
+          if (typeof state[`form${i}`][`radio${j}`] == 'number') {
+            state[`form${i}`][`radio${j}`] = null;
+          }
+          if (state[`form${i}`][`text${j}`]) {
+            state[`form${i}`][`text${j}`] = '';
+          }
+        }
+      }
+    },
+    //记录验房结果
+    // ATONCEOVR(state, data){
+    //   state.atOnceOver = data;
+    // }
   },
+  // actions: {
+
+  // }
 
 });
 export default store;

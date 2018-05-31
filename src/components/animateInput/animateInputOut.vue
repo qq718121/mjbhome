@@ -79,12 +79,12 @@
             text2: "下面哪项是错误的？",
             ine: [
               {
-                te: '取1-2个点测量过度确认是否存在倾斜',
+                te: '取1-2个点测量平整度确认是否存在倾斜',
                 check: 'g-check',
                 ch: 'A'
               },
               {
-                te: '拿长尺靠近墙壁，检查墙面有无倾斜',
+                te: '拿垂直检测尺靠近墙壁，检查墙面有无倾斜',
                 check: 'g-check',
                 ch: 'B'
               },
@@ -145,7 +145,7 @@
             text2: "下面哪项错误？",
             ine: [
               {
-                te: '开放商要求先签字再验收，那就先签字吧！',
+                te: '开发商要求先签字再验收，那就先签字吧！',
                 check: 'g-check',
                 ch: 'A'
               },
@@ -234,7 +234,7 @@
     margin: auto;
     overflow: hidden;
     background: #2c75e9;
-    height: 100vh;
+    /*height: 100vh;*/
   }
 
   .g-bg-big {
@@ -258,7 +258,7 @@
 
   .g-tit {
     position: relative;
-    margin: 0.5rem auto 0.25rem;
+    margin: 0.85rem auto 0.25rem;
     width: 6.3rem;
     height: 3.74rem;
     background-image: url('http://oxrgdeqd8.bkt.clouddn.com/chuanghu.png');

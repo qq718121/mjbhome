@@ -15,6 +15,7 @@
   "dependencies": {
     "axios": "^0.16.2",
     "crypto-js": "^3.1.9-1",
+    "html2canvas": "~1.0.0-alpha.12",
     "echarts": "^3.7.2",
     "fastclick": "^1.0.6",
     "js-base64": "^2.3.2",
@@ -27,7 +28,7 @@
     "vue-router": "^3.0.1",
     "vuex": "^3.0.0",
     "weixin-js-sdk": "^1.3.2",
-    "jquery" : "^2.2.3"
+    "jquery": "^2.2.3"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
@@ -57,6 +58,7 @@
     "html-webpack-plugin": "^2.30.1",
     "jest": "^22.0.4",
     "jest-serializer-vue": "^0.3.0",
+    "nativeshare": "^2.1.3",
     "nightwatch": "^0.9.12",
     "node-notifier": "^5.1.2",
     "node-sass": "^4.8.3",

@@ -2,7 +2,7 @@
   <div class="register">
     <div class="register_is">
       <div class="hint animated bounceInDown" v-if="hintIs">{{codeText}}</div>
-      <p class="u-tit">注册登陆后可查看</p>
+      <p class="u-tit">登陆后可查看</p>
       <div class="from">
         <div class="iphone">
           <div class="u-input-bg">
@@ -24,20 +24,20 @@
                       placeholder="请输入验证码"></el-input>
           </div>
         </div>
-        <div class="u-pass">
-          <div class="u-input-bg">
-            <span>
-            <img src="/static/zc/icon_password@3x.png" alt="">
-          </span>
-            <el-input :type="passwor" style="width: 2.6rem;margin: auto;margin-left: 0" v-model="registerFrom.pass"
-                      placeholder="请输入密码"></el-input>
-            <span style="color: #0080FF;width: 0.6rem;" @click="passImgHandler">
-              <img style="width: 100%;" v-if="passImg" src="/static/zc/icon_display@3x.png" alt="">
-              <img style="width: 100%;" v-if="!passImg" src="/static/zc/icon_hide@3x.png" alt="">
-            </span>
-          </div>
-        </div>
-        <div class="u-sub" @click="submit">立即注册</div>
+        <!--<div class="u-pass">-->
+        <!--<div class="u-input-bg">-->
+        <!--<span>-->
+        <!--<img src="/static/zc/icon_password@3x.png" alt="">-->
+        <!--</span>-->
+        <!--<el-input :type="passwor" style="width: 2.6rem;margin: auto;margin-left: 0" v-model="registerFrom.pass"-->
+        <!--placeholder="请输入密码"></el-input>-->
+        <!--<span style="color: #0080FF;width: 0.6rem;" @click="passImgHandler">-->
+        <!--<img style="width: 100%;" v-if="passImg" src="/static/zc/icon_display@3x.png" alt="">-->
+        <!--<img style="width: 100%;" v-if="!passImg" src="/static/zc/icon_hide@3x.png" alt="">-->
+        <!--</span>-->
+        <!--</div>-->
+        <!--</div>-->
+        <div class="u-sub" @click="submit">快捷注册／快捷登陆</div>
       </div>
     </div>
   </div>
@@ -92,15 +92,15 @@
           this.hint_is('请填写正确的验证码');
           return;
         }
-        if (this.registerFrom.pass == '') {
-          this.hint_is('请填写密码');
-          return;
-        }
+//        if (this.registerFrom.pass == '') {
+//          this.hint_is('请填写密码');
+//          return;
+//        }
         var d = {body: {}}, datas = null,
-          url = this.$url.httpRequestse + 'user/regist';
+          url = this.$url.httpRequestse + 'user/quickLogin';
         d.body.userPhone = this.registerFrom.phone;
         d.body.smsCode = this.registerFrom.code;
-        d.body.userPwd = this.$CryptoJS.MD5(this.registerFrom.pass).toString();
+//        d.body.userPwd = this.$CryptoJS.MD5(this.registerFrom.pass).toString();
         d.body.userId = this.$route.query.userId ? this.$route.query.userId : '';
         datas = qs.stringify({d: this.des(JSON.stringify(d))});
 
@@ -118,7 +118,9 @@
               data: this.des(JSON.stringify(d))
             };
             if (resp.response.message == 'success') {
-              this.hint_is("注册成功");
+//              window.sessionStorage.setItem('token', resp.response.data.token);
+              Obshare.localPut('token', resp.response.data.token, 259200);
+              this.hint_is("登陆成功");
             } else {
               this.hint_is(resp.response.message);
             }
@@ -136,10 +138,9 @@
           }
         }).catch((error) => {
           console.log(error);
-          this.hint_is('注册失败，请重试');
+          this.hint_is('登陆失败，请重试');
         });
       },
-
       des(str){
         var timestamp = this.$setDAesString(new Date().getTime().toString(), "yhgt!d%sd*aw%dSDSFSsa#mng~dsq").slice(0, 20);
         var data = this.$setDAesString(str, "yhgt!d%sd*aw%dSDSFSsa#mng~dsq");

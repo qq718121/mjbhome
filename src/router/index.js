@@ -231,6 +231,85 @@ const Login = function (resolve) {
     resolve(require('@/components/login/login'))
   })
 };
+const LoginDown = function (resolve) {
+  require.ensure([], function () {
+    resolve(require('@/components/login/logindown'))
+  })
+};
+const AnimateInput = function (resolve) {
+  require.ensure([], function () {
+    resolve(require('@/components/animateInput/animateInput'))
+  })
+};
+const AnimateInputOut = function (resolve) {
+  require.ensure([], function () {
+    resolve(require('@/components/animateInput/animateInputOut'))
+  })
+};
+const AnimateInputOver = function (resolve) {
+  require.ensure([], function () {
+    resolve(require('@/components/animateInput/animateInputOver'))
+  })
+};
+const AnimateInputLogin = function (resolve) {
+  require.ensure([], function () {
+    resolve(require('@/components/animateInput/animateInputLogin'))
+  })
+};
+const CheckRoomTool = function (resolve) {
+  require.ensure([], function () {
+    resolve(require('@/components/checkRoomTool/checkRoomTool'))
+  })
+};
+const GetToolBox = function (resolve) {
+  require.ensure([], function () {
+    resolve(require('@/components/checkRoomTool/getToolBox'))
+  })
+};
+const IntroduceBox = function (resolve) {
+  require.ensure([], function () {
+    resolve(require('@/components/checkRoomTool/introduceBox'))
+  })
+};
+const AtOnceHome = function (resolve) {
+  require.ensure([], function () {
+    resolve(require('@/components/checkRoomTool/atOnceHome'))
+  })
+};
+const AllList = function (resolve) {
+  require.ensure([], function () {
+    resolve(require('@/components/checkRoomTool/allList'))
+  })
+};
+const TestMethod = function (resolve) {
+  require.ensure([], function () {
+    resolve(require('@/components/checkRoomTool/testMethod'))
+  })
+};
+const TestOver = function (resolve) {
+  require.ensure([], function () {
+    resolve(require('@/components/checkRoomTool/testOver'))
+  })
+};
+//验房工具-我的验房结果
+const CheckRoomRecord = function (resolve) {
+  require.ensure([], function () {
+    resolve(require('@/components/checkRoomTool/checkRoomRecord'))
+  })
+};
+//业主调查神器
+const Artifact = function (resolve) {
+  require.ensure([], function () {
+    resolve(require('@/components/artifact/artifact'))
+  })
+};
+//验房结果详情页
+const CheckRoomOver = function (resolve) {
+  require.ensure([], function () {
+    resolve(require('@/components/checkRoomTool/checkRoomOver'))
+  })
+}
+
 //配置路由路径
 export default new Router({
   //历史模式，可以划掉路径里边得‘/#/’字符
@@ -454,10 +533,86 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: Login
+    },
+    {
+      path: '/logindown',
+      name: 'logindown',
+      component: LoginDown
+    },
+    {
+      path: '/animateInput',
+      name: 'animateInput',
+      component: AnimateInput
+    },
+    {
+      path: '/animateInputOut',
+      name: 'animateInputOut',
+      component: AnimateInputOut
+    },
+    {
+      path: '/animateInputOver',
+      name: 'animateInputOver',
+      component: AnimateInputOver
+    },
+    {
+      path: '/animateInputLogin',
+      name: 'animateInputLogin',
+      component: AnimateInputLogin
+    },
+    {
+      path: '/checkRoomTool',
+      name: 'checkRoomTool',
+      component: CheckRoomTool
+    },
+    {
+      path: '/getToolBox',
+      name: 'getToolBox',
+      component: GetToolBox
+    },
+    {
+      path: '/introduceBox',
+      name: 'introduceBox',
+      component: IntroduceBox
+    },
+    {
+      path: '/atOnceHome',
+      name: 'atOnceHome',
+      component: AtOnceHome
+    },
+    {
+      path: '/allList',
+      name: 'allList',
+      component: AllList
+    },
+    //验房方法
+    {
+      path: '/testMethod',
+      name: 'testMethod',
+      component: TestMethod
+    },
+    //严防工具提交验房结果也
+    {
+      path: '/testOver',
+      name: 'testOver',
+      component: TestOver
+    },
+    {
+      path: '/artifact',
+      name: 'artifact',
+      component: Artifact
+    },
+    //验房工具-我的验房结果
+    {
+      path: '/checkRoomRecord',
+      name: 'checkRoomRecord',
+      component: CheckRoomRecord
+    },
+    //验房结果详情页
+    {
+      path: '/checkRoomOver',
+      name: 'checkRoomOver',
+      component: CheckRoomOver
     }
     // { path: '*', component: NotFoundComponent },
   ]
 })
-
-
-

@@ -4,25 +4,15 @@
 import Vue from 'vue';
 
 export default Vue.directive('scroll', {
-
-  bind: function (el, binding) {
-
-    window.addEventListener('scroll', () => {
-      let scr_top = parseInt(document.body.scrollTop) || parseInt(document.documentElement.scrollTop);
-      let inner_height = parseInt(window.innerHeight);
-      let cl_height = parseInt(el.clientHeight);
-      if (scr_top + inner_height+1 >= cl_height) {
-        let fnc = binding.value;
-        if (!fnc.a) {
-          setTimeout(function () {
-             fnc.b();
-          },1000);
-
-        } else {
-          console.log(scr_top + inner_height > cl_height);
-        }
-      }
-    })
+  inserted: function (el, binding) {
+    binding.value();
+    if (window.addEventListener) {
+      window.addEventListener('scroll', binding.value);
+    } else if (window.attachEvent) {
+      window.attachEvent('on' + 'scroll', binding.value);
+    } else {
+      window['on' + scroll] = binding.value;
+    }
   }
 });
 

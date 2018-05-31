@@ -60,7 +60,13 @@ export default {
       localStorage.removeItem(key);
       return false;
     }
-
+  },
+  //手机验证
+  checkMobile(str) {
+    var re = /^1\d{10}$/;
+    if (!re.test(str)) {
+      return false;
+    }
   },
 };
 

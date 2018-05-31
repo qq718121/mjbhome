@@ -269,7 +269,6 @@
       }),
 
       loadHandler(num, className){
-
         if (Obshare.locaGet('regis') === false) {
           this.$router.push({
             path: '/register',

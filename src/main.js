@@ -12,10 +12,12 @@ import {
   Notification,
   Progress,
   Carousel,
+  Radio,
   // Step,
   // Steps,
   CarouselItem,
   Input,
+  RadioGroup,
   Checkbox,
   CheckboxGroup,
   Dialog,
@@ -89,11 +91,11 @@ Vue.use(Button);
 // Vue.component(Notification);
 Vue.use(Progress);
 Vue.use(Carousel);
-// Vue.use(Step);
-// Vue.use(Steps);
+Vue.use(RadioGroup);
+Vue.use(Radio);
 Vue.use(Input);
 Vue.use(Checkbox);
-Vue.use(CheckboxGroup);
+Vue.use(CheckboxGroup); 
 Vue.use(CarouselItem);
 Vue.use(Dialog);
 // Vue.use(Form);
