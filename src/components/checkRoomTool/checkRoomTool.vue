@@ -1,29 +1,31 @@
 <template>
   <div class="checkRoomTool">
     <TitBar titBarTits="自助验房" :backApp="true"/>
-    <div class="g-checkRool" @click="f_checkRool(1)">
+    <div v-show="prvLoad">
+      <div class="g-checkRool" @click="f_checkRool(1)">
       <span>
         <i style="margin-left: 0.265rem;margin-right: 0.095rem">立即验房</i>
         <i style="margin-left: 0" class="el-icon-d-arrow-right icon"></i>
       </span>
-    </div>
-    <div class="g-toolBox" @click="f_toolBox">
+      </div>
+      <div class="g-toolBox" @click="f_toolBox">
       <span>
         <i>免费预约共享验房工具</i>
         <i style="margin-left: 0" class="el-icon-d-arrow-right icon"></i>
       </span>
-    </div>
-    <div class="g-orderTool" @click="f_orderTool">
+      </div>
+      <div class="g-orderTool" @click="f_orderTool">
       <span>
         <i>工具箱介绍</i>
         <i style="margin-left: 0" class="el-icon-d-arrow-right icon"></i>
       </span>
-    </div>
-    <div class="g-Room-over" @click="f_checkRool(0)">
+      </div>
+      <div class="g-Room-over" @click="f_checkRool(0)">
       <span>
         <i>我的验房结果</i>
         <i style="margin-left: 0" class="el-icon-d-arrow-right icon"></i>
       </span>
+      </div>
     </div>
   </div>
 </template>
@@ -32,12 +34,20 @@
   import TitBar from "../common/titBar.vue";
   import Ob from "../../common/js/obshare";
   import SetupWebViewJavascriptBridge from "../../common/js/setupWebViewJavascriptBridge";
+  import ImgPrvLoad from '@/common/js/ImgPrvLoad'
 
   export default {
     data() {
       return {
         token: null,
         userId: null,
+        prvLoad: false,
+        imgArr: [
+          'http://oxrgdeqd8.bkt.clouddn.com/bg_lijiyanfang@3x.png',
+          'http://oxrgdeqd8.bkt.clouddn.com/bg_mianfeiyuyuegongju@3x.png',
+          'http://oxrgdeqd8.bkt.clouddn.com/bg_gongjuxiangjieshao@3x.png',
+          'http://oxrgdeqd8.bkt.clouddn.com/bg_wodeyanfangjieguo2@3x.png'
+        ],
         isApp: true
       };
     },
@@ -45,6 +55,7 @@
     created() {
       this.f_init();
       this.noBack();
+      this.f_prvLoad(this.imgArr);
     },
     beforeDestroy(){
       $(window).unbind();
@@ -80,14 +91,10 @@
       noBack() {
         let this_ = this;
         if (window.history && window.history.pushState) {
-
-            history.pushState(null, null, document.URL);
-
+//            history.pushState(null, null, document.URL);
           $(window).on("popstate", function () {
             if (this_.isApp) {
               this_.f_appBack();
-            } else {
-              history.pushState(null, null, document.URL);
             }
           });
         }
@@ -178,15 +185,24 @@
           }
         });
       },
-      f_getCode() {
-        //        let CODE;
-        //        const URL = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx18049c5f688a24ef&redirect_uri=http%3A%2F%2Fback.homehawkeye.com%2Fmaijiabangbackstate-1.0-SNAPSHOT%2Fauthorization&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect';
-        //        if (!this.$route.query.userId) {
-        ////          window.location = URL;
-        //        } else {
-        //          CODE = this.$route.query.userId;
-        //          this.userId = CODE;
-        //        }
+      f_prvLoad(arrImg){
+        if (!arrImg) {
+          throw 'arrImg不存在';
+          return;
+        }
+        let this_ = this;
+        let len = arrImg.length;
+        let count = 0;
+        for (let i = 0; i < len; i++) {
+          let img = new Image();
+          img.onload = function () {
+            count++;
+            if (count == len) {
+              this_.prvLoad = true;
+            }
+          };
+          img.src = arrImg[i];
+        }
       }
     }
   };

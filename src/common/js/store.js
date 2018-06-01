@@ -129,7 +129,6 @@ const store = new Vuex.Store({
       radio3: null,
       radio4: null
     },
-    // atOnceOver: null
   },
   mutations: {
     //3秒真男人
@@ -170,6 +169,7 @@ const store = new Vuex.Store({
       state.data_comment = data;
     },
     //初始化验房工具数据
+
     set_init_form(state){
       for (let i = 0; i < 11; i++) {
         for (let j = 1; j < 7; j++) {
@@ -182,10 +182,6 @@ const store = new Vuex.Store({
         }
       }
     },
-    //记录验房结果
-    // ATONCEOVR(state, data){
-    //   state.atOnceOver = data;
-    // }
   },
   // actions: {
 

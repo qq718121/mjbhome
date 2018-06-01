@@ -1,13 +1,13 @@
 <template>
-  <div class="waterWave">
-    <transition-group name="fade">
-      <p class="u-num" v-if="num == 0" :key="-1">
-        <span>0</span>分</p>
-      <p class="u-num" v-if="num == 1" :key="-2">
-        <span>1</span>分</p>
-      <p class="u-num" v-for="(val,index) in num" v-if="show == index" :key="index">
-        <span>{{val}}</span><span style="font-size:0.48rem">分</span></p>
-    </transition-group>
+  <div class="waterWave" v-if="prvLoad">
+    <!--<transition-group name="fade">-->
+    <p class="u-num">
+      <span>{{show}}</span>分</p>
+    <!--<p class="u-num" v-if="num == 1" :key="-2">-->
+    <!--<span>1</span>分</p>-->
+    <!--<p class="u-num" v-for="(val,index) in num" v-if="show == index" :key="index">-->
+    <!--<span>{{val}}</span><span style="font-size:0.48rem">分</span></p>-->
+    <!--</transition-group>-->
 
     <!-- <div class="circle_first"></div> -->
     <!-- <div class="motai">
@@ -37,6 +37,7 @@
     data() {
       return {
         num: 0,
+        prvLoad: false,
         show: 0,
         count: 0,
         items: [
@@ -75,9 +76,10 @@
         var _this = this;
         let img = new Image();
         img.onload = () => {
+          this.prvLoad = true;
           let id = setInterval(() => {
             this.shows(_this.num);
-            if (_this.show >= _this.num - 1) {
+            if (_this.show >= _this.num) {
               clearInterval(id);
             }
           }, 50);
@@ -93,18 +95,15 @@
         if (this.num == 0) return;
         this.show++;
       },
-      a() {
-        this.items.push(this.items[0]);
-        this.items.shift();
-      }
+//      a() {
+//        this.items.push(this.items[0]);
+//        this.items.shift();
+//      }
     },
     created() {
       this.num = this.stage;
-      //      this.num = 100;
-    },
-    mounted() {
       this.imgLoad();
-    }
+    },
   };
 </script>
 <style scoped>
@@ -114,19 +113,21 @@
   }
 
   .fade-enter-active,
-  .fade-leave-active {
-    transition: all 0.3s;
-  }
+  /*.fade-leave-active {*/
+    /*transition: all 0.3s;*/
+  /*}*/
 
-  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */
-  {
-    opacity: 0.2;
-    transform: translate(0, 0.1rem);
-    -ms-transform: translate(0, 0.1rem);
-    -webkit-transform: translate(0, 0.1rem);
-    -o-transform: translate(0, 0.1rem);
-    -moz-transform: translate(0, 0.1rem);
-  }
+  /*.fade-enter, .fade-leave-to !* .fade-leave-active below version 2.1.8 *!*/
+  /*{*/
+
+    /*!*opacity: 0;*!*/
+    /*!*transform: translate(0, 0.05rem);*!*/
+    /*!*-ms-transform: translate(0, 0.05rem);*!*/
+    /*!*-webkit-transform: translate(0, 0.05rem);*!*/
+    /*!*-o-transform: translate(0, 0.05rem);*!*/
+    /*!*-moz-transform: translate(0, 0.05rem);*!*/
+
+  /*}*/
 
   .u-num {
     position: absolute;

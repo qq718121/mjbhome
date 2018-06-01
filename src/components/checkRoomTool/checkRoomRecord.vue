@@ -92,10 +92,16 @@
          或者分享页
          分别获取token
          */
-        if (window.sessionStorage.getItem('isBar') == '') {
-          t = window.sessionStorage.getItem("token") || "";
-        } else {
-          t = JSON.parse(window.localStorage.getItem("token")).val || "";
+        try {
+          if (window.sessionStorage.getItem('isBar') == '') {
+            t = window.sessionStorage.getItem("token") || "";
+          } else {
+            t = JSON.parse(window.localStorage.getItem("token")).val || "";
+          }
+        } catch (e) {
+          this.$router.push({
+            path: "/checkRoomTool",
+          });
         }
         var d = {token: t, body: {}},
           datas = null,

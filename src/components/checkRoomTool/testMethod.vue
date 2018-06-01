@@ -8,7 +8,7 @@
       <img src="http://oxrgdeqd8.bkt.clouddn.com/spf.jpg" alt="">
       <img src="http://oxrgdeqd8.bkt.clouddn.com/IMG_3152.JPG" alt="">
     </div>
-    <TitBar2 titBarTits1="检验方法" titBarTits2="检验标准" v-on:checkIc="checkIne" />
+    <TitBar2 titBarTits1="检验方法" titBarTits2="检验标准" v-on:checkIc="checkIne"/>
 
     <div class="g-testMethod" v-if="iconType==0">
       <div class="g-testMethod-tit">
@@ -37,9 +37,11 @@
             </el-radio-group>
           </div>
           <div class="g-no-text" v-show="$store.state.form0.radio1 == 1">
-            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500" v-model="$store.state.form0.text1">
+            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500"
+                      v-model="$store.state.form0.text1">
             </el-input>
-            <span class="lenghNum" v-if="$store.state.form0.text1.length>0">{{`${$store.state.form0.text1.length}/500`}}</span>
+            <span class="lenghNum"
+                  v-if="$store.state.form0.text1.length>0">{{`${$store.state.form0.text1.length}/500`}}</span>
           </div>
         </div>
         <div class="g-testMethod1">
@@ -52,9 +54,11 @@
             </el-radio-group>
           </div>
           <div class="g-no-text" v-if="$store.state.form0.radio2 == 1">
-            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500" v-model="$store.state.form0.text2">
+            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500"
+                      v-model="$store.state.form0.text2">
             </el-input>
-            <span class="lenghNum" v-if="$store.state.form0.text2.length>0">{{`${$store.state.form0.text2.length}/500`}}</span>
+            <span class="lenghNum"
+                  v-if="$store.state.form0.text2.length>0">{{`${$store.state.form0.text2.length}/500`}}</span>
           </div>
         </div>
         <div class="g-testMethod1">
@@ -68,9 +72,11 @@
             </el-radio-group>
           </div>
           <div class="g-no-text" v-if="$store.state.form0.radio3 == 1">
-            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500" v-model="$store.state.form0.text3">
+            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500"
+                      v-model="$store.state.form0.text3">
             </el-input>
-            <span class="lenghNum" v-if="$store.state.form0.text3.length>0">{{`${$store.state.form0.text3.length}/500`}}</span>
+            <span class="lenghNum"
+                  v-if="$store.state.form0.text3.length>0">{{`${$store.state.form0.text3.length}/500`}}</span>
           </div>
         </div>
       </div>
@@ -85,9 +91,11 @@
             </el-radio-group>
           </div>
           <div class="g-no-text" v-if="$store.state.form1.radio1 == 1">
-            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500" v-model="$store.state.form1.text1">
+            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500"
+                      v-model="$store.state.form1.text1">
             </el-input>
-            <span class="lenghNum" v-if="$store.state.form1.text1.length>0">{{`${$store.state.form1.text1.length}/500`}}</span>
+            <span class="lenghNum"
+                  v-if="$store.state.form1.text1.length>0">{{`${$store.state.form1.text1.length}/500`}}</span>
           </div>
         </div>
         <div class="g-testMethod1">
@@ -100,9 +108,11 @@
             </el-radio-group>
           </div>
           <div class="g-no-text" v-if="$store.state.form1.radio2 == 1">
-            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500" v-model="$store.state.form1.text2">
+            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500"
+                      v-model="$store.state.form1.text2">
             </el-input>
-            <span class="lenghNum" v-if="$store.state.form1.text2.length>0">{{`${$store.state.form1.text2.length}/500`}}</span>
+            <span class="lenghNum"
+                  v-if="$store.state.form1.text2.length>0">{{`${$store.state.form1.text2.length}/500`}}</span>
           </div>
           <div class="g-testMethod-help">
             <p class="g-testMethod-help-tit">TIPS小贴士</p>
@@ -120,9 +130,11 @@
             </el-radio-group>
           </div>
           <div class="g-no-text" v-if="$store.state.form1.radio3 == 1">
-            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500" v-model="$store.state.form1.text3">
+            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500"
+                      v-model="$store.state.form1.text3">
             </el-input>
-            <span class="lenghNum" v-if="$store.state.form1.text3.length>0">{{`${$store.state.form1.text3.length}/500`}}</span>
+            <span class="lenghNum"
+                  v-if="$store.state.form1.text3.length>0">{{`${$store.state.form1.text3.length}/500`}}</span>
           </div>
         </div>
       </div>
@@ -137,9 +149,11 @@
             </el-radio-group>
           </div>
           <div class="g-no-text" v-if="$store.state.form2.radio1 == 1">
-            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500" v-model="$store.state.form2.text1">
+            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500"
+                      v-model="$store.state.form2.text1">
             </el-input>
-            <span class="lenghNum" v-if="$store.state.form2.text1.length>0">{{`${$store.state.form2.text1.length}/500`}}</span>
+            <span class="lenghNum"
+                  v-if="$store.state.form2.text1.length>0">{{`${$store.state.form2.text1.length}/500`}}</span>
           </div>
         </div>
         <div class="g-testMethod1">
@@ -152,9 +166,11 @@
             </el-radio-group>
           </div>
           <div class="g-no-text" v-if="$store.state.form2.radio2 == 1">
-            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500" v-model="$store.state.form2.text2">
+            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500"
+                      v-model="$store.state.form2.text2">
             </el-input>
-            <span class="lenghNum" v-if="$store.state.form2.text2.length>0">{{`${$store.state.form2.text2.length}/500`}}</span>
+            <span class="lenghNum"
+                  v-if="$store.state.form2.text2.length>0">{{`${$store.state.form2.text2.length}/500`}}</span>
           </div>
           <div class="g-testMethod-help">
             <p class="g-testMethod-help-tit">TIPS小贴士</p>
@@ -173,9 +189,11 @@
             </el-radio-group>
           </div>
           <div class="g-no-text" v-if="$store.state.form2.radio3 == 1">
-            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500" v-model="$store.state.form2.text3">
+            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500"
+                      v-model="$store.state.form2.text3">
             </el-input>
-            <span class="lenghNum" v-if="$store.state.form2.text3.length>0">{{`${$store.state.form2.text3.length}/500`}}</span>
+            <span class="lenghNum"
+                  v-if="$store.state.form2.text3.length>0">{{`${$store.state.form2.text3.length}/500`}}</span>
           </div>
         </div>
         <div class="g-testMethod1">
@@ -188,9 +206,11 @@
             </el-radio-group>
           </div>
           <div class="g-no-text" v-if="$store.state.form2.radio4 == 1">
-            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500" v-model="$store.state.form2.text4">
+            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500"
+                      v-model="$store.state.form2.text4">
             </el-input>
-            <span class="lenghNum" v-if="$store.state.form2.text4.length>0">{{`${$store.state.form2.text4.length}/500`}}</span>
+            <span class="lenghNum"
+                  v-if="$store.state.form2.text4.length>0">{{`${$store.state.form2.text4.length}/500`}}</span>
           </div>
           <div class="g-testMethod-help">
             <p class="g-testMethod-help-tit">TIPS小贴士</p>
@@ -210,9 +230,11 @@
             </el-radio-group>
           </div>
           <div class="g-no-text" v-if="$store.state.form3.radio1 == 1">
-            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500" v-model="$store.state.form3.text1">
+            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500"
+                      v-model="$store.state.form3.text1">
             </el-input>
-            <span class="lenghNum" v-if="$store.state.form3.text1.length>0">{{`${$store.state.form3.text1.length}/500`}}</span>
+            <span class="lenghNum"
+                  v-if="$store.state.form3.text1.length>0">{{`${$store.state.form3.text1.length}/500`}}</span>
           </div>
         </div>
         <div class="g-testMethod1">
@@ -225,9 +247,11 @@
             </el-radio-group>
           </div>
           <div class="g-no-text" v-if="$store.state.form3.radio2 == 1">
-            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500" v-model="$store.state.form3.text2">
+            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500"
+                      v-model="$store.state.form3.text2">
             </el-input>
-            <span class="lenghNum" v-if="$store.state.form3.text2.length>0">{{`${$store.state.form3.text2.length}/500`}}</span>
+            <span class="lenghNum"
+                  v-if="$store.state.form3.text2.length>0">{{`${$store.state.form3.text2.length}/500`}}</span>
           </div>
           <div class="g-testMethod-help">
             <p class="g-testMethod-help-tit">TIPS小贴士</p>
@@ -245,9 +269,11 @@
             </el-radio-group>
           </div>
           <div class="g-no-text" v-if="$store.state.form3.radio3 == 1">
-            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500" v-model="$store.state.form3.text3">
+            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500"
+                      v-model="$store.state.form3.text3">
             </el-input>
-            <span class="lenghNum" v-if="$store.state.form3.text3.length>0">{{`${$store.state.form3.text3.length}/500`}}</span>
+            <span class="lenghNum"
+                  v-if="$store.state.form3.text3.length>0">{{`${$store.state.form3.text3.length}/500`}}</span>
           </div>
           <div class="g-testMethod-help">
             <p class="g-testMethod-help-tit">TIPS小贴士</p>
@@ -271,9 +297,11 @@
             </el-radio-group>
           </div>
           <div class="g-no-text" v-if="$store.state.form4.radio1 == 1">
-            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500" v-model="$store.state.form4.text1">
+            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500"
+                      v-model="$store.state.form4.text1">
             </el-input>
-            <span class="lenghNum" v-if="$store.state.form4.text1.length>0">{{`${$store.state.form4.text1.length}/500`}}</span>
+            <span class="lenghNum"
+                  v-if="$store.state.form4.text1.length>0">{{`${$store.state.form4.text1.length}/500`}}</span>
           </div>
         </div>
         <div class="g-testMethod1">
@@ -286,9 +314,11 @@
             </el-radio-group>
           </div>
           <div class="g-no-text" v-if="$store.state.form4.radio2 == 1">
-            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500" v-model="$store.state.form4.text2">
+            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500"
+                      v-model="$store.state.form4.text2">
             </el-input>
-            <span class="lenghNum" v-if="$store.state.form4.text2.length>0">{{`${$store.state.form4.text2.length}/500`}}</span>
+            <span class="lenghNum"
+                  v-if="$store.state.form4.text2.length>0">{{`${$store.state.form4.text2.length}/500`}}</span>
           </div>
 
         </div>
@@ -302,9 +332,11 @@
             </el-radio-group>
           </div>
           <div class="g-no-text" v-if="$store.state.form4.radio3 == 1">
-            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500" v-model="$store.state.form4.text3">
+            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500"
+                      v-model="$store.state.form4.text3">
             </el-input>
-            <span class="lenghNum" v-if="$store.state.form4.text3.length>0">{{`${$store.state.form4.text3.length}/500`}}</span>
+            <span class="lenghNum"
+                  v-if="$store.state.form4.text3.length>0">{{`${$store.state.form4.text3.length}/500`}}</span>
           </div>
           <div class="g-testMethod-help">
             <p class="g-testMethod-help-tit">TIPS小贴士</p>
@@ -326,9 +358,11 @@
             </el-radio-group>
           </div>
           <div class="g-no-text" v-if="$store.state.form4.radio4 == 1">
-            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500" v-model="$store.state.form4.text4">
+            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500"
+                      v-model="$store.state.form4.text4">
             </el-input>
-            <span class="lenghNum" v-if="$store.state.form4.text4.length>0">{{`${$store.state.form4.text4.length}/500`}}</span>
+            <span class="lenghNum"
+                  v-if="$store.state.form4.text4.length>0">{{`${$store.state.form4.text4.length}/500`}}</span>
           </div>
 
         </div>
@@ -342,9 +376,11 @@
             </el-radio-group>
           </div>
           <div class="g-no-text" v-if="$store.state.form4.radio5 == 1">
-            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500" v-model="$store.state.form4.text5">
+            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500"
+                      v-model="$store.state.form4.text5">
             </el-input>
-            <span class="lenghNum" v-if="$store.state.form4.text5.length>0">{{`${$store.state.form4.text5.length}/500`}}</span>
+            <span class="lenghNum"
+                  v-if="$store.state.form4.text5.length>0">{{`${$store.state.form4.text5.length}/500`}}</span>
           </div>
           <div class="g-testMethod-help">
             <p class="g-testMethod-help-tit">TIPS小贴士</p>
@@ -366,9 +402,11 @@
             </el-radio-group>
           </div>
           <div class="g-no-text" v-if="$store.state.form4.radio6 == 1">
-            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500" v-model="$store.state.form4.text6">
+            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500"
+                      v-model="$store.state.form4.text6">
             </el-input>
-            <span class="lenghNum" v-if="$store.state.form4.text6.length>0">{{`${$store.state.form4.text6.length}/500`}}</span>
+            <span class="lenghNum"
+                  v-if="$store.state.form4.text6.length>0">{{`${$store.state.form4.text6.length}/500`}}</span>
           </div>
 
         </div>
@@ -384,9 +422,11 @@
             </el-radio-group>
           </div>
           <div class="g-no-text" v-if="$store.state.form5.radio1 == 1">
-            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500" v-model="$store.state.form5.text1">
+            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500"
+                      v-model="$store.state.form5.text1">
             </el-input>
-            <span class="lenghNum" v-if="$store.state.form5.text1.length>0">{{`${$store.state.form5.text1.length}/500`}}</span>
+            <span class="lenghNum"
+                  v-if="$store.state.form5.text1.length>0">{{`${$store.state.form5.text1.length}/500`}}</span>
           </div>
         </div>
         <div class="g-testMethod1">
@@ -399,9 +439,11 @@
             </el-radio-group>
           </div>
           <div class="g-no-text" v-if="$store.state.form5.radio2 == 1">
-            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500" v-model="$store.state.form5.text2">
+            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500"
+                      v-model="$store.state.form5.text2">
             </el-input>
-            <span class="lenghNum" v-if="$store.state.form5.text2.length>0">{{`${$store.state.form5.text2.length}/500`}}</span>
+            <span class="lenghNum"
+                  v-if="$store.state.form5.text2.length>0">{{`${$store.state.form5.text2.length}/500`}}</span>
           </div>
         </div>
         <div class="g-testMethod1">
@@ -414,9 +456,11 @@
             </el-radio-group>
           </div>
           <div class="g-no-text" v-if="$store.state.form5.radio3 == 1">
-            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500" v-model="$store.state.form5.text3">
+            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500"
+                      v-model="$store.state.form5.text3">
             </el-input>
-            <span class="lenghNum" v-if="$store.state.form5.text3.length>0">{{`${$store.state.form5.text3.length}/500`}}</span>
+            <span class="lenghNum"
+                  v-if="$store.state.form5.text3.length>0">{{`${$store.state.form5.text3.length}/500`}}</span>
           </div>
         </div>
         <div class="g-testMethod1">
@@ -437,9 +481,11 @@
             </el-radio-group>
           </div>
           <div class="g-no-text" v-if="$store.state.form6.radio1 == 1">
-            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500" v-model="$store.state.form6.text1">
+            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500"
+                      v-model="$store.state.form6.text1">
             </el-input>
-            <span class="lenghNum" v-if="$store.state.form6.text1.length>0">{{`${$store.state.form6.text1.length}/500`}}</span>
+            <span class="lenghNum"
+                  v-if="$store.state.form6.text1.length>0">{{`${$store.state.form6.text1.length}/500`}}</span>
           </div>
         </div>
         <div class="g-testMethod1">
@@ -452,9 +498,11 @@
             </el-radio-group>
           </div>
           <div class="g-no-text" v-if="$store.state.form6.radio2 == 1">
-            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500" v-model="$store.state.form6.text2">
+            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500"
+                      v-model="$store.state.form6.text2">
             </el-input>
-            <span class="lenghNum" v-if="$store.state.form6.text2.length>0">{{`${$store.state.form6.text2.length}/500`}}</span>
+            <span class="lenghNum"
+                  v-if="$store.state.form6.text2.length>0">{{`${$store.state.form6.text2.length}/500`}}</span>
           </div>
           <div class="g-testMethod-help">
             <p class="g-testMethod-help-tit">TIPS小贴士</p>
@@ -476,9 +524,11 @@
             </el-radio-group>
           </div>
           <div class="g-no-text" v-if="$store.state.form6.radio3 == 1">
-            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500" v-model="$store.state.form6.text3">
+            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500"
+                      v-model="$store.state.form6.text3">
             </el-input>
-            <span class="lenghNum" v-if="$store.state.form6.text3.length>0">{{`${$store.state.form6.text3.length}/500`}}</span>
+            <span class="lenghNum"
+                  v-if="$store.state.form6.text3.length>0">{{`${$store.state.form6.text3.length}/500`}}</span>
           </div>
 
         </div>
@@ -492,9 +542,11 @@
             </el-radio-group>
           </div>
           <div class="g-no-text" v-if="$store.state.form6.radio4 == 1">
-            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500" v-model="$store.state.form6.text4">
+            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500"
+                      v-model="$store.state.form6.text4">
             </el-input>
-            <span class="lenghNum" v-if="$store.state.form6.text4.length>0">{{`${$store.state.form6.text4.length}/500`}}</span>
+            <span class="lenghNum"
+                  v-if="$store.state.form6.text4.length>0">{{`${$store.state.form6.text4.length}/500`}}</span>
           </div>
           <div class="g-testMethod-help">
             <p class="g-testMethod-help-tit">TIPS小贴士</p>
@@ -517,9 +569,11 @@
             </el-radio-group>
           </div>
           <div class="g-no-text" v-if="$store.state.form6.radio5 == 1">
-            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500" v-model="$store.state.form6.text5">
+            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500"
+                      v-model="$store.state.form6.text5">
             </el-input>
-            <span class="lenghNum" v-if="$store.state.form6.text5.length>0">{{`${$store.state.form6.text5.length}/500`}}</span>
+            <span class="lenghNum"
+                  v-if="$store.state.form6.text5.length>0">{{`${$store.state.form6.text5.length}/500`}}</span>
           </div>
           <div class="g-testMethod-help">
             <p class="g-testMethod-help-tit">TIPS小贴士</p>
@@ -543,9 +597,11 @@
             </el-radio-group>
           </div>
           <div class="g-no-text" v-if="$store.state.form7.radio1 == 1">
-            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500" v-model="$store.state.form7.text1">
+            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500"
+                      v-model="$store.state.form7.text1">
             </el-input>
-            <span class="lenghNum" v-if="$store.state.form7.text1.length>0">{{`${$store.state.form7.text1.length}/500`}}</span>
+            <span class="lenghNum"
+                  v-if="$store.state.form7.text1.length>0">{{`${$store.state.form7.text1.length}/500`}}</span>
           </div>
         </div>
         <div class="g-testMethod1">
@@ -558,9 +614,11 @@
             </el-radio-group>
           </div>
           <div class="g-no-text" v-if="$store.state.form7.radio2 == 1">
-            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500" v-model="$store.state.form7.text2">
+            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500"
+                      v-model="$store.state.form7.text2">
             </el-input>
-            <span class="lenghNum" v-if="$store.state.form7.text2.length>0">{{`${$store.state.form7.text2.length}/500`}}</span>
+            <span class="lenghNum"
+                  v-if="$store.state.form7.text2.length>0">{{`${$store.state.form7.text2.length}/500`}}</span>
           </div>
           <div class="g-testMethod-help">
             <p class="g-testMethod-help-tit">TIPS小贴士</p>
@@ -582,9 +640,11 @@
             </el-radio-group>
           </div>
           <div class="g-no-text" v-if="$store.state.form7.radio3 == 1">
-            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500" v-model="$store.state.form7.text3">
+            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500"
+                      v-model="$store.state.form7.text3">
             </el-input>
-            <span class="lenghNum" v-if="$store.state.form7.text3.length>0">{{`${$store.state.form7.text3.length}/500`}}</span>
+            <span class="lenghNum"
+                  v-if="$store.state.form7.text3.length>0">{{`${$store.state.form7.text3.length}/500`}}</span>
           </div>
         </div>
         <div class="g-testMethod1">
@@ -597,9 +657,11 @@
             </el-radio-group>
           </div>
           <div class="g-no-text" v-if="$store.state.form7.radio4 == 1">
-            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500" v-model="$store.state.form7.text4">
+            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500"
+                      v-model="$store.state.form7.text4">
             </el-input>
-            <span class="lenghNum" v-if="$store.state.form7.text4.length>0">{{`${$store.state.form7.text4.length}/500`}}</span>
+            <span class="lenghNum"
+                  v-if="$store.state.form7.text4.length>0">{{`${$store.state.form7.text4.length}/500`}}</span>
           </div>
 
         </div>
@@ -613,9 +675,11 @@
             </el-radio-group>
           </div>
           <div class="g-no-text" v-if="$store.state.form7.radio5 == 1">
-            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500" v-model="$store.state.form7.text5">
+            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500"
+                      v-model="$store.state.form7.text5">
             </el-input>
-            <span class="lenghNum" v-if="$store.state.form7.text5.length>0">{{`${$store.state.form7.text5.length}/500`}}</span>
+            <span class="lenghNum"
+                  v-if="$store.state.form7.text5.length>0">{{`${$store.state.form7.text5.length}/500`}}</span>
           </div>
           <div class="g-testMethod-help">
             <p class="g-testMethod-help-tit">TIPS小贴士</p>
@@ -641,9 +705,11 @@
             </el-radio-group>
           </div>
           <div class="g-no-text" v-if="$store.state.form7.radio6 == 1">
-            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500" v-model="$store.state.form7.text6">
+            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500"
+                      v-model="$store.state.form7.text6">
             </el-input>
-            <span class="lenghNum" v-if="$store.state.form7.text6.length>0">{{`${$store.state.form7.text6.length}/500`}}</span>
+            <span class="lenghNum"
+                  v-if="$store.state.form7.text6.length>0">{{`${$store.state.form7.text6.length}/500`}}</span>
           </div>
 
         </div>
@@ -659,9 +725,11 @@
             </el-radio-group>
           </div>
           <div class="g-no-text" v-if="$store.state.form8.radio1 == 1">
-            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500" v-model="$store.state.form8.text1">
+            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500"
+                      v-model="$store.state.form8.text1">
             </el-input>
-            <span class="lenghNum" v-if="$store.state.form8.text1.length>0">{{`${$store.state.form8.text1.length}/500`}}</span>
+            <span class="lenghNum"
+                  v-if="$store.state.form8.text1.length>0">{{`${$store.state.form8.text1.length}/500`}}</span>
           </div>
         </div>
         <div class="g-testMethod1">
@@ -674,9 +742,11 @@
             </el-radio-group>
           </div>
           <div class="g-no-text" v-if="$store.state.form8.radio2 == 1">
-            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500" v-model="$store.state.form8.text2">
+            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500"
+                      v-model="$store.state.form8.text2">
             </el-input>
-            <span class="lenghNum" v-if="$store.state.form8.text2.length>0">{{`${$store.state.form8.text2.length}/500`}}</span>
+            <span class="lenghNum"
+                  v-if="$store.state.form8.text2.length>0">{{`${$store.state.form8.text2.length}/500`}}</span>
           </div>
         </div>
         <div class="g-testMethod1">
@@ -690,9 +760,11 @@
             </el-radio-group>
           </div>
           <div class="g-no-text" v-if="$store.state.form8.radio3 == 1">
-            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500" v-model="$store.state.form8.text3">
+            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500"
+                      v-model="$store.state.form8.text3">
             </el-input>
-            <span class="lenghNum" v-if="$store.state.form8.text3.length>0">{{`${$store.state.form8.text3.length}/500`}}</span>
+            <span class="lenghNum"
+                  v-if="$store.state.form8.text3.length>0">{{`${$store.state.form8.text3.length}/500`}}</span>
           </div>
         </div>
         <div class="g-testMethod1">
@@ -705,9 +777,11 @@
             </el-radio-group>
           </div>
           <div class="g-no-text" v-if="$store.state.form8.radio4 == 1">
-            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500" v-model="$store.state.form8.text4">
+            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500"
+                      v-model="$store.state.form8.text4">
             </el-input>
-            <span class="lenghNum" v-if="$store.state.form8.text4.length>0">{{`${$store.state.form8.text4.length}/500`}}</span>
+            <span class="lenghNum"
+                  v-if="$store.state.form8.text4.length>0">{{`${$store.state.form8.text4.length}/500`}}</span>
           </div>
           <div class="g-testMethod-help">
             <p class="g-testMethod-help-tit">TIPS小贴士</p>
@@ -732,9 +806,11 @@
             </el-radio-group>
           </div>
           <div class="g-no-text" v-if="$store.state.form9.radio1 == 1">
-            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500" v-model="$store.state.form9.text1">
+            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500"
+                      v-model="$store.state.form9.text1">
             </el-input>
-            <span class="lenghNum" v-if="$store.state.form9.text1.length>0">{{`${$store.state.form9.text1.length}/500`}}</span>
+            <span class="lenghNum"
+                  v-if="$store.state.form9.text1.length>0">{{`${$store.state.form9.text1.length}/500`}}</span>
           </div>
         </div>
         <div class="g-testMethod1">
@@ -748,9 +824,11 @@
             </el-radio-group>
           </div>
           <div class="g-no-text" v-if="$store.state.form9.radio2 == 1">
-            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500" v-model="$store.state.form9.text2">
+            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500"
+                      v-model="$store.state.form9.text2">
             </el-input>
-            <span class="lenghNum" v-if="$store.state.form9.text2.length>0">{{`${$store.state.form9.text2.length}/500`}}</span>
+            <span class="lenghNum"
+                  v-if="$store.state.form9.text2.length>0">{{`${$store.state.form9.text2.length}/500`}}</span>
           </div>
           <div class="g-testMethod-help">
             <p class="g-testMethod-help-tit">TIPS小贴士</p>
@@ -769,9 +847,11 @@
             </el-radio-group>
           </div>
           <div class="g-no-text" v-if="$store.state.form9.radio3 == 1">
-            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500" v-model="$store.state.form9.text3">
+            <el-input type="textarea" placeholder="请输入对问题的详细描述，例如不符的位置、不符的理由。" :maxlength="500"
+                      v-model="$store.state.form9.text3">
             </el-input>
-            <span class="lenghNum" v-if="$store.state.form9.text3.length>0">{{`${$store.state.form9.text3.length}/500`}}</span>
+            <span class="lenghNum"
+                  v-if="$store.state.form9.text3.length>0">{{`${$store.state.form9.text3.length}/500`}}</span>
           </div>
         </div>
       </div>
@@ -1288,286 +1368,300 @@
   </div>
 </template>
 <script>
-import TitBar2 from "../common/titBar2.vue";
-export default {
-  components: { TitBar2 },
-  data() {
-    return {
-      iconType: 0,
-      testId: null,
-      testTit: "",
-      dialogVisible: false,
-      diaImgs: "",
-      dialogImgList: [
-        "http://oxrgdeqd8.bkt.clouddn.com/gytd.jpg",
-        "http://oxrgdeqd8.bkt.clouddn.com/jsyd.jpg",
-        "http://oxrgdeqd8.bkt.clouddn.com/jsgc.jpg",
-        "http://oxrgdeqd8.bkt.clouddn.com/jzgc.jpg",
-        "http://oxrgdeqd8.bkt.clouddn.com/spf.jpg",
-        "",
-        "",
-        "http://oxrgdeqd8.bkt.clouddn.com/IMG_3152.JPG"
-      ]
-    };
-  },
-  created() {
-    let id = this.$route.query.id * 1;
-    let name = this.$route.query.names;
-    this.testId = id;
-    this.testTit = name;
-  },
-  methods: {
-    a() {
-      console.log(this.$store.state.a);
+  import TitBar2 from "../common/titBar2.vue";
+  export default {
+    components: {TitBar2},
+    data() {
+      return {
+        iconType: 0,
+        testId: null,
+        testTit: "",
+        dialogVisible: false,
+        diaImgs: "",
+        dialogImgList: [
+          "http://oxrgdeqd8.bkt.clouddn.com/gytd.jpg",
+          "http://oxrgdeqd8.bkt.clouddn.com/jsyd.jpg",
+          "http://oxrgdeqd8.bkt.clouddn.com/jsgc.jpg",
+          "http://oxrgdeqd8.bkt.clouddn.com/jzgc.jpg",
+          "http://oxrgdeqd8.bkt.clouddn.com/spf.jpg",
+          "",
+          "",
+          "http://oxrgdeqd8.bkt.clouddn.com/IMG_3152.JPG"
+        ]
+      };
     },
-    checkIne(type) {
-      window.scrollTo(0, 0);
-      this.iconType = type;
+    created() {
+      let id = this.$route.query.id * 1;
+      let name = this.$route.query.names;
+      this.testId = id;
+      this.testTit = name;
+      this.prvImg();
     },
-    dialogImg(index) {
-      if (!this.dialogImgList[index]) {
-        return;
+    methods: {
+      a() {
+        console.log(this.$store.state.a);
+      },
+      checkIne(type) {
+        window.scrollTo(0, 0);
+        this.iconType = type;
+      },
+      dialogImg(index) {
+        if (!this.dialogImgList[index]) {
+          return;
+        }
+        this.diaImgs = this.dialogImgList[index];
+        this.dialogVisible = true;
+      },
+      f_toolBox() {
+        this.$router.push({
+          path: "/getToolBox"
+        });
+      },
+      prvImg() {
+        for (let i in this.dialogImgList) {
+          if (this.dialogImgList[i] !== '') {
+            let im = new Image();
+            im.onload = function () {
+              let img = document.createElement('img');
+              img.style.display = 'none';
+              img.src = im.src;
+              document.body.appendChild(img);
+            };
+            im.src = this.dialogImgList[i];
+          }
+        }
+      },
+      nextHandler() {
+        // window.scrollTo(0, 0);
+        // this.testId++;
+        let path = "/allList";
+        if (this.testId > 5) {
+          path = "/atOnceHome";
+        }
+        this.$router.push({
+          path: path,
+          isApp: this.$route.query.isApp
+        });
       }
-      this.diaImgs = this.dialogImgList[index];
-      this.dialogVisible = true;
-    },
-    f_toolBox() {
-      this.$router.push({
-        path: "/getToolBox"
-      });
-    },
-    prvImg() {},
-    nextHandler() {
-      // window.scrollTo(0, 0);
-      // this.testId++;
-      let path = "/allList";
-      if (this.testId > 5) {
-        path = "/atOnceHome";
-      }
-      this.$router.push({
-        path: path,
-        isApp:this.$route.query.isApp
-      });
     }
-  }
-};
+  };
 </script>
 <style scoped>
-.testMethod {
-  width: 7.5rem;
-  margin: auto;
-  padding-top: 0.88rem;
-}
+  .testMethod {
+    width: 7.5rem;
+    margin: auto;
+    padding-top: 0.88rem;
+  }
 
-.g-testMethod,
-.testNorm {
-  padding: 0.3rem;
-}
+  .g-testMethod,
+  .testNorm {
+    padding: 0.3rem;
+  }
 
-.g-testMethod-tit {
-  margin-bottom: 0.3rem;
-  font-family: PingFangSC-Semibold;
-  font-size: 0.32rem;
-  color: #212832;
-  line-height: 0.32rem;
-  font-weight: 600;
-}
+  .g-testMethod-tit {
+    margin-bottom: 0.3rem;
+    font-family: PingFangSC-Semibold;
+    font-size: 0.32rem;
+    color: #212832;
+    line-height: 0.32rem;
+    font-weight: 600;
+  }
 
-.g-testMethod1 {
-  padding: 0.3rem;
-  margin-bottom: 0.2rem;
-  width: 6.3rem;
-  background: #ffffff;
-  box-shadow: 0 0 0.15rem 0 rgba(169, 183, 197, 0.3);
-}
+  .g-testMethod1 {
+    padding: 0.3rem;
+    margin-bottom: 0.2rem;
+    width: 6.3rem;
+    background: #ffffff;
+    box-shadow: 0 0 0.15rem 0 rgba(169, 183, 197, 0.3);
+  }
 
-.g-testMethod1-tit {
-  font-family: PingFangSC-Regular;
-  font-size: 0.28rem;
-  color: #212832;
-  line-height: 0.28rem;
-}
+  .g-testMethod1-tit {
+    font-family: PingFangSC-Regular;
+    font-size: 0.28rem;
+    color: #212832;
+    line-height: 0.28rem;
+  }
 
-.g-testMethod1-tex {
-  margin-top: 0.2rem;
-  font-family: PingFangSC-Regular;
-  font-size: 0.24rem;
-  color: #8b949e;
-  line-height: 0.44rem;
-  text-align: justify;
-}
+  .g-testMethod1-tex {
+    margin-top: 0.2rem;
+    font-family: PingFangSC-Regular;
+    font-size: 0.24rem;
+    color: #8b949e;
+    line-height: 0.44rem;
+    text-align: justify;
+  }
 
-.g-testMethod-help {
-  background: #f7f7f7;
-  border-radius: 0.04rem;
-  padding: 0.3rem;
-  margin-top: 0.1rem;
-}
+  .g-testMethod-help {
+    background: #f7f7f7;
+    border-radius: 0.04rem;
+    padding: 0.3rem;
+    margin-top: 0.1rem;
+  }
 
-.g-testMethod-help-tit {
-  margin-bottom: 0.1rem;
-  font-family: PingFangSC-Regular;
-  font-size: 0.28rem;
-  color: #212832;
-  line-height: 0.28rem;
-}
+  .g-testMethod-help-tit {
+    margin-bottom: 0.1rem;
+    font-family: PingFangSC-Regular;
+    font-size: 0.28rem;
+    color: #212832;
+    line-height: 0.28rem;
+  }
 
-.g-testMethod-help-tex {
-  font-family: PingFangSC-Regular;
-  font-size: 0.24rem;
-  color: #8b949e;
-  line-height: 0.4rem;
-}
+  .g-testMethod-help-tex {
+    font-family: PingFangSC-Regular;
+    font-size: 0.24rem;
+    color: #8b949e;
+    line-height: 0.4rem;
+  }
 
-.g-testMethod1-check {
-  margin-top: 0.3rem;
-}
+  .g-testMethod1-check {
+    margin-top: 0.3rem;
+  }
 
-.g-no-text {
-  margin-top: 0.3rem;
-  position: relative;
-  width: 6.3rem;
-  height: 2.4rem;
-  background: #f7f7f7;
-  border: 1px solid #e7e7e7;
-  border-radius: 0.04rem;
-}
+  .g-no-text {
+    margin-top: 0.3rem;
+    position: relative;
+    width: 6.3rem;
+    height: 2.4rem;
+    background: #f7f7f7;
+    border: 1px solid #e7e7e7;
+    border-radius: 0.04rem;
+  }
 
-.lenghNum {
-  position: absolute;
-  bottom: 0.1rem;
-  right: 0.2rem;
-  font-family: PingFangSC-Regular;
-  font-size: 0.2rem;
-  color: #8b949e;
-  line-height: 0.2rem;
-}
+  .lenghNum {
+    position: absolute;
+    bottom: 0.1rem;
+    right: 0.2rem;
+    font-family: PingFangSC-Regular;
+    font-size: 0.2rem;
+    color: #8b949e;
+    line-height: 0.2rem;
+  }
 
-.g-testMethod-btn {
-  /*position: fixed;*/
-  /*bottom: 0;*/
-  /*z-index: 9999;*/
-  width: 7.5rem;
-  height: 0.88rem;
-  font-family: PingFangSC-Regular;
-  font-size: 0.32rem;
-  color: #ffffff;
-  text-align: center;
-  line-height: 0.88rem;
-  background: #0080ff;
-}
+  .g-testMethod-btn {
+    /*position: fixed;*/
+    /*bottom: 0;*/
+    /*z-index: 9999;*/
+    width: 7.5rem;
+    height: 0.88rem;
+    font-family: PingFangSC-Regular;
+    font-size: 0.32rem;
+    color: #ffffff;
+    text-align: center;
+    line-height: 0.88rem;
+    background: #0080ff;
+  }
 
-.g-testNorm {
-  box-shadow: 0 0 0.15rem 0 rgba(169, 183, 197, 0.3);
-  margin-bottom: 0.2rem;
-}
+  .g-testNorm {
+    box-shadow: 0 0 0.15rem 0 rgba(169, 183, 197, 0.3);
+    margin-bottom: 0.2rem;
+  }
 
-.g-testNorm-ine0-tit {
-  padding-left: 0.3rem;
-  height: 0.78rem;
-  line-height: 0.78rem;
-  font-family: PingFangSC-Regular;
-  font-size: 0.28rem;
-  color: #212832;
-  border-bottom: 1px solid #eeeeee;
-}
+  .g-testNorm-ine0-tit {
+    padding-left: 0.3rem;
+    height: 0.78rem;
+    line-height: 0.78rem;
+    font-family: PingFangSC-Regular;
+    font-size: 0.28rem;
+    color: #212832;
+    border-bottom: 1px solid #eeeeee;
+  }
 
-.g-testNorm-ine0-tex {
-  padding: 0.22rem 0.3rem 0.4rem 0.3rem;
-}
+  .g-testNorm-ine0-tex {
+    padding: 0.22rem 0.3rem 0.4rem 0.3rem;
+  }
 
-.g-testNorm-ine0-tex1 {
-  font-family: PingFangSC-Regular;
-  font-size: 0.24rem;
-  color: #7f8893;
-  letter-spacing: 1px;
-  line-height: 0.4rem;
-}
+  .g-testNorm-ine0-tex1 {
+    font-family: PingFangSC-Regular;
+    font-size: 0.24rem;
+    color: #7f8893;
+    letter-spacing: 1px;
+    line-height: 0.4rem;
+  }
 
-.g-testNorm-ine0-tex2 {
-  margin-top: 0.2rem;
-  font-family: PingFangSC-Regular;
-  font-size: 0.24rem;
-  color: #b9c0c8;
-  line-height: 0.4rem;
-}
+  .g-testNorm-ine0-tex2 {
+    margin-top: 0.2rem;
+    font-family: PingFangSC-Regular;
+    font-size: 0.24rem;
+    color: #b9c0c8;
+    line-height: 0.4rem;
+  }
 
-.g-fiveBook {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  justify-content: space-between;
-  font-family: PingFangSC-Regular;
-  font-size: 0.24rem;
-  color: #8b949e;
-  line-height: 0.52rem;
-}
+  .g-fiveBook {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: space-between;
+    font-family: PingFangSC-Regular;
+    font-size: 0.24rem;
+    color: #8b949e;
+    line-height: 0.52rem;
+  }
 
-.dialogImages {
-  width: 100%;
-}
+  .dialogImages {
+    width: 100%;
+  }
 
-.dialogImages img {
-  width: 100%;
-}
+  .dialogImages img {
+    width: 100%;
+  }
 </style>
 <style>
-.g-testMethod .el-radio__label {
-  display: inline-block;
-  height: 0.43rem;
-  font-family: PingFangSC-Regular;
-  font-size: 0.28rem;
-  color: #8b949e !important;
-  line-height: 0.43rem;
-}
+  .g-testMethod .el-radio__label {
+    display: inline-block;
+    height: 0.43rem;
+    font-family: PingFangSC-Regular;
+    font-size: 0.28rem;
+    color: #8b949e !important;
+    line-height: 0.43rem;
+  }
 
-.g-testMethod .el-radio__inner {
-  width: 0.4rem;
-  height: 0.4rem;
-}
+  .g-testMethod .el-radio__inner {
+    width: 0.4rem;
+    height: 0.4rem;
+  }
 
-.g-testMethod .el-radio__input {
-  line-height: 0.43rem;
-  padding-top: 0.08rem;
-}
+  .g-testMethod .el-radio__input {
+    line-height: 0.43rem;
+    padding-top: 0.08rem;
+  }
 
-.g-testMethod .el-radio__input.is-checked .el-radio__inner {
-  border: none;
-  background: none;
-  background-image: url("/static/tool/me_icon_xuanze_s@3x.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-}
+  .g-testMethod .el-radio__input.is-checked .el-radio__inner {
+    border: none;
+    background: none;
+    background-image: url("/static/tool/me_icon_xuanze_s@3x.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
 
-.g-testMethod .el-radio__inner::after {
-  display: none;
-}
+  .g-testMethod .el-radio__inner::after {
+    display: none;
+  }
 
-.g-testMethod .el-radio__inner {
-  border: 0.02rem solid #dcdfe6;
-}
+  .g-testMethod .el-radio__inner {
+    border: 0.02rem solid #dcdfe6;
+  }
 
-.g-testMethod .el-textarea__inner {
-  width: 6.3rem;
-  height: 2rem;
-  background: #f7f7f7;
-  border: none;
-  font-family: PingFangSC-Regular;
-  font-size: 0.24rem;
-  color: #212832;
-  line-height: 0.44rem;
-  padding-top: 0.22rem;
-  padding-left: 0.2rem;
-  padding-right: 0.2rem;
-  text-align: justify;
-}
+  .g-testMethod .el-textarea__inner {
+    width: 6.3rem;
+    height: 2rem;
+    background: #f7f7f7;
+    border: none;
+    font-family: PingFangSC-Regular;
+    font-size: 0.24rem;
+    color: #212832;
+    line-height: 0.44rem;
+    padding-top: 0.22rem;
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+    text-align: justify;
+  }
 
-.testMethod .el-dialog__body {
-  padding: 0 !important;
-}
+  .testMethod .el-dialog__body {
+    padding: 0 !important;
+  }
 
-.testMethod .el-dialog__header {
-  padding: 0;
-}
+  .testMethod .el-dialog__header {
+    padding: 0;
+  }
 </style>

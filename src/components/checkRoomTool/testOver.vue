@@ -11,9 +11,12 @@
 
     <div class="g-testOver-tit"
          style="background-image: url('http://oxrgdeqd8.bkt.clouddn.com/bg_yanfangjieguo_l@3x.png')"
-         v-if="stageNum >=40">
-      <div class="g-stage">
-        <WaterWave :stage="stageNum"/>
+         v-if="stageNum >=40"
+    >
+      <div class="g-stage" v-if="isWater">
+        <WaterWave
+          :stage="stageNum"
+        />
       </div>
       <p class="g-stage-tex">恭喜您获得称号</p>
       <p class="g-stage-designation" v-if="stageNum>=100">豪宅</p>
@@ -23,8 +26,10 @@
       <p class="g-stage-designation" v-else>危房</p>
     </div>
     <div class="g-testOver-tit"
-         style="background-image: url('http://oxrgdeqd8.bkt.clouddn.com/bg_yanfangjieguo_h@3x.png')" v-else>
-      <div class="g-stage">
+         style="background-image: url('http://oxrgdeqd8.bkt.clouddn.com/bg_yanfangjieguo_h@3x.png')"
+         v-else
+    >
+      <div class="g-stage" v-if="isWater">
         <WaterWave :stage="stageNum"/>
       </div>
       <p class="g-stage-tex">恭喜您获得称号</p>
@@ -101,11 +106,14 @@
   import TitBar from "../common/titBar.vue";
   import WaterWave from "../common/waterWave.vue";
   import Dislog from "@/components/common/dislog";
+
+  //  import UrlSplit from '@/common/js/urlSplit'
   export default {
     components: {TitBar, WaterWave, Dislog},
     data() {
       return {
-        stageNum: 80,
+        stageNum: 0,
+        isWater: false,
         testOverData: {},
         dislogShow: false
       };
@@ -135,6 +143,9 @@
           });
         }
       },
+      pveImg(){
+
+      },
       backs() {
         this.$store.commit("set_init_form");
         window.sessionStorage.removeItem("da");
@@ -148,7 +159,6 @@
             path: "/checkRoomTool"
           });
         }
-
       },
       f_go_checkRoomOver() {
         this.$router.push({
@@ -159,9 +169,18 @@
         });
       },
       init() {
-        let obj = JSON.parse(this.$route.query.data);
-        this.stageNum = obj.totalScore;
-        this.testOverData = obj;
+        let d = window.sessionStorage.getItem("da");
+        if (d) {
+          let obj = JSON.parse(d);
+          this.stageNum = obj.totalScore;
+          this.testOverData = obj;
+          this.isWater = true;
+        } else {
+          let obj = JSON.parse(this.$route.query.data);
+          this.stageNum = obj.totalScore;
+          this.testOverData = obj;
+          this.isWater = true;
+        }
       },
       shareHandlerBtn(par) {
         if (par) {

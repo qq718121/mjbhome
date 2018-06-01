@@ -2,7 +2,7 @@
   <div class="atOnceHome">
     <div class="hint animated bounceInDown" v-if="hintIs">{{codeText}}</div>
     <TitBar titBarTits="立即验房"/>
-    <div class="g-atOnceHome">
+    <div class="g-atOnceHome" v-show="prvLoad">
       <div class="g-atOnceHome-list" v-for="(val,index) in atOnceHome_list" :key="index"
            @click="f_atOnceHome_listHandler(val.path,val.id,val.name)">
         <div class="g-atOnceHome-list-img" style="margin-left: 0.2rem;margin-right: 0.2rem">
@@ -75,16 +75,26 @@
             src: "http://oxrgdeqd8.bkt.clouddn.com/icon_wuzhengliangshu_n@3x.png"
           }
         ],
+        imgArr: [
+          'http://oxrgdeqd8.bkt.clouddn.com/icon_tongyong_n@3x.png',
+          'http://oxrgdeqd8.bkt.clouddn.com/icon_chufang_n@3x.png',
+          'http://oxrgdeqd8.bkt.clouddn.com/icon_weishengjian_n@3x.png',
+          'http://oxrgdeqd8.bkt.clouddn.com/icon_yangtai_n@3x.png',
+          "http://oxrgdeqd8.bkt.clouddn.com/icon_qita_n@3x.png",
+          "http://oxrgdeqd8.bkt.clouddn.com/icon_wuzhengliangshu_n@3x.png"
+        ],
         isBtn: false,
         hintIs: false,
+        prvLoad: false,
         codeText: "有选项未选"
       };
     },
     components: {TitBar},
     created() {
+      window.scrollTo(0, 0);
+      this.f_prvLoad(this.imgArr);
       this.isCheckInit();
       this.isCheckInit2();
-      window.scrollTo(0, 0);
       this.isSubmit();
     },
     methods: {
@@ -154,23 +164,22 @@
             "Content-Type": "application/x-www-form-urlencoded;charset=utf-8"
           }
         }).then(response => {
-            //          var res = {data: response.data};
-            //          var data = this.$getDAesString(res, "yhgt!d%sd*aw%dSDSFSsa#mng~dsq");
-            //          var resp = JSON.parse(data);
-            if (response.data.code == "0") {
-              let d = JSON.stringify(response.data.response);
-              window.sessionStorage.setItem("da", d);
-              this.$router.push({
-                path: "/testOver",
-                query: {
-                  data: d
-                }
-              });
-            }
-          })
-          .catch(error => {
-            this.hint_is("网络异常");
-          });
+          //          var res = {data: response.data};
+          //          var data = this.$getDAesString(res, "yhgt!d%sd*aw%dSDSFSsa#mng~dsq");
+          //          var resp = JSON.parse(data);
+          if (response.data.code == "0") {
+            let d = JSON.stringify(response.data.response);
+            window.sessionStorage.setItem("da", d);
+            this.$router.push({
+              path: "/testOver",
+              query: {
+                data: d
+              }
+            });
+          }
+        }).catch(error => {
+          this.hint_is("网络异常");
+        });
       },
       isCheckInit() {
         let obj = null;
@@ -235,6 +244,25 @@
               at[j - 5].isAll = true;
             }
           }
+        }
+      },
+      f_prvLoad(arrImg){
+        if (!arrImg) {
+          throw 'arrImg不存在';
+          return;
+        }
+        let this_ = this;
+        let len = arrImg.length;
+        let count = 0;
+        for (let i = 0; i < len; i++) {
+          let img = new Image();
+          img.onload = function () {
+            count++;
+            if (count == len) {
+              this_.prvLoad = true;
+            }
+          };
+          img.src = arrImg[i];
         }
       },
       submit() {

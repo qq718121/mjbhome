@@ -12,6 +12,7 @@
 </template>
 <script>
   import SetupWebViewJavascriptBridge from "../../common/js/setupWebViewJavascriptBridge";
+  import UrlSplit from '@/common/js/urlSplit'
   export default {
     props: {
       titBarTits: {
@@ -70,9 +71,9 @@
             bridge.callHandler(
               "shareAction",
               {
-                url: window.location.href + '&&share=1',
-                desc: '验房工具思密达',
-                title: '验房工具思密达',
+                url: UrlSplit(),
+                desc: '【业主福利】我的自助验房结果原来是这样的！',
+                title: '我刚刚进行了自助验房，马上就能看到结果了，大家快来看看！',
                 img: 'O(∩_∩)O'
               },
               function (response) {
@@ -81,7 +82,7 @@
             );
           });
         } else if (az) {
-          window.android.callAndroidShare(window.location.href + '&&share=1', '验房工具', '验房工具', 'O(∩_∩)O');
+          window.android.callAndroidShare(window.location.href + '&share=1', '【业主福利】我的自助验房结果原来是这样的！', '我刚刚进行了自助验房，马上就能看到结果了，大家快来看看！', 'O(∩_∩)O');
         }
       },
       shareHandlerBtns() {

@@ -54,7 +54,7 @@
               continue;
             }
             if (typeof obj[i] != "number") {
-              continue;
+              break;
             }
             if (i == `radio${num}`) {
               at[j].isAll = true;
