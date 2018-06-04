@@ -455,7 +455,6 @@
           path: "/checkRoomTool",
         });
       }
-
     },
     methods: {
       headerBarAc(newVal, oldVal) {
@@ -565,5 +564,3 @@
     margin: 0.3rem auto;
   }
 </style>
-
-

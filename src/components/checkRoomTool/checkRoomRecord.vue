@@ -3,8 +3,8 @@
     <!-- 提示框组件 -->
     <Hint :h="true" :t="ist" v-if="isHint"/>
     <TitBar titBarTits="我的验房记录"/>
-    <span style="color:#000;display: inline-block;width: 100%;text-align: center;line-height: 0.5rem;margin-top: 0.8rem"
-          v-if="testOverData.length <=0">暂无数据﹏</span>
+    <span style="color:#5e5e5e;display: inline-block;width: 100%;text-align: center;line-height: 0.5rem;margin-top: 0.5rem"
+          v-if="testOverData.length <=0">暂无数据</span>
     <div class="g-checkRoomRecord-list" v-for="(item, index) in testOverData" :key="index">
       <div class="g-checkRoomRecord-list-tit" @click="f_go_checkRoomOver(item)">
         <div class="g-checkRoomRecord-list-tit-text" style="margin-left:0">
@@ -119,7 +119,8 @@
           //          var data = this.$getDAesString(res, "yhgt!d%sd*aw%dSDSFSsa#mng~dsq");
           //          var resp = JSON.parse(data);
           if (response.data.code == "0") {
-            this.testOverData = response.data.response.list;
+//            this.testOverData = response.data.response.list;
+            this.testOverData = [];
             // let d = JSON.stringify(response.data.response);
           }
         })
