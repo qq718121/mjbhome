@@ -1,7 +1,6 @@
 <template>
   <div class="commonproblem">
     <article class="commonproblem_problem">
-      <p class="title">常见问题</p>
       <h1>一、拍照问题：</h1>
       <div class="commonproblem_inner">
         <div class="what_commonproblem">
@@ -125,15 +124,6 @@
   </div>
 </template>
 <style scoped>
-  .title {
-    font-family: PingFangSC-Medium;
-    font-size: 0.35rem;
-    color: #42464D;
-    line-height: 0.36rem;
-    margin-bottom: 0.3rem;
-    font-weight: 600;
-    text-align: center;
-  }
 
   .commonproblem {
     width: 7.5rem;

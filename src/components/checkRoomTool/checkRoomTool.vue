@@ -224,6 +224,7 @@
     background-image: url("http://oxrgdeqd8.bkt.clouddn.com/bg_lijiyanfang@3x.png");
     background-repeat: no-repeat;
     background-size: cover;
+    box-shadow: 0 0 0.1rem 0 rgba(225, 225, 225, 0.5);
   }
 
   .g-checkRool span {
@@ -260,6 +261,7 @@
     background-image: url("http://oxrgdeqd8.bkt.clouddn.com/bg_mianfeiyuyuegongju@3x.png");
     background-repeat: no-repeat;
     background-size: cover;
+    box-shadow: 0 0 0.1rem 0 rgba(225, 225, 225, 0.5);
   }
 
   .g-toolBox span {
@@ -278,6 +280,7 @@
     background-image: url("http://oxrgdeqd8.bkt.clouddn.com/bg_gongjuxiangjieshao@3x.png");
     background-repeat: no-repeat;
     background-size: cover;
+    box-shadow: 0 0 0.1rem 0 rgba(225, 225, 225, 0.5);
   }
 
   .g-orderTool span {
@@ -296,6 +299,7 @@
     background-image: url("http://oxrgdeqd8.bkt.clouddn.com/bg_wodeyanfangjieguo2@3x.png");
     background-repeat: no-repeat;
     background-size: cover;
+    box-shadow: 0 0 0.1rem 0 rgba(225, 225, 225, 0.5);
   }
 
   .g-Room-over span {

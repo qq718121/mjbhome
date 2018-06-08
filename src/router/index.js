@@ -309,6 +309,12 @@ const CheckRoomOver = function (resolve) {
     resolve(require('@/components/checkRoomTool/checkRoomOver'))
   })
 }
+//抽奖活动
+const Raffle = function (resolve) {
+  require.ensure([], function () {
+    resolve(require('@/components/raffle/raffle'))
+  })
+};
 
 //配置路由路径
 export default new Router({
@@ -612,6 +618,12 @@ export default new Router({
       path: '/checkRoomOver',
       name: 'checkRoomOver',
       component: CheckRoomOver
+    },
+    //抽奖活动
+    {
+      path: '/raffle',
+      name: 'raffle',
+      component: Raffle
     }
     // { path: '*', component: NotFoundComponent },
   ]
