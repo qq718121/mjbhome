@@ -2,7 +2,8 @@
   <div class="testOver">
     <TitBar titBarTits=""
             :isOver="true"
-            :isBackHome="true"
+            :isBackHome="isBackHome"
+            :isList="this.$route.query.isList"
             v-on:shareHandlerBtn='shareHandlerBtn'
     />
     <Dislog :shows="dislogShow"
@@ -115,7 +116,8 @@
         stageNum: 0,
         isWater: false,
         testOverData: {},
-        dislogShow: false
+        dislogShow: false,
+        isBackHome: true
       };
     },
     created() {
@@ -170,7 +172,7 @@
       },
       init() {
         let d = window.sessionStorage.getItem("da");
-        if (d) {
+        if (!this.$route.query.isList) {
           let obj = JSON.parse(d);
           this.stageNum = obj.totalScore;
           this.testOverData = obj;

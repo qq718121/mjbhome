@@ -2,7 +2,7 @@
   <div class="bestChoice">
     <div class="bestChoiceBg">
       <div class="bestChoiceTop">
-          <img :src="this.$url.best" alt="">
+        <img :src="this.$url.best" alt="">
       </div>
       <div class="bestChoiceDiv">
         <i><img src="../../../static/OB/pic_1number_yxlp.png" alt=""></i>
@@ -12,6 +12,7 @@
         </div>
         <div class="whatText">
           关注楼盘：由鹰眼鉴房专业的规划设计、质量监测人员以及数据挖掘工程师从规划到施工进行全流程质量监督追踪的楼盘。此部分楼盘经由工程质量、规划设计、周边配套、景观物业等多个维度的详实数据建模分析，楼盘及房屋的真实价值透明可见
+
         </div>
       </div>
       <div class="bestChoiceDiv">
@@ -21,7 +22,8 @@
           <img :src="this.$url.pic_2" alt="">
         </div>
         <div class="whatText">
-         关注楼盘由鹰眼鉴房凭借独有的房产质量数据采集系统、通过数据挖掘和独有的数据建模技术，可提供多维度、可量化的公正透明的评测结果，楼盘信息的一切细节皆清晰可见。
+          关注楼盘由鹰眼鉴房凭借独有的房产质量数据采集系统、通过数据挖掘和独有的数据建模技术，可提供多维度、可量化的公正透明的评测结果，楼盘信息的一切细节皆清晰可见。
+
 
         </div>
       </div>
@@ -32,7 +34,8 @@
           <img :src="this.$url.bestChoiceImgThree" alt="">
         </div>
         <div class="whatText">
-         关注楼盘由正规开发商开发，其房屋规划、周边设施、建筑材料以及建设施工是否严格遵照建筑标准进行皆受到严格监控。关注楼盘拥有多个维度进行的数据建模分析结果，楼盘评价和分析及时准确，可为购房人提供详尽的信息。
+          关注楼盘由正规开发商开发，其房屋规划、周边设施、建筑材料以及建设施工是否严格遵照建筑标准进行皆受到严格监控。关注楼盘拥有多个维度进行的数据建模分析结果，楼盘评价和分析及时准确，可为购房人提供详尽的信息。
+
         </div>
       </div>
     </div>
@@ -42,6 +45,7 @@
 <style scoped>
   .bestChoice {
     max-width: 7.5rem;
+    margin: auto;
   }
 
   .bestChoiceBg {
@@ -128,7 +132,7 @@
     color: #262A33;
     letter-spacing: 0;
     line-height: 0.46rem;
-    margin:auto;
-    padding-top:0.4rem;
+    margin: auto;
+    padding-top: 0.4rem;
   }
 </style>

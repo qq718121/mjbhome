@@ -176,8 +176,11 @@
                 data: d
               }
             });
+            return;
           }
+          this.isBtn = true;
         }).catch(error => {
+          this.isBtn = true;
           this.hint_is("网络异常");
         });
       },
@@ -266,6 +269,7 @@
         }
       },
       submit() {
+        this.isBtn = false;
         this.isAllCheck();
       }
     }

@@ -34,4 +34,5 @@
   letter-spacing: 0.3px;
   line-height: 0.48rem;
 }
+
 </style>

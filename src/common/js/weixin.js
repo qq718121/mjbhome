@@ -2,10 +2,10 @@
  * Created by lenovo on 2018/4/2.
  */
 import wx from 'weixin-js-sdk';
-import $ from 'jquery';
+// import $ from 'jquery';
 import Axios from 'axios';
 import Qs from 'qs'
-export default function weixin(title, desc) {
+export default function weixin(title, desc, imgUrl = 'http://oxrgdeqd8.bkt.clouddn.com/fenxiang@2x.png') {
   // const url = 'http://47.93.185.205:8081/maijiabangbackstate-1.0-SNAPSHOT/getJsapiTicket';//url不能写死
   const url = this.$url.httpRequests + 'getJsapiTicket';//url不能写死
   // const url = 'http://www.cnmjw.com.cn/rentReturnHandler/jssdk';//url不能写死
@@ -36,7 +36,10 @@ export default function weixin(title, desc) {
       jsApiList: [//需要调用的JS接口列表
         'checkJsApi',//判断当前客户端版本是否支持指定JS接口
         'onMenuShareTimeline',//分享给好友
-        'onMenuShareAppMessage'//分享到朋友圈
+        'onMenuShareAppMessage',//分享到朋友圈
+        'onMenuShareQQ',
+        'onMenuShareQZone',
+        'onMenuShareWeibo'
       ]
     });
   });
@@ -47,15 +50,18 @@ export default function weixin(title, desc) {
 
 //朋友圈
     wx.onMenuShareTimeline({
-      title: title, // 分享标题
-      desc: desc,
-      link: 'http://h5.homehawkeye.com/#/survey', // 分享链接，该链接域名必须与当前企业的可信域名一致
-      imgUrl: 'http://oxrgdeqd8.bkt.clouddn.com/fenxiang@2x.png', // 分享图标
+      title: desc, // 分享标题
+      desc: desc, // 分享描述
+      link: window.location.href, // 分享链接，该链接域名必须与当前企业的可信域名一致
+      imgUrl, // 分享图标
+      type: '', // 分享类型,music、video或link，不填默认为link
+      dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
       success: function () {
         // 用户确认分享后执行的回调函数
-//        alert('1')
+        // alert('1')
       },
       cancel: function () {
+        // alert('2');
         // 用户取消分享后执行的回调函数
       }
     });
@@ -63,8 +69,8 @@ export default function weixin(title, desc) {
     wx.onMenuShareAppMessage({
       title: title, // 分享标题
       desc: desc, // 分享描述
-      link: 'http://h5.homehawkeye.com/#/survey', // 分享链接，该链接域名必须与当前企业的可信域名一致
-      imgUrl: 'http://oxrgdeqd8.bkt.clouddn.com/fenxiang@2x.png', // 分享图标
+      link: window.location.href, // 分享链接，该链接域名必须与当前企业的可信域名一致
+      imgUrl, // 分享图标
       type: '', // 分享类型,music、video或link，不填默认为link
       dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
       success: function () {
@@ -80,8 +86,8 @@ export default function weixin(title, desc) {
     wx.onMenuShareQQ({
       title: title, // 分享标题
       desc: desc, // 分享描述
-      link: 'http://h5.homehawkeye.com/#/survey', // 分享链接
-      imgUrl: 'http://oxrgdeqd8.bkt.clouddn.com/fenxiang@2x.png', // 分享图标
+      link: window.location.href, // 分享链接
+      imgUrl, // 分享图标
       success: function () {
         // 用户确认分享后执行的回调函数
       },
@@ -93,8 +99,8 @@ export default function weixin(title, desc) {
     wx.onMenuShareWeibo({
       title: title, // 分享标题
       desc: desc, // 分享描述
-      link: 'http://h5.homehawkeye.com/#/survey', // 分享链接
-      imgUrl: 'http://oxrgdeqd8.bkt.clouddn.com/fenxiang@2x.png', // 分享图标
+      link: window.location.href, // 分享链接
+      imgUrl, // 分享图标
       success: function () {
         // 用户确认分享后执行的回调函数
       },
@@ -106,8 +112,8 @@ export default function weixin(title, desc) {
     wx.onMenuShareQZone({
       title: title, // 分享标题
       desc: desc, // 分享描述
-      link: 'http://h5.homehawkeye.com/#/survey', // 分享链接
-      imgUrl: 'http://oxrgdeqd8.bkt.clouddn.com/fenxiang@2x.png', // 分享图标
+      link: window.location.href, // 分享链接
+      imgUrl, // 分享图标
       success: function () {
         // 用户确认分享后执行的回调函数
       },

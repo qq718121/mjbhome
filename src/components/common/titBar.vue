@@ -29,6 +29,9 @@
       },
       isBackHome: {
         default: false
+      },
+      isList: {
+        default: false
       }
     },
     data() {
@@ -93,7 +96,7 @@
         if (this.backApp) {
           this.f_appBack();
         } else {
-          if (this.isBackHome) {
+          if (this.isBackHome && !this.isList) {
             if (this.isApp == '') {
               this.$router.push({
                 path: "/checkRoomTool?type=app"

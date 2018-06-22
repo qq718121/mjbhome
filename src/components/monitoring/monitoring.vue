@@ -2,15 +2,15 @@
   <div class="monitoring">
     <article>
       <div class="pic_piaofuwu">
+        <div :class='["pic_biaoti1",this.classname_biaoti]' v-if="biaoti_is"></div>
         <section :class='["header_house_img",this.className_piaofuwu]' v-if="biaofu_is">
-          <div :class='["pic_biaoti",this.classname_biaoti]' v-if="biaoti_is"></div>
+          <div class="pic_biaoti"></div>
           <div :class='["pic_danmu",this.classname_danmu]' v-if="danmu_is"></div>
           <section class="monitoring_inner">
-
             <div class="new_post">
               <div class="new_post_title">
                 <i class="left"></i>
-                <h1>质量监控新姿势</h1>
+                <h1>买房后续问题多</h1>
                 <i class="right"></i>
               </div>
             </div>
@@ -20,24 +20,15 @@
                 <i class="left"></i>
                 <i class="right"></i>
               </div>
-              <p>作为购房者，你是不是有数不尽问题？关于质量的忧心，是不是让你一直夜不能寐？鹰眼鉴房推出质量监控服务，通过全景监控和监控数据报告，让您直观监控房屋质量，心中有底，天天好梦到天明。</p>
+              <p>对自家新房建设进度不了解、施工进度看不到、担忧实物比承诺缩水太多…作为业主，有着数不尽的问题。鹰眼鉴房推出质量监控服务，让业主直观了解楼盘进度，心中有底，天天好梦到天明。</p>
             </div>
 
             <div class="new_post">
               <div class="new_post_title">
                 <i class="left"></i>
-                <h1>什么是质量监控服务</h1>
+                <h1>全方位守护您的新家</h1>
                 <i class="right"></i>
               </div>
-            </div>
-
-            <div class="inner_post">
-              <div class="inner_title">
-                <i class="left"></i>
-                <i class="right"></i>
-              </div>
-              <p>
-                质量监控服务，是鹰眼鉴房通过全景监控和监控数据报告，为购房人提供园区、楼栋公共区域以及户内区域从规划到施工的全流程质量监督服务。其通过航拍以及监控点实拍展示，打破时间和空间限制帮助购房人实景感受楼盘施工落实情况，并以分期监控数据报告，使购房人全方位可了解楼盘质量细节。</p>
             </div>
 
             <div class="look_post">
@@ -45,9 +36,10 @@
                 <i class="left"></i>
                 <i class="right"></i>
               </div>
-              <h1>可视化全景监控</h1>
+              <h1>720°航拍VR全景呈现</h1>
               <div class="look_post_img"></div>
-              <p>实景呈现，无死角多点全方位展示项目细节。多角度，分期展示，实景图片监控一览无遗。打破时间和空间限制，全景监控不同时期工程质量。</p>
+              <p>室外无人机航拍全景楼盘进度</p>
+              <p>实景视频展示建筑实况</p>
             </div>
 
             <div class="look_post">
@@ -55,15 +47,27 @@
                 <i class="left"></i>
                 <i class="right"></i>
               </div>
-              <h1>深度质量监控报告</h1>
-              <div class="look_post_img"></div>
-              <p>多份深度监控报告，全方位展示楼盘工程质量透明化展示楼盘整体施工进度，全面跟进工程进度持续监控跟进问题点状态，多维度展示楼盘全流程周期数据</p>
+              <h1>过程质量全把握</h1>
+              <div class="look_post_img1"></div>
+              <p>涵盖工程进度、质量及整改前后对比</p>
+              <p>通过专业报告深度了解楼盘进展</p>
+            </div>
+
+            <div class="look_post">
+              <div class="look_title">
+                <i class="left"></i>
+                <i class="right"></i>
+              </div>
+              <h1>施工质量全透明</h1>
+              <div class="look_post_img2"></div>
+              <p>定期更新实际建筑进度</p>
+              <p>可追踪千余项工程质量监控点</p>
             </div>
 
             <div class="new_post">
               <div class="new_post_title">
                 <i class="left"></i>
-                <h1>质量监控服务有何特色</h1>
+                <h1>五大服务应对业主难题</h1>
                 <i class="right"></i>
               </div>
             </div>
@@ -82,30 +86,30 @@
                   src="http://oxrgdeqd8.bkt.clouddn.com/pic_quanliuchenggenzong@3x_min.png?imageslim" alt=""></div>
                 <div class="pic_quanfangweijiankong"><img
                   src="http://oxrgdeqd8.bkt.clouddn.com/pic_quanfangweijiankong@3x_min.png?imageslim" alt=""></div>
-                <div class="pic_gongzhengtouming"><img
-                  src="http://oxrgdeqd8.bkt.clouddn.com/pic_gongzhengtouming@3x_min.png?imageslim" alt=""></div>
+                <!--<div class="pic_gongzhengtouming"><img-->
+                <!--src="http://oxrgdeqd8.bkt.clouddn.com/pic_gongzhengtouming@3x_min.png?imageslim" alt=""></div>-->
 
                 <div class="number_title">
                   <div class="number_inner"><i class="img_num"><img
                     src="http://oxrgdeqd8.bkt.clouddn.com/pic_numberone@3x.png" alt=""></i>
                     <h1
-                      class="num_title">随时随地</h1></div>
-                  <p class="num_text">线上全景监控质量</p>
-                  <p class="num_text">打破时间空间的限制</p>
+                      class="num_title">进度清晰</h1></div>
+                  <p class="num_text">多角度呈现新房进度</p>
+                  <p class="num_text">不再人肉探盘</p>
                 </div>
                 <div class="number_two_title">
                   <div class="number_inner_two"><i class="img_num_two"><img
                     src="http://oxrgdeqd8.bkt.clouddn.com/pic_numbertwo@3x.png" alt=""></i>
                     <h1
-                      class="num_title_two">进度清晰</h1></div>
-                  <p class="num_text_two">轻松掌握工程进度</p>
-                  <p class="num_text_two">了解楼盘工程施工进展</p>
+                      class="num_title_two">随时随地</h1></div>
+                  <p class="num_text_two">足不出户</p>
+                  <p class="num_text_two">即可通过手机随时查看</p>
                 </div>
                 <div class="number_three_title">
                   <div class="number_inner"><i class="img_num_three"><img
                     src="http://oxrgdeqd8.bkt.clouddn.com/pic_numberthree@3x.png" alt=""></i>
                     <h1
-                      class="num_title_three">全流程跟踪</h1></div>
+                      class="num_title_three">质量透明</h1></div>
                   <p class="num_text">从面到点全流程跟踪</p>
                   <p class="num_text">长期跟进关注整改情况</p>
                 </div>
@@ -113,27 +117,27 @@
                   <div class="number_inner_fore"><i class="img_num_fore"><img
                     src="http://oxrgdeqd8.bkt.clouddn.com/pic_numberfour@3x.png" alt=""></i>
                     <h1
-                      class="num_title_fore">全方位监控</h1></div>
-                  <p class="num_text_fore">全景监控直观了解</p>
-                  <p class="num_text_fore">身临其境掌握工程质量</p>
+                      class="num_title_fore">专业规范</h1></div>
+                  <p class="num_text_fore">建筑全过程评测</p>
+                  <p class="num_text_fore">不再担心私自变更规划</p>
                 </div>
-                <div class="number_five_title">
-                  <div class="number_inner"><i class="img_num_five"><img
-                    src="http://oxrgdeqd8.bkt.clouddn.com/pic_numberfive@3x.png" alt=""></i>
-                    <h1
-                      class="num_title_five">公正透明</h1></div>
-                  <p class="num_text">质量问题可一目了然</p>
-                  <p class="num_text">监控信息公正真实透明</p>
-                </div>
+                <!--<div class="number_five_title">-->
+                <!--<div class="number_inner"><i class="img_num_five"><img-->
+                <!--src="http://oxrgdeqd8.bkt.clouddn.com/pic_numberfive@3x.png" alt=""></i>-->
+                <!--<h1-->
+                <!--class="num_title_five">专业规范</h1></div>-->
+                <!--<p class="num_text">建筑全过程评测</p>-->
+                <!--<p class="num_text">不再担心私自变更规划</p>-->
+                <!--</div>-->
               </div>
-              <div class="erweima" style="width:6.3rem;margin-top: 0">
-                <img style="width: 100%;" src="/static/xg/erweima.png" alt="">
-              </div>
+              <!--<div class="erweima" style="width:6.3rem;margin-top: 0">-->
+              <!--<img style="width: 100%;" src="/static/xg/erweima.png" alt="">-->
+              <!--</div>-->
             </div>
 
-            <footer>
-              <div class="footer__"></div>
-            </footer>
+            <div class="u-foot">
+              <img src="/static/xg/logo.png" alt="">
+            </div>
           </section>
         </section>
       </div>
@@ -167,7 +171,6 @@
 <style scoped>
   .monitoring {
     width: 7.5rem;
-    height: 62.52rem;
     background-image: url('http://oxrgdeqd8.bkt.clouddn.com/bg_quanliuchengjiankong@3x_min.png?imageslim');
     background-repeat: no-repeat;
     background-size: cover;
@@ -177,7 +180,7 @@
 
   .pic_piaofuwu {
     width: 7.5rem;
-    height: 55.72rem;
+    height: 50.69rem;
     background-image: url('http://oxrgdeqd8.bkt.clouddn.com/pic_piaofuwu@3x_min.png?imageslim');
     background-repeat: no-repeat;
     background-size: cover;
@@ -200,10 +203,19 @@
   .pic_biaoti {
     width: 6.5rem;
     height: 1.7rem;
+    /*background-image: url('/static/pic_biaoti@3x.png');*/
+    /*background-repeat: no-repeat;*/
+    /*background-size: cover;*/
+    margin: auto;
+  }
+
+  .pic_biaoti1 {
+    width: 6.5rem;
+    height: 1.7rem;
     background-image: url('/static/pic_biaoti@3x.png');
     background-repeat: no-repeat;
     background-size: cover;
-    margin: auto;
+    margin: 1.03rem auto;
   }
 
   .pic_danmu {
@@ -340,13 +352,13 @@
 
   .look_post p {
     width: 5.4rem;
-    margin: 0.13rem auto;
+    margin: 0 auto 0;
     font-family: MicrosoftYaHei;
-    font-size: 0.24rem;
+    font-size: 0.28rem;
     color: #4E6F98;
     letter-spacing: 0.04rem;
     line-height: 0.4rem;
-    text-align: justify;
+    text-align: center;
   }
 
   .look_post h1 {
@@ -392,17 +404,35 @@
   }
 
   .look_post_img {
-    width: 4.31rem;
-    height: 4.31rem;
-    margin: auto;
-    background-image: url('http://oxrgdeqd8.bkt.clouddn.com/pic_keshihuaquanjingjiankong@3x_min.png?imageslim');
+    width: 5.7rem;
+    height: 2.85rem;
+    margin: 0.3rem auto;
+    background-image: url('http://oxrgdeqd8.bkt.clouddn.com/tupian1.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .look_post_img1 {
+    width: 5.7rem;
+    height: 2.85rem;
+    margin: 0.3rem auto;
+    background-image: url('http://oxrgdeqd8.bkt.clouddn.com/tupian2.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .look_post_img2 {
+    width: 5.7rem;
+    height: 2.85rem;
+    margin: 0.3rem auto;
+    background-image: url('http://oxrgdeqd8.bkt.clouddn.com/tupian3.png');
     background-size: cover;
     background-repeat: no-repeat;
   }
 
   .feature_post {
     width: 100%;
-    height: 18.76rem;
+    height: 15.07rem;
     background: #FFFFFF;
     padding-top: 0.23rem;
     /*padding-bottom: 0.23rem;*/
@@ -707,5 +737,16 @@
     line-height: 0.4rem;
     text-align: right;
     padding-right: 0.05rem;
+  }
+
+  .u-foot {
+    width: 2.12rem;
+    height: 0.49rem;
+    position: relative;
+    margin: auto;
+  }
+
+  .u-foot img {
+    width: 100%;
   }
 </style>

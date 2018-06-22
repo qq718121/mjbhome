@@ -1,5 +1,7 @@
 <template>
+
   <div class="m-raffle" v-show="loadIs">
+
     <div class="g-tit">
       <div class="u-tit-img">
         <img src="/static/raffle/pic_toutu@2x.png" alt="">
@@ -155,13 +157,12 @@
     <div class="g-logo">
       <img src="/static/raffle/pic_logo@2x.png" alt="">
     </div>
-    <div class="g-downBtn" @click="f_downHandler">
+    <div class="g-downBtn" @click="f_downHandler" v-if="isAppBtn">
       <span>立即下载</span>
     </div>
-    <!--<a href="https://itunes.apple.com/cn/app/%E9%B9%B0%E7%9C%BC%E9%89%B4%E6%88%BF/id1298408736?mt=8" id="openApp0"-->
-    <!--style="display: none">贴吧客户端</a>-->
-    <!--<a href="http://owvcynyz1.bkt.clouddn.com/homehawkeye1.4.4apk" id="openApp1" style="display: none">贴吧客户端</a>-->
+
   </div>
+
 </template>
 
 <script>
@@ -174,18 +175,31 @@
         scheme_Adr: 'jump://start.yyjf/',
         download_url_Adr: 'http://a.app.qq.com/o/simple.jsp?pkgname=com.mjhome',
         download_url_IOS: 'https://itunes.apple.com/cn/app/%E9%B9%B0%E7%9C%BC%E9%89%B4%E6%88%BF/id1298408736?mt=8',
-        timeout: 600
+        timeout: 600,
+        isAppBtn: true,
+        title: '预约楼盘监控，免费赢取苹果手机',
+        desc: '免费预约质量监控服务，即有机会赢取iPhone X，更有海量京东储值卡、自助验房工具卡、手机充值卡、Q币等万元礼品等你拿',
+        imgUrl: 'http://oxrgdeqd8.bkt.clouddn.com/Artboard%203.png'
       }
     },
     created(){
+      if (this.$route.query.type) {
+        this.isAppBtn = false;
+      } else {
+        this.isAppBtn = true;
+        this.$weixin(this.title, this.desc, this.imgUrl);
+      }
       this.noScroll();
       this.bgLoad();
+
     },
     mounted(){
       this.prvImgLoad();
     },
+
     methods: {
       prvImgLoad(){
+
         let imgArr = [];
         let count = 0;
         let len = 0;
@@ -203,6 +217,7 @@
           };
           img.src = imgArr[i].src;
         }
+
       },
       noScroll(){
         $(document).on('touchmove', function (e) {
@@ -259,6 +274,7 @@
         }
       },
       isApp(){
+
         let nav = navigator.userAgent;
         let win = window;
         let iph = /(iPhone|iPod|iPad);?/i;
@@ -271,6 +287,7 @@
         } else {
           win.location = this.download_url_Adr;  //自己定义的scheme协议
         }
+
       },
       f_downHandler(){
 
@@ -284,8 +301,8 @@
         } else {
           this.openclient();
         }
-      }
 
+      }
     }
   }
 </script>
