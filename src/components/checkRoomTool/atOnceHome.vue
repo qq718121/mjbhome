@@ -90,190 +90,210 @@
       };
     },
     components: {TitBar},
-    created() {
-      window.scrollTo(0, 0);
-      this.f_prvLoad(this.imgArr);
-      this.isCheckInit();
-      this.isCheckInit2();
-      this.isSubmit();
-    },
-    methods: {
-      f_atOnceHome_listHandler(url, id, name) {
-        this.$router.push({
-          path: url,
-          query: {
-            names: name,
-            id: id,
-            isApp: this.$route.query.isApp
-          }
-        });
-      },
-      isSubmit() {
-        let ar = this.atOnceHome_list;
-        let len = ar.length;
-        for (let i = 0; i < len; i++) {
-          if (!ar[i].isAll) {
-            return;
-          }
-          if (i == len - 1) {
-            this.isBtn = true;
-          }
+      created()
+  {
+    window.scrollTo(0, 0);
+    this.f_prvLoad(this.imgArr);
+    this.isCheckInit();
+    this.isCheckInit2();
+    this.isSubmit();
+  }
+  ,
+  methods: {
+    f_atOnceHome_listHandler(url, id, name)
+    {
+      this.$router.push({
+        path: url,
+        query: {
+          names: name,
+          id: id,
+          isApp: this.$route.query.isApp
         }
-      },
-      hint_is(text) {
-        if (text) {
-          this.codeText = text;
-        }
-        this.hintIs = true;
-        setTimeout(() => {
-          this.hintIs = false;
-        }, 2000);
-      },
-      isAllCheck() {
-        this.handler();
-      },
-      handler() {
-        let t = "";
-        if (window.sessionStorage.getItem('isBar') == '') {
-          t = window.sessionStorage.getItem("token") || "";
-        } else {
-          t = JSON.parse(window.localStorage.getItem("token")).val || "";
-        }
-        var d = {token: t, body: {arr: [{commonUse: []}]}},
-          datas = null,
-          url = this.$url.httpRequests + "buildingCamera/roomCheckingTool";
-        for (let i = 0; i < 6; i++) {
-          let obj = {id: i + 7};
-          Object.assign(obj, this.$store.state[`form${i}`]);
-          d.body.arr[0].commonUse.push(obj);
-        }
-
-        for (let i = 6; i < 11; i++) {
-          let obj = {id: i - 4};
-          Object.assign(obj, this.$store.state[`form${i}`]);
-          d.body.arr.push(obj);
-        }
-
-        //        var res = {
-        //          data: this.des(JSON.stringify(d))
-        //        };
-        datas = qs.stringify({d: JSON.stringify(d)});
-
-        this.$Axios.post(url, datas, {
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded;charset=utf-8"
-          }
-        }).then(response => {
-          //          var res = {data: response.data};
-          //          var data = this.$getDAesString(res, "yhgt!d%sd*aw%dSDSFSsa#mng~dsq");
-          //          var resp = JSON.parse(data);
-          if (response.data.code == "0") {
-            let d = JSON.stringify(response.data.response);
-            window.sessionStorage.setItem("da", d);
-            this.$router.push({
-              path: "/testOver",
-              query: {
-                data: d
-              }
-            });
-            return;
-          }
-          this.isBtn = true;
-        }).catch(error => {
-          this.isBtn = true;
-          this.hint_is("网络异常");
-        });
-      },
-      isCheckInit() {
-        let obj = null;
-        let num = null;
-        let at = this.atOnceHome_list;
-        for (let j = 0; j < 6; j++) {
-          obj = this.$store.state[`form${j}`];
-          num = Object.keys(obj).length / 2;
-          for (let i in obj) {
-            if (
-              i == "text1" ||
-              i == "text2" ||
-              i == "text3" ||
-              i == "text4" ||
-              i == "text5" ||
-              i == "text6" ||
-              i == "id"
-            ) {
-              continue;
-            }
-            if (typeof obj[i] != "number") {
-              return;
-            }
-            if (j == 5) {
-              if (i == `radio${num}`) {
-                at[0].isAll = true;
-              }
-            }
-          }
-        }
-      },
-      isCheckInit2() {
-        let obj = null;
-        let num = null;
-        let at = this.atOnceHome_list;
-        for (let j = 6; j < 11; j++) {
-          obj = this.$store.state[`form${j}`];
-          num = Object.keys(obj).length;
-          for (let i in obj) {
-            if (
-              i == "text1" ||
-              i == "text2" ||
-              i == "text3" ||
-              i == "text4" ||
-              i == "text5" ||
-              i == "text6" ||
-              i == "id"
-            ) {
-              continue;
-            }
-            if (typeof obj[i] != "number") {
-              break;
-            }
-
-            if (j == 10) {
-              if (i == `radio${num}`) {
-                at[j - 5].isAll = true;
-              }
-              continue;
-            }
-            if (i == `radio${num / 2}`) {
-              at[j - 5].isAll = true;
-            }
-          }
-        }
-      },
-      f_prvLoad(arrImg){
-        if (!arrImg) {
-          throw 'arrImg不存在';
+      });
+    }
+  ,
+    isSubmit()
+    {
+      let ar = this.atOnceHome_list;
+      let len = ar.length;
+      for (let i = 0; i < len; i++) {
+        if (!ar[i].isAll) {
           return;
         }
-        let this_ = this;
-        let len = arrImg.length;
-        let count = 0;
-        for (let i = 0; i < len; i++) {
-          let img = new Image();
-          img.onload = function () {
-            count++;
-            if (count == len) {
-              this_.prvLoad = true;
-            }
-          };
-          img.src = arrImg[i];
+        if (i == len - 1) {
+          this.isBtn = true;
         }
-      },
-      submit() {
-        this.isBtn = false;
-        this.isAllCheck();
       }
     }
-  };
+  ,
+    hint_is(text)
+    {
+      if (text) {
+        this.codeText = text;
+      }
+      this.hintIs = true;
+      setTimeout(() => {
+        this.hintIs = false;
+      }, 2000);
+    }
+  ,
+    isAllCheck()
+    {
+      this.handler();
+    }
+  ,
+    handler()
+    {
+      let t = "";
+      if (window.sessionStorage.getItem('isBar') == '') {
+        t = window.sessionStorage.getItem("token") || "";
+      } else {
+        t = JSON.parse(window.localStorage.getItem("token")).val || "";
+      }
+      var d = {token: t, body: {arr: [{commonUse: []}]}},
+        datas = null,
+        url = this.$url.httpRequests + "buildingCamera/roomCheckingTool";
+      for (let i = 0; i < 6; i++) {
+        let obj = {id: i + 7};
+        Object.assign(obj, this.$store.state[`form${i}`]);
+        d.body.arr[0].commonUse.push(obj);
+      }
+
+      for (let i = 6; i < 11; i++) {
+        let obj = {id: i - 4};
+        Object.assign(obj, this.$store.state[`form${i}`]);
+        d.body.arr.push(obj);
+      }
+
+      //        var res = {
+      //          data: this.des(JSON.stringify(d))
+      //        };
+      datas = qs.stringify({d: JSON.stringify(d)});
+
+      this.$Axios.post(url, datas, {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded;charset=utf-8"
+        }
+      }).then(response => {
+        //          var res = {data: response.data};
+        //          var data = this.$getDAesString(res, "yhgt!d%sd*aw%dSDSFSsa#mng~dsq");
+        //          var resp = JSON.parse(data);
+        if (response.data.code == "0") {
+          let d = JSON.stringify(response.data.response);
+          window.sessionStorage.setItem("da", d);
+          this.$router.push({
+            path: "/testOver",
+            query: {
+              data: d
+            }
+          });
+          return;
+        }
+        this.isBtn = true;
+      }).catch(error => {
+        this.isBtn = true;
+        this.hint_is("网络异常");
+      });
+    }
+  ,
+    isCheckInit()
+    {
+      let obj = null;
+      let num = null;
+      let at = this.atOnceHome_list;
+      for (let j = 0; j < 6; j++) {
+        obj = this.$store.state[`form${j}`];
+        num = Object.keys(obj).length / 2;
+        for (let i in obj) {
+          if (
+            i == "text1" ||
+            i == "text2" ||
+            i == "text3" ||
+            i == "text4" ||
+            i == "text5" ||
+            i == "text6" ||
+            i == "id"
+          ) {
+            continue;
+          }
+          if (typeof obj[i] != "number") {
+            return;
+          }
+          if (j == 5) {
+            if (i == `radio${num}`) {
+              at[0].isAll = true;
+            }
+          }
+        }
+      }
+    }
+  ,
+    isCheckInit2()
+    {
+      let obj = null;
+      let num = null;
+      let at = this.atOnceHome_list;
+      for (let j = 6; j < 11; j++) {
+        obj = this.$store.state[`form${j}`];
+        num = Object.keys(obj).length;
+        for (let i in obj) {
+          if (
+            i == "text1" ||
+            i == "text2" ||
+            i == "text3" ||
+            i == "text4" ||
+            i == "text5" ||
+            i == "text6" ||
+            i == "id"
+          ) {
+            continue;
+          }
+          if (typeof obj[i] != "number") {
+            break;
+          }
+
+          if (j == 10) {
+            if (i == `radio${num}`) {
+              at[j - 5].isAll = true;
+            }
+            continue;
+          }
+          if (i == `radio${num / 2}`) {
+            at[j - 5].isAll = true;
+          }
+        }
+      }
+    }
+  ,
+    f_prvLoad(arrImg)
+    {
+      if (!arrImg) {
+        throw 'arrImg不存在';
+        return;
+      }
+      let this_ = this;
+      let len = arrImg.length;
+      let count = 0;
+      for (let i = 0; i < len; i++) {
+        let img = new Image();
+        img.onload = function () {
+          count++;
+          if (count == len) {
+            this_.prvLoad = true;
+          }
+        };
+        img.src = arrImg[i];
+      }
+    }
+  ,
+    submit()
+    {
+      this.isBtn = false;
+      this.isAllCheck();
+    }
+  }
+  }
+  ;
 </script>
 <style scoped>
   .atOnceHome {
