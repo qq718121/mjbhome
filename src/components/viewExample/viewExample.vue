@@ -28,18 +28,18 @@
                                     da_sr: '/static/view/2.png'
                               },
                               {
-                                    te: '3.购房协议书（房屋订购协议书）：',
+                                    te: '3.购房收据：',
                                     sr: 'http://oxrgdeqd8.bkt.clouddn.com/%E5%9B%BE%E7%89%87%203.png',
                                     da_sr: '/static/view/3.png'
                               },
                               {
-                                    te: '4.购房收据：',
+                                    te: '4.购房协议书（房屋订购协议书）：',
                                     sr: 'http://oxrgdeqd8.bkt.clouddn.com/lALPBbCc1eoJZNTNAjrNAaw_428_570.png_620x10000q90g.jpg',
                                     da_sr: '/static/view/4.png'
                               },
                               {
                                     te: '5. 其它凭证：通过部分开发商自有平台认证后的截图，也可以作为凭证上传',
-                                    sr: 'http://oxrgdeqd8.bkt.clouddn.com/96581A2A-BB62-4f37-B1E1-8ADE9179B511.png',
+                                    sr: 'http://oxrgdeqd8.bkt.clouddn.com/5.png',
                                     da_sr: '/static/view/5.png'
                               },
 
