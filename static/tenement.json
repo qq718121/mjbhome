@@ -1,0 +1,431 @@
+{
+  "houseImg": "http://oxrgdeqd8.bkt.clouddn.com/pig_imageholder@3x.png?imageslim",
+  "houseName": "万科城",
+  "date": "2017.09.27-10.23",
+  "presentLv": "A",
+  "overallLv": "B",
+  "appraise": "<p>【楼盘名称】的规划落实情况良好，89%的内容符合图纸规划，主要存在..........的问题，已针对当前问题进行合理整改。</p><p>.问题未进行整改，可能会造成......的问题，实际与规划图纸偏差值低于....，不会对用户居住产生实际影响。</p>",
+  "stage": "5",
+  "evaluatingStage": [
+    {
+      "evaluatingType": "底(顶)板水电预埋",
+      "lv": "1",
+      "stage": "第一阶段评级",
+      "text": "本楼盘楼栋规划落实优秀，当前阶段内落实合格率高达70%，现存.........问题，已得到及时整改，未产生不良影响。",
+      "stageData": [
+        {
+          "acceptance": "",
+          "stageList": [
+            {
+              "name": "给排水",
+              "list": [
+                {
+                  "type": "给排水套管安装预留数量",
+                  "accord": "1"
+                }
+              ]
+            },
+            {
+              "name": "电气-户内",
+              "list": [
+                {
+                  "type": "预埋管和线盒",
+                  "accord": "2"
+                },
+                {
+                  "type": "回路",
+                  "accord": "3"
+                },
+                {
+                  "type": "照明",
+                  "accord": "0"
+                }
+              ]
+            },
+            {
+              "name": "电气--楼栋",
+              "list": [
+                {
+                  "type": "电气竖井",
+                  "accord": "0"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "lunNum": [
+        {
+          "img": "http://oxrgdeqd8.bkt.clouddn.com/pig_imageholder@3x.png?imageslim",
+          "inner": "照片文字描述内容照片文字描述内容照片文字描述内容照片文字描述内容"
+        },
+        {
+          "img": "http://oxrgdeqd8.bkt.clouddn.com/pig_imageholder@3x.png?imageslim",
+          "inner": "照片文字描述内容照片文字描述内容照片文字描述内容照片文字描述内容"
+        }
+      ]
+    },
+    {
+      "evaluatingType": "墙体水电预埋",
+      "lv": "2",
+      "stage": "第二阶段评级",
+      "text": "本楼盘楼栋规划落实优秀，当前阶段内落实合格率高达70%，现存.........问题，已得到及时整改，未产生不良影响。",
+      "stageData": [
+        {
+          "acceptance": "",
+          "stageList": [
+            {
+              "name": "给排水",
+              "list": [
+                {
+                  "type": "给排水套管安装预留数量",
+                  "accord": "0"
+                }
+              ]
+            },
+            {
+              "name": "电气-户内",
+              "list": [
+                {
+                  "type": "预埋管和线盒",
+                  "accord": "0"
+                },
+                {
+                  "type": "回路",
+                  "accord": "0"
+                },
+                {
+                  "type": "照明",
+                  "accord": "0"
+                }
+              ]
+            },
+            {
+              "name": "电气--楼栋",
+              "list": [
+                {
+                  "type": "电气竖井",
+                  "accord": "0"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "lunNum": [
+        {
+          "img": "http://oxrgdeqd8.bkt.clouddn.com/pig_imageholder@3x.png?imageslim",
+          "inner": "照片文字描述内容照片文字描述内容照片文字描述内容照片文字描述内容"
+        },
+        {
+          "img": "http://oxrgdeqd8.bkt.clouddn.com/pig_imageholder@3x.png?imageslim",
+          "inner": "照片文字描述内容照片文字描述内容照片文字描述内容照片文字描述内容"
+        }
+      ]
+    },
+    {
+      "evaluatingType": "砌体墙电开槽埋管",
+      "lv": "3",
+      "stage": "第三阶段评级",
+      "text": "本楼盘楼栋规划落实优秀，当前阶段内落实合格率高达70%，现存.........问题，已得到及时整改，未产生不良影响。",
+      "stageData": [
+        {
+          "acceptance": "",
+          "stageList": [
+            {
+              "name": "给排水",
+              "list": [
+                {
+                  "type": "给排水套管安装预留数量",
+                  "accord": "0"
+                }
+              ]
+            },
+            {
+              "name": "电气-户内",
+              "list": [
+                {
+                  "type": "预埋管和线盒",
+                  "accord": "0"
+                },
+                {
+                  "type": "回路",
+                  "accord": "0"
+                },
+                {
+                  "type": "照明",
+                  "accord": "0"
+                }
+              ]
+            },
+            {
+              "name": "电气--楼栋",
+              "list": [
+                {
+                  "type": "电气竖井",
+                  "accord": "0"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "lunNum": [
+        {
+          "img": "http://oxrgdeqd8.bkt.clouddn.com/pig_imageholder@3x.png?imageslim",
+          "inner": "照片文字描述内容照片文字描述内容照片文字描述内容照片文字描述内容"
+        },
+        {
+          "img": "http://oxrgdeqd8.bkt.clouddn.com/pig_imageholder@3x.png?imageslim",
+          "inner": "照片文字描述内容照片文字描述内容照片文字描述内容照片文字描述内容"
+        }
+      ]
+    },
+    {
+      "evaluatingType": "水暖施工",
+      "lv": "4",
+      "stage": "第四阶段评级",
+      "text": "本楼盘楼栋规划落实优秀，当前阶段内落实合格率高达70%，现存.........问题，已得到及时整改，未产生不良影响。",
+      "stageData": [
+        {
+          "acceptance": "",
+          "stageList": [
+            {
+              "name": "给排水",
+              "list": [
+                {
+                  "type": "给排水套管安装预留数量",
+                  "accord": "0"
+                }
+              ]
+            },
+            {
+              "name": "电气-户内",
+              "list": [
+                {
+                  "type": "预埋管和线盒",
+                  "accord": "0"
+                },
+                {
+                  "type": "回路",
+                  "accord": "0"
+                },
+                {
+                  "type": "照明",
+                  "accord": "0"
+                }
+              ]
+            },
+            {
+              "name": "电气--楼栋",
+              "list": [
+                {
+                  "type": "电气竖井",
+                  "accord": "0"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "lunNum": [
+        {
+          "img": "http://oxrgdeqd8.bkt.clouddn.com/pig_imageholder@3x.png?imageslim",
+          "inner": "照片文字描述内容照片文字描述内容照片文字描述内容照片文字描述内容"
+        },
+        {
+          "img": "http://oxrgdeqd8.bkt.clouddn.com/pig_imageholder@3x.png?imageslim",
+          "inner": "照片文字描述内容照片文字描述内容照片文字描述内容照片文字描述内容"
+        }
+      ]
+    },
+    {
+      "evaluatingType": "强弱电穿线",
+      "lv": "5",
+      "stage": "第五阶段评级",
+      "text": "本楼盘楼栋规划落实优秀，当前阶段内落实合格率高达70%，现存.........问题，已得到及时整改，未产生不良影响。",
+      "stageData": [
+        {
+          "acceptance": "",
+          "stageList": [
+            {
+              "name": "给排水",
+              "list": [
+                {
+                  "type": "给排水套管安装预留数量",
+                  "accord": "0"
+                }
+              ]
+            },
+            {
+              "name": "电气-户内",
+              "list": [
+                {
+                  "type": "预埋管和线盒",
+                  "accord": "0"
+                },
+                {
+                  "type": "回路",
+                  "accord": "0"
+                },
+                {
+                  "type": "照明",
+                  "accord": "0"
+                }
+              ]
+            },
+            {
+              "name": "电气--楼栋",
+              "list": [
+                {
+                  "type": "电气竖井",
+                  "accord": "0"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "lunNum": [
+        {
+          "img": "http://oxrgdeqd8.bkt.clouddn.com/pig_imageholder@3x.png?imageslim",
+          "inner": "照片文字描述内容照片文字描述内容照片文字描述内容照片文字描述内容"
+        },
+        {
+          "img": "http://oxrgdeqd8.bkt.clouddn.com/pig_imageholder@3x.png?imageslim",
+          "inner": "照片文字描述内容照片文字描述内容照片文字描述内容照片文字描述内容"
+        }
+      ]
+    },
+    {
+      "evaluatingType": "建筑交房验收",
+      "lv": "1",
+      "stage": "第六阶段评级",
+      "text": "本楼盘楼栋规划落实优秀，当前阶段内落实合格率高达70%，现存.........问题，已得到及时整改，未产生不良影响。",
+      "stageData": [
+        {
+          "acceptance": "水电暖交房验收",
+          "stageList": [
+            {
+              "name": "燃气，暖气",
+              "list": [
+                {
+                  "type": "燃气，热水器设备",
+                  "accord": "0"
+                },
+                {
+                  "type": "暖气",
+                  "accord": "0"
+                }
+              ]
+            },
+            {
+              "name": "电气-户内",
+              "list": [
+                {
+                  "type": "照明",
+                  "accord": "0"
+                },
+                {
+                  "type": "插座",
+                  "accord": "0"
+                },
+                {
+                  "type": "开关",
+                  "accord": "0"
+                },
+                {
+                  "type": "强电箱",
+                  "accord": "0"
+                },
+                {
+                  "type": "回路",
+                  "accord": "0"
+                }
+              ]
+            },
+            {
+              "name": "电气-楼栋",
+              "list": [
+                {
+                  "type": "电梯",
+                  "accord": "0"
+                },
+                {
+                  "type": "防雷",
+                  "accord": "0"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "acceptance": "水电暖交房验收",
+          "stageList": [
+            {
+              "name": "燃气，暖气",
+              "list": [
+                {
+                  "type": "燃气，热水器设备",
+                  "accord": "0"
+                },
+                {
+                  "type": "暖气",
+                  "accord": "0"
+                }
+              ]
+            },
+            {
+              "name": "电气-户内",
+              "list": [
+                {
+                  "type": "照明",
+                  "accord": "0"
+                },
+                {
+                  "type": "插座",
+                  "accord": "0"
+                },
+                {
+                  "type": "开关",
+                  "accord": "0"
+                },
+                {
+                  "type": "强电箱",
+                  "accord": "0"
+                },
+                {
+                  "type": "回路",
+                  "accord": "0"
+                }
+              ]
+            },
+            {
+              "name": "电气-楼栋",
+              "list": [
+                {
+                  "type": "电梯",
+                  "accord": "0"
+                },
+                {
+                  "type": "防雷",
+                  "accord": "0"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "lunNum": [
+        {
+          "img": "http://oxrgdeqd8.bkt.clouddn.com/pig_imageholder@3x.png?imageslim",
+          "inner": "照片文字描述内容照片文字描述内容照片文字描述内容照片文字描述内容"
+        },
+        {
+          "img": "http://oxrgdeqd8.bkt.clouddn.com/pig_imageholder@3x.png?imageslim",
+          "inner": "照片文字描述内容照片文字描述内容照片文字描述内容照片文字描述内容"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="37px" height="37px" viewBox="0 0 37 37" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>icon/beach_access/green</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="1.9013074%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#B3E4BB" offset="0%"></stop>
+            <stop stop-color="#3B9A65" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="各报告样式" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="周边配套评测报告" transform="translate(-107.000000, -1786.000000)">
+            <g id="周边环境评测" transform="translate(6.000000, 1767.000000)">
+                <g id="周边交通评测标题" transform="translate(102.000000, 20.000000)">
+                    <g id="icon/beach_access/green">
+                        <circle id="circle" stroke="#9ECE95" cx="17.5" cy="17.5" r="17.5"></circle>
+                        <g id="ic/beach_access/grey600" transform="translate(5.000000, 4.000000)">
+                            <g id="ic_beach_access_24px">
+                                <path d="M13.127,14.56 L14.557,13.13 L20.997,19.573 L19.57,21 L13.127,14.56 Z M17.42,8.83 L20.28,5.97 C16.33,2.02 9.93,2.01 5.98,5.95 C9.91,4.65 14.29,5.7 17.42,8.83 L17.42,8.83 Z M5.95,5.98 C2.01,9.93 2.02,16.33 5.97,20.28 L8.83,17.42 C5.7,14.29 4.65,9.91 5.95,5.98 Z M5.97,5.96 L5.96,5.97 C5.58,8.98 7.13,12.85 10.26,15.99 L15.99,10.26 C12.86,7.13 8.98,5.58 5.97,5.96 Z" id="Shape" fill="url(#linearGradient-1)" fill-rule="nonzero"></path>
+                                <polygon id="Shape" points="0 0 24 0 24 24 0 24"></polygon>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
